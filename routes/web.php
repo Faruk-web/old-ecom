@@ -20,6 +20,10 @@ use App\Http\Controllers\Backend\SiteSettingController;
 use App\Http\Controllers\Backend\AdminUserController;
 use App\Http\Controllers\Backend\SupplierController;
 use App\Http\Controllers\Backend\EmployeeSalary;
+//amfl location
+use App\Http\Controllers\Backend\LocationController;
+//project
+use App\Http\Controllers\Backend\ProjectController;
 // ashim controller add
 use App\Http\Controllers\Backend\DepartmentController;
 use App\Http\Controllers\Backend\EmployeeController;
@@ -53,229 +57,150 @@ Route::middleware(['auth:admin'])->group(function(){
 Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', function () {
     return view('admin.index');
 })->name('admin.dashboard')->middleware('auth:admin');
-
 Route::get('admin/logout', [AuthenticatedSessionController::class, 'adminDestroy'])
         ->name('admin.logout');
-
 // admin profile route
 Route::get('admin/profile', [AdminProfileController::class, 'AdminProfile'])->name('admin.admin_profile_view');
-
 // admin profile Edit route
 Route::get('admin/profile/edit', [AdminProfileController::class, 'AdminProfileEdit'])->name('admin.admin_profile_edit');
-
 ////Admin Profile edit store route
 Route::post('/admin/profile/store', [AdminProfileController::class, 'AdminProfileStore'])->name('admin.profile.store');
-
 ////Admin password change
 Route::get('/admin/change/password', [AdminProfileController::class, 'AdminChangePassword'])->name('admin.admin_change_password');
-
 ////Admin update password
 Route::post('/update/change/password', [AdminProfileController::class, 'AdminUpdateChangePassword'])->name('update.change.password');
-
-
 });
-
-
 
 // User Route
 // Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-
     $id = Auth::user()->id;
     $user = User::find($id);
-
     return view('dashboard', compact('user'));
 })->name('dashboard');
-
-
 // Frontend Route
 Route::get('/', [IndexController::class, 'index'])->name('user.index');
-
-
 // User Logout Route
 Route::get('/user/logout', [IndexController::class, 'UserLogout'])->name('user.logout');
-
-
 // User Update Profile
 Route::get('/user/profile/update', [IndexController::class, 'UserProfile'])->name('user.profile');
-
 // user profile store
 Route::post('/user/profile/store', [IndexController::class, 'UserProfileStore'])->name('user.profile.store');
-
-
 // user Change Password
 Route::get('/user/change/password', [IndexController::class, 'UserChnagePassword'])->name('change.password');
-
-
 // user  Password Update
 Route::post('/user/password/update', [IndexController::class, 'UserPasswordUpdate'])->name('user.password.update');
-
-
-
 // Admin All Brands Route Group
 Route::prefix('brand')->group(function(){
-
     Route::get('/view', [BrandController::class, 'BrandView'])->name('all.brand');
-
     Route::post('/store', [BrandController::class, 'BrandStore'])->name('brand.store');
-
     Route::get('/edit/{id}', [BrandController::class, 'BrandEdit'])->name('brand.edit');
-
     Route::post('/update', [BrandController::class, 'BrandUpdate'])->name('brand.update');
-
     Route::get('/delete/{id}', [BrandController::class, 'BrandDelete'])->name('brand.delete');
-
     // Route::get('/brand/destroy/{brand_id}', [BrandController::class, 'destroy']);
-
 });
-
-
-
 // Admin All Category Route Group
 Route::prefix('category')->group(function(){
-
     Route::get('/view', [CategoryController::class, 'CategoryView'])->name('all.category');
-
     Route::post('/store', [CategoryController::class, 'CategoryStore'])->name('category.store');
-
     Route::get('/edit/{id}', [CategoryController::class, 'CategoryEdit'])->name('category.edit');
-
     Route::post('/update', [CategoryController::class, 'CategoryUpdate'])->name('category.update');
-
     Route::get('/delete/{id}', [CategoryController::class, 'CategoryDelete'])->name('category.delete');
-
 });
 
 // Admin All SUb Category Route Group
 Route::prefix('subcategory')->group(function(){
-
     Route::get('/view', [SubCategoryController::class, 'SubCategoryView'])->name('all.subcategory');
-
     Route::post('/store', [SubCategoryController::class, 'SubCategoryStore'])->name('subcategory.store');
-
     Route::get('/sub/edit/{id}', [SubCategoryController::class, 'SubCategoryEdit'])->name('subcategory.edit');
-
     Route::post('/update', [SubCategoryController::class, 'SubCategoryUpdate'])->name('subcategory.update');
-
     Route::get('/delete/{id}', [SubCategoryController::class, 'SubCategoryDelete'])->name('subcategory.delete');
-
-
+});
+//amfl location
+Route::prefix('location')->group(function(){
+    Route::get('/view', [LocationController::class, 'LocationView'])->name('all.location');
+    Route::post('/location/store', [LocationController::class, 'LocationStore'])->name('location.store');
+    Route::get('/location/delete/{id}', [LocationController::class, 'locationDelete'])->name('location.delete');
+    //status
+    Route::get('/status/view', [LocationController::class, 'StatusView'])->name('all.status');
+    Route::post('/status/store', [LocationController::class, 'StatusStore'])->name('status.store');
+    Route::get('/status/delete/{id}', [LocationController::class, 'StatusDelete'])->name('status.delete');
 });
 
 // Admin All Sub SUb Category Route Group
 Route::prefix('subsubcategory')->group(function(){
-
     Route::get('/view', [SubCategoryController::class, 'SubSubCategoryView'])->name('all.subsubcategory');
-
     // sub sub category route
     Route::get('/subcategory/ajax/{category_id}', [SubCategoryController::class, 'GetSubCategory']);
-
     // for auto select sub sub category route
     Route::get('/sub-subcategory/ajax/{subcategory_id}', [SubCategoryController::class, 'GetSubSubCategory']);
-
   //Sub  Sub category store
   Route::post('/sub/sub/store', [SubCategoryController::class, 'SubSubCategoryStore'])->name('subsubcategory.store');
-
   // Sub sub Catageroy edit
  Route::get('/sub/sub/edit/{id}', [SubCategoryController::class, 'SubSubCategoryEdit'])->name('subsubcategory.edit');
-
  Route::post('/sub/update', [SubCategoryController::class, 'SubSubCategoryUpdate'])->name('subsubcategory.update');
-
  Route::get('/sub/sub/delete/{id}', [SubCategoryController::class, 'SubSubCategoryDelete'])->name('subsubcategory.delete');
-
-
 });
+
+Route::prefix('project')->group(function(){
+    Route::get('/view', [ProjectController::class, 'ProjectAdd'])->name('project.add');
+    Route::post('/store', [ProjectController::class, 'ProjectStore'])->name('project.store');
+    // Manage Product
+    Route::get('/manage', [ProjectController::class, 'ManageProject'])->name('manage-project');
+});
+
 
 // Admin Product Route Group
 Route::prefix('product')->group(function(){
-
     Route::get('/view', [ProductController::class, 'ProductAdd'])->name('product.add');
-
     Route::get('/info/{id}', [ProductController::class, 'ProductAllInfoView'])->name('product.all_info_view');
-
-
-
-
     Route::post('/store', [ProductController::class, 'StoreProduct'])->name('product_store');
-
-
     // Manage Product
     Route::get('/manage', [ProductController::class, 'ManageProduct'])->name('manage-product');
     // Edit Product
     Route::get('/edit/{id}', [ProductController::class, 'EditProduct'])->name('product.edit');
     // Upadte Product
     Route::post('/update', [ProductController::class, 'UpdateProduct'])->name('product_update');
-
     // For Multiple Img Update
     Route::post('/update/multiimg', [ProductController::class, 'UpdateProductMultiImg'])->name('update_product_img');
     // for Multipart Deleted
     Route::get('/multiimg/delete/{id}', [ProductController::class, 'MultiImageDelete'])->name('product.multiimg.delete');
-
     //hot deals
-
     Route::get('/hot_deals',[ProductController::class,'HotDeals'])->name('porduct.hotDeals');
     Route::get('/hot_deals/{id}',[ProductController::class,'HotDealsID'])->name('porduct.hotDealsbyid');
     Route::post('/hot_deals/store',[ProductController::class,'HotDealsStore'])->name('deals.store');
-
-
    // For Thambnail Img Update
     Route::post('/thambnail/update', [ProductController::class, 'ThambnailImageUpdate'])->name('update-product-thambnail');
-
-
     //===================================Product Active And Deactive========================================
     // for Deactive
     Route::get('/deactive/{id}', [ProductController::class, 'ProductDeactive'])->name('product.deactive');
     // for Active
     Route::get('/active/{id}', [ProductController::class, 'ProductActive'])->name('product.active');
-
      //===================================Product Delete========================================
      Route::get('/delete/{id}', [ProductController::class, 'ProductDelete'])->name('product.delete');
-
-
 });
-
     // Slider  Route Group
     Route::prefix('slider')->group(function(){
-
     Route::get('/view', [SliderController::class, 'SliderView'])->name('manage.slider');
-
     Route::post('/store', [SliderController::class, 'SliderStore'])->name('slider.store');
-
     Route::get('/edit/{id}', [SliderController::class, 'SliderEdit'])->name('slider.edit');
-
     Route::post('/update', [SliderController::class, 'SliderUpdate'])->name('slider.update');
-
     Route::get('/delete/{id}', [SliderController::class, 'SliderDelete'])->name('slider.delete');
-
      //===================================Product Active And Deactive==================================
     // for Deactive
     Route::get('/deactive/{id}', [SliderController::class, 'SliderDeactive'])->name('slider.deactive');
     // for Active
     Route::get('/active/{id}', [SliderController::class, 'SliderActive'])->name('slider.active');
-
-
 });
-
-
-
 
 // Admin Coupon  Route Group
 Route::prefix('cupons')->group(function(){
-
     Route::get('/view', [CouponController::class, 'CouponView'])->name('manage.coupon');
-
     Route::post('/store', [CouponController::class, 'CouponStore'])->name('coupon.store');
-
     Route::get('/edit/{id}', [CouponController::class, 'CouponEdit'])->name('coupon.edit');
-
     Route::post('/update/{id}', [CouponController::class, 'CouponUpdate'])->name('coupon.update');
-
     Route::get('/delete/{id}', [CouponController::class, 'CouponDelete'])->name('coupon.delete');
-
 }); // end coupon prefix
-
-
-
 // Admin Banner  Route Group
 Route::prefix('banner')->group(function(){
     Route::get('/view',[BannerController::class,'BennarView'])->name('bennar.manage');
@@ -288,223 +213,72 @@ Route::prefix('banner')->group(function(){
     // for Active
     Route::get('/active/{id}', [BannerController::class, 'BennarActive'])->name('bennar.active');
 });
-
-
 // Ashim bannerCategory  Route Group
-
 Route::prefix('bannerCategory')->group(function(){
     Route::get('/view',[BannerCatagoryController::class,'BennarView'])->name('bannerCategory.manage');
     Route::post('/store',[BannerCatagoryController::class,'BennarStore'])->name('bannerCategory.store');
     Route::get('/dalete{id}',[BannerCatagoryController::class,'BennarDelete'])->name('bannerCategory.delete');
-
     Route::get('/edit/{id}',[BannerCatagoryController::class,'BennarEdit'])->name('bannerCategory.edit');
     Route::post('/update',[BannerCatagoryController::class,'BennarUpdate'])->name('bannerCategory.update');
-
  // for Deactive
     Route::get('/deactive/{id}', [BannerCatagoryController::class, 'BennarDeactive'])->name('bannerCategory.deactive');
     // for Active
     Route::get('/active/{id}', [BannerCatagoryController::class, 'BennarActive'])->name('bannerCategory.active');
 });
-
-
-
-
-// Admin Orders  Route Group
-Route::prefix('orders')->group(function(){
-
-    // pending order view
-    Route::get('/pending/orders', [OrderController::class, 'PendingOrder'])->name('pending.orders');
-
-    // Pending Orders Details
-    Route::get('/pending/orders/details/{order_id}', [OrderController::class, 'PendingOrdersDetails'])->name('pending.orders.details');
-
-   // Confirmed Orders
-    Route::get('/confirmed/orders', [OrderController::class, 'ConfirmedOrders'])->name('confirmed-orders');
-
-    Route::get('/processing/orders', [OrderController::class, 'ProcessingOrders'])->name('confirm-processing');
-
-    Route::get('/picked/orders', [OrderController::class, 'PickedOrders'])->name('picked-orders');
-
-    Route::get('/shipped/orders', [OrderController::class, 'ShippedOrders'])->name('shipped-orders');
-
-    Route::get('/delivered/orders', [OrderController::class, 'DeliveredOrders'])->name('delivered-orders');
-
-    Route::get('/cancel/orders', [OrderController::class, 'CancelOrders'])->name('cancel-orders');
-
-
-    // update route all################################################################################################
-   //for confirm
-    Route::get('/pending/confirm/{order_id}', [OrderController::class, 'PendingToConfirm'])->name('pending-confirm');
-
-    // fro processing
-    Route::get('/confirm/processing/{order_id}', [OrderController::class, 'ConfirmToProcessing'])->name('confirm.processing');
-
-    // for  picdate
-    Route::get('/processing/picked/{order_id}', [OrderController::class, 'ProcessingToPicked'])->name('processing.picked');
-
-   // for shiped
-   Route::get('/picked/shipped/{order_id}', [OrderController::class, 'PickedToShipped'])->name('picked.shipped');
-
-
-    // for delevery
-    Route::get('/shipped/delivered/{order_id}', [OrderController::class, 'ShippedToDelivered_20'])->name('shipped.delivered');
-
-     // for cancel
-     Route::get('/delivered/cancel/{order_id}', [OrderController::class, 'DeliveredToCancel'])->name('delivered.cancel');
-
-     // Order Invoice Download
-     Route::get('/invoice/download/{order_id}', [OrderController::class, 'AdminInvoiceDownload'])->name('invoice.download');
-}); // end coupon prefix
-
-
-
-
-
-
-    // Admin Product Strock Routes
-    Route::prefix('stock')->group(function(){
-
-        Route::get('/product', [ProductController::class, 'ProductStock'])->name('product.stock');
-
-
-        }); // end Product Stock
-
-
-
-
-
-
-
-
-
-
-
     // Admin All user role###########################################################################
         Route::prefix('adminuserrole')->group(function(){
-
         Route::get('/all', [AdminUserController::class, 'AllAdminRole'])->name('all.admin.user');
-
         Route::get('/add', [AdminUserController::class, 'AddAdminRole'])->name('add.admin');
         Route::get('/emp.permision', [AdminUserController::class, 'EmpPermison'])->name('emp.permision');
-
         Route::post('/store', [AdminUserController::class, 'StoreAdminRole'])->name('admin.user.store');
-
         Route::get('/edit/{id}', [AdminUserController::class, 'EditAdminRole'])->name('edit.admin.user');
-
         Route::post('/update', [AdminUserController::class, 'UpdateAdminRole'])->name('admin.user.update');
-
         Route::get('/delete/{id}', [AdminUserController::class, 'DeleteAdminRole'])->name('delete.admin.user');
-
-
     }); // All user role
-
-
-
-
-
-////////////////SUPPLIERS ROUTE--------Start ############
-
-Route::prefix('suppliers')->group(function()
-{
-    Route::get('/view',[SupplierController::class,'show'])->name('suppliers.show');
-    Route::post('/store',[SupplierController::class,'store'])->name('suppliers.store');
-    Route::get('/delete/{id}',[SupplierController::class,'delete'])->name('suppliers.delete');
-    Route::get('/edit/{id}',[SupplierController::class,'edit'])->name('suppliers.edit');
-    Route::post('/update/{id}',[SupplierController::class,'update'])->name('suppliers.update');
-});
-
-
-
-
-
-
-////////////////SUPPLIERS ROUTE--------END #########
-
-
-
-
-
-
-    //$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
     // Admin Reports Routes
     Route::prefix('reports')->group(function(){
-
         Route::get('/view', [ReportController::class, 'ReportView'])->name('all-reports');
-
         // Search Date Report
         Route::post('/search/by/date', [ReportController::class, 'ReportByDate'])->name('search-by-date');
-
         // Search Month Report
         Route::post('/search/by/month', [ReportController::class, 'ReportByMonth'])->name('search-by-month');
-
         // Search Year Report
         Route::post('/search/by/year', [ReportController::class, 'ReportByYear'])->name('search-by-year');
-
-
-
         //sallery report
-
         route::get('/sallary-view',[ReportController::class,'SalaryReportView'])->name('sallary-report-view');
         route::post('/sallary',[ReportController::class,'SalaryReport'])->name('sallary-report');
-
         //return report
-
         route::get('/return-product-view',[ReportController::class,'returnReportView'])->name('return-report-view');
         route::post('/return-product',[ReportController::class,'returnReport'])->name('return-report');
-
         //sallery report
-
         route::get('/user-activity-view',[ReportController::class,'UserActivityReportView'])->name('User-activity-view');
         route::get('/user-activity',[ReportController::class,'UserActivityReport'])->name('User-activity-report');
-
         route::get('/profitreport',[ReportController::class,'ProfitReportView'])->name('profit.report');
         route::post('/profitreport/day',[ReportController::class,'ProfitReportDay'])->name('profit.day');
         route::post('/profitreport/month',[ReportController::class,'ProfitReportMonth'])->name('profit.month');
         route::post('/profitreport/year',[ReportController::class,'ProfitReportYear'])->name('profit.year');
-
-
-
-
-
-
         });  // end Reports
-
-
         // Admin Get All User Routes
         Route::prefix('alluser')->group(function(){
-
             // All user view
             Route::get('/view', [AdminProfileController::class, 'AllUsers'])->name('all-users');
-
        }); // end user Get
-
-
-
         // Admin Return Order Show Routes
         Route::prefix('return')->group(function(){
-
             // Return Request Show
             Route::get('/admin/request', [ReturnController::class, 'ReturnRequest'])->name('return.request');
-
             // Return Request Approve
             Route::get('/admin/return/approve/{order_id}', [ReturnController::class, 'ReturnRequestApprove'])->name('return.approve');
-
             // Return All Request
             Route::get('/admin/all/request', [ReturnController::class, 'ReturnAllRequest'])->name('all.request');
-
             });
-
-
             // Admin Site Setting Routes (logo, social link etc)
             Route::prefix('setting')->group(function(){
-
             // view
             Route::get('/site', [SiteSettingController::class, 'SiteSetting'])->name('site.setting');
-
             // update
             Route::post('/site/update', [SiteSettingController::class, 'SiteSettingUpdate'])->name('update.sitesetting');
-
             // Seo
             Route::get('/seo', [SiteSettingController::class, 'SeoSetting'])->name('seo.setting');
 

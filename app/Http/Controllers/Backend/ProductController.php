@@ -29,14 +29,9 @@ class ProductController extends Controller
 
         } // end mathod
 
-
           // product store
-            public function StoreProduct(Request $request){
-
-
+public function StoreProduct(Request $request){
 // validation product
-
-
 $request->validate([
 
 
@@ -66,29 +61,11 @@ $request->validate([
 
 ]);
 
-
-
-
-
-
            // img upload and save and img intervations packge use
           $image = $request->file('product_thambnail');
           $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
           Image::make($image)->resize(917,1000)->save('upload/products/thambnail/'.$name_gen);
           $save_url = 'upload/products/thambnail/'.$name_gen;
-
-
-
-
-
-
-
-
-
-
-
-
-
              $product_id =   Product::insertGetId([
                     'brand_id' => $request->brand_id,
                     'category_id' => $request->category_id,

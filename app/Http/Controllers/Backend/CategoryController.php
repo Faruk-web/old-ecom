@@ -17,10 +17,8 @@ class CategoryController extends Controller
 
     }  // end mathod
 
-
        // store category
   public function CategoryStore(Request $request){
-
     // validation
         $request->validate([
             'category_name' => 'required|required|regex:/[a-zA-Z ]*/',

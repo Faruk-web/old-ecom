@@ -12,7 +12,7 @@ $prefix = Request::route()->getPrefix();
 				 <a href="/">
 				  <!-- logo for regular state and mobile devices -->
 					 <div class="d-flex align-items-center justify-content-center" >
-						  <img src="   {{ asset('backend/images/backend_logo.png') }}" alt="logo" class="rounded-pill" height="70px" width="150px" style="background-color: white; ">
+						  <img src="   {{ asset('backend/images/logo_amfl/amfl.jpg') }}" alt="logo" class="rounded-pill" height="70px" width="150px" style="background-color: white; ">
 						  {{-- <h3><b>Classy</b> E-Commerce</h3> --}}
 					 </div>
 				</a>
@@ -67,8 +67,8 @@ $prefix = Request::route()->getPrefix();
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('all.category') }}"><i class="ti-more"></i>All Category</a></li>
-            <li><a href="{{ route('all.subcategory') }}"><i class="ti-more"></i>All Sub Category</a></li>
-            {{-- <li><a href="{{ route('all.subsubcategory') }}"><i class="ti-more"></i>All Sub-Sub Category</a></li> --}}
+            <li><a href="{{ route('all.location') }}"><i class="ti-more"></i>All Location</a></li>
+            <li><a href="{{ route('all.status') }}"><i class="ti-more"></i>All Status</a></li>
           </ul>
         </li>
         @else
@@ -84,8 +84,9 @@ $prefix = Request::route()->getPrefix();
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('product.add')}}"><i class="ti-more"></i>Add Projects </a></li>
-            <li><a href="{{ route('manage-product') }}"><i class="ti-more"></i>Manage All Projects</a></li>
+            <li><a href="{{ route('project.add')}}"><i class="ti-more"></i>Add Projects </a></li>
+            {{-- <li><a href="{{ route('product.add')}}"><i class="ti-more"></i>Add Projects </a></li> --}}
+            {{-- <li><a href="{{ route('manage-product') }}"><i class="ti-more"></i>Manage All Projects</a></li> --}}
             {{-- <li><a href="{{ route('porduct.hotDeals') }}"><i class="ti-more"></i>Manage Hot Deals Time</a></li> --}}
           </ul>
         </li>

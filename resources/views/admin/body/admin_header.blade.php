@@ -50,16 +50,11 @@
 					</div>
 				</div>
 			  </li>
-
-
-
-
 			  <li class="footer">
 				  <a href="#">View all</a>
 			  </li>
 			</ul>
 		  </li>
-
 	      <!-- User Account-->
           <li class="dropdown user user-menu">
 			<a href="#" class="waves-effect waves-light rounded dropdown-toggle p-0" data-toggle="dropdown" title="User">
@@ -70,20 +65,16 @@
 			  <li class="user-body">
 				 <a class="dropdown-item" href="{{ route('admin.admin_profile_view')}}"><i class="ti-user text-muted mr-2"></i> Profile</a>
 				 <a class="dropdown-item" href="{{ route('admin.admin_change_password') }}"><i class="ti-wallet text-muted mr-2"></i> Change Password</a>
-				 <a class="dropdown-item" href="#"><i class="ti-settings text-muted mr-2"></i> Settings</a>
+				 <a class="dropdown-item" href="{{ route('site.setting') }}"><i class="ti-settings text-muted mr-2"></i> Settings</a>
 				 <div class="dropdown-divider"></div>
 				 <a class="dropdown-item" href="{{ route('admin.logout')}}"><i class="ti-lock text-muted mr-2"></i> Logout</a>
 			  </li>
 			</ul>
           </li>
-
-
         </ul>
       </div>
     </nav>
   </header>
 <script>
-
-
 
 </script>
