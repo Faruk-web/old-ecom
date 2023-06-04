@@ -8,7 +8,7 @@
         <br>
      <br>
         <center class="user-order-table " >
-            <h2 class="text-info"><span>Hi,..</span><strong class="text-success">{{ Auth::user()->name }}</strong> <br> Welcome To Ecommerce</h2>
+            <h2 class="text-info"><span>Hi,..</span><strong class="text-success">{{ Auth::user()->name }}</strong> <br> Welcome To AMFL</h2>
         </center>
         <div class="row profile-wrapper">
             <div class="col-lg-3">

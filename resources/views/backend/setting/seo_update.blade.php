@@ -32,7 +32,7 @@
                                     <div class="form-group">
                                         <h5>Meta Title <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                    <input type="text" name="meta_title" class="form-control" value="{{ $seo->meta_title }}" > </div>
+                                    <input type="text" name="meta_title" class="form-control" value="{{ optional($seo->meta_title) }}" > </div>
                                     </div>
 
 
@@ -40,20 +40,20 @@
                                     <div class="form-group">
                                         <h5>Meta Author <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                    <input type="text" name="meta_author" class="form-control"  value="{{ $seo->meta_author }}"  > </div>
+                                    <input type="text" name="meta_author" class="form-control"  value="{{ optional($seo->meta_author) }}"  > </div>
                                     </div>
 
                                     <div class="form-group">
                                         <h5>Meta Keyword <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                    <input type="text" name="meta_keyword" class="form-control" value="{{ $seo->meta_keyword }}"   > </div>
+                                    <input type="text" name="meta_keyword" class="form-control" value="{{ optional($seo->meta_keyword) }}"   > </div>
                                     </div>
 
                                 <div class="form-group">
                                             <h5>Meta Description <span class="text-danger">*</span></h5>
                                             <div class="controls">
                                     <textarea name="meta_description" id="textarea" class="form-control" rows="10" cols="10" required placeholder="Textarea text">
-                                        {{ $seo->meta_description }}
+                                        {{ optional($seo->meta_description )}}
                                     </textarea>
                                             </div>
                                         </div>
@@ -63,7 +63,7 @@
                                             <h5>Google Analytics <span class="text-danger">*</span></h5>
                                             <div class="controls">
                                     <textarea name="google_analytics" id="textarea" class="form-control" rows="5" cols="5" required placeholder="Textarea text">
-                                        {{ $seo->google_analytics }}
+                                        {{ optional($seo->google_analytics) }}
                                     </textarea>
                                             </div>
                                         </div>

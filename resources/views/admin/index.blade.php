@@ -2,11 +2,7 @@
 
  @extends('admin.admin_master')
 
- {{-- section id is yeild name  --}}
-
  @section('admin')
-
-
  @php
 	$date = now('d');
 	$today = App\Models\Order::whereDate('order_date', $date)->where('status','=', 'delivered')->sum('amount');
@@ -17,7 +13,6 @@
 	$yearly = App\Models\Order::where('order_year', $year)->where('status','=', 'delivered')->sum('amount');
     $pending = App\Models\Order::where('status','pending')->get();
     $total_delivery = App\Models\Order::where('status','delivered')->get();
-
     $total_cancel_order = App\Models\Order::where('status','cancel')->get();
     $total_confirm_order = App\Models\Order::where('status','confirm')->get();
     $total_shipped_order = App\Models\Order::where('status','shipped')->get();
@@ -27,16 +22,11 @@
     ->join('categories','products.category_id','categories.id')
     ->groupBy('categories.category_name')
     ->get();
-
-
     $categoriesIds = App\Models\Category::pluck('id');
     $categories = App\Models\Category::with(['ordersProduct'])->limit(10)->get();
-
-
     $categoryNameProductQty = array();
     foreach($categories as $category){
         $categoryName  = "";
-
         if($category->category_name !== $categoryName && $category->ordersProduct()->count() > 0 ){
             $maxQty  = $category->ordersProduct()->sum('order_items.qty');
             $categoryName = $category->category_name;
@@ -50,27 +40,11 @@
     foreach( $categoryNameProductQty as $categoryAndQty){
         $dataPoints[] = (array("label"=> $categoryAndQty['category_name'], "y"=> $categoryAndQty['max_qty'] ));
     }
-
     foreach( $categoriesStock as $categories){
-
-
             $dataPoints2[] = (array("label"=> $categories['category_name'], "y"=> $categories['total']));
-
-
-
     }
-
-
-
-
 @endphp
-
-
-
-
-
  <div class="container-full">
-
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -144,231 +118,8 @@
             </div>
         </div>
     </div>
-    <div class="col-xl-3 col-6">
-        <div class="box overflow-hidden pull-up">
-            <div class="box-body">
-                <div class="icon bg-warning-light rounded w-60 h-60">
-                    <i class="text-info mr-0 font-size-24 mdi mdi-account-multiple"></i>
-                </div>
-                <div>
-                    @php
-                        $employees = App\Models\Employee::all()->count();
-                    @endphp
-                    <p class="text-mute mt-20 mb-0 font-size-16">Total Employee</p>
-                    <h3 class="text-white mb-0 font-weight-500">{{ $employees }}</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-3 col-6">
-        <div class="box overflow-hidden pull-up">
-            <div class="box-body">
-                <div class="icon bg-info-light rounded w-60 h-60">
-                    <i class="text-info mr-0 font-size-24 mdi mdi-account-multiple"></i>
-                </div>
-                <div>
-                    @php
-                        $users = App\Models\User::all()->count();
-                    @endphp
-                    <p class="text-mute mt-20 mb-0 font-size-16">Total User</p>
-    <h3 class="text-white mb-0 font-weight-500">{{$users}}</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-xl-3 col-6">
-        <div class="box overflow-hidden pull-up">
-            <div class="box-body">
-                <div class="icon bg-info-light rounded w-60 h-60">
-                    <i class="text-success mr-0 font-size-24 glyphicon glyphicon-usd"></i>
-                </div>
-                <div>
-                    @php
-                        $paidSalarys = App\Models\Department_salary::sum('paid_salary');
-                    @endphp
-                    <p class="text-mute mt-20 mb-0 font-size-16">Total Paid Salary</p>
-                    <h3 class="text-white mb-0 font-weight-500">{{ $paidSalarys }} <small class="text-success"><i class="fa fa-caret-up"></i>TK</small></h3>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-xl-3 col-6">
-        <div class="box overflow-hidden pull-up">
-            <div class="box-body">
-                <div class="icon bg-danger-light rounded w-60 h-60">
-                    <i class="text-danger mr-0 font-size-24 glyphicon glyphicon-usd"></i>
-                </div>
-                <div>
-                    @php
-                        $dueSalarys = App\Models\Department_salary::sum('due_salary');
-                    @endphp
-                    <p class="text-mute mt-20 mb-0 font-size-16">Total Due Salary</p>
-                    <h3 class="text-white mb-0 font-weight-500">{{ $dueSalarys }} <small class="text-danger"><i class="fa fa-
-                        ..-up"></i>TK</small></h3>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                <div class="col-xl-2 col-6">
-                    <div class="box overflow-hidden pull-up">
-                        <div class="box-body">
-                            <div class="icon bg-danger-light rounded w-60 h-60">
-                                <i class="text-success mr-0 font-size-24 glyphicon glyphicon-ok"></i>
-                            </div>
-                            <div>
-                                <p class="text-mute mt-20 mb-0 font-size-16">Total Delivered Product</p>
-                                <h3 class="text-white mb-0 font-weight-500">{{ count($total_delivery) }}</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div> <br>
-
-
-                <div class="col-xl-2 col-6">
-                    <div class="box overflow-hidden pull-up">
-                        <div class="box-body">
-                            <div class="icon bg-success-light rounded w-60 h-60">
-                                <i class="text-danger mr-0 font-size-24 glyphicon glyphicon-hourglass"></i>
-                            </div>
-                            <div>
-                                <p class="text-mute mt-20 mb-0 font-size-16">Total Panding Order</p>
-                                <h3 class="text-white mb-0 font-weight-500">{{ count($pending) }}</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div> <br>
-
-
-
-
-                <div class="col-xl-2 col-6">
-                    <div class="box overflow-hidden pull-up">
-                        <div class="box-body">
-                            <div class="icon bg-info-light rounded w-60 h-60">
-                                <i class="text-success-light mr-0 font-size-24 glyphicon glyphicon-repeat"></i>
-                            </div>
-                            <div>
-                                <p class="text-mute mt-20 mb-0 font-size-16">Total Confirmed Order</p>
-                                <h3 class="text-white mb-0 font-weight-500">{{ count($total_confirm_order) }}</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div> <br>
-
-
-                <div class="col-xl-2 col-6">
-                    <div class="box overflow-hidden pull-up">
-                        <div class="box-body">
-                            <div class="icon bg-success-light rounded w-60 h-60">
-                                <i class="text-info mr-0 font-size-24 glyphicon glyphicon-shopping-cart"></i>
-                            </div>
-                            <div>
-                                <p class="text-mute mt-20 mb-0 font-size-16">Total Processing Order</p>
-                                <h3 class="text-white mb-0 font-weight-500">{{ count($total_processing_order) }}</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div> <br>
-                <div class="col-xl-2 col-6">
-                    <div class="box overflow-hidden pull-up">
-                        <div class="box-body">
-                            <div class="icon bg-info-light rounded w-60 h-60">
-                                <i class="text-warning mr-0 font-size-24 glyphicon glyphicon-refresh"></i>
-                            </div>
-                            <div>
-                                <p class="text-mute mt-20 mb-0 font-size-16">Total Picked Order</p>
-                                <h3 class="text-white mb-0 font-weight-500">{{ count($total_picked_order) }}</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div> <br>
-                <div class="col-xl-2 col-6">
-                    <div class="box overflow-hidden pull-up">
-                        <div class="box-body">
-                            <div class="icon bg-danger-light rounded w-60 h-60">
-                                <i class="text-info mr-0 font-size-24 glyphicon glyphicon-alert"></i>
-                            </div>
-                            <div>
-                                <p class="text-mute mt-20 mb-0 font-size-16">Total Shipped Order</p>
-                                <h3 class="text-white mb-0 font-weight-500">{{ count($total_shipped_order) }}</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div> <br>
-
-                <div class="col-xl-2 col-6">
-                    <div class="box overflow-hidden pull-up">
-                        <div class="box-body">
-                            <div class="icon bg-info rounded w-60 h-60">
-                                <i class="text-danger mr-0 font-size-24 glyphicon glyphicon-trash "></i>
-                            </div>
-                            <div>
-                                <p class="text-mute mt-20 mb-0 font-size-16">Total Cancel Order</p>
-                                <h3 class="text-white mb-0 font-weight-500">{{ count($total_cancel_order) }}</h3>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="col-xl-2 col-6">
-                    <div class="box overflow-hidden pull-up">
-                        <div class="box-body">
-                            <div class="icon bg-primary-light rounded w-60 h-60">
-                                <i class="text-primary mr-0 font-size-24 mdi mdi-account-multiple"></i>
-
-                            </div>
-                            <div>
-                                <p class="text-mute mt-20 mb-0 font-size-16">Debit</p>
-                                <h3 class="text-white mb-0 font-weight-500">${{ $asset[0]->debit }} <small class="text-success"><i class="fa fa-caret-up"></i>TK</small></h3>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-                <div class="col-xl-2 col-6">
-                    <div class="box overflow-hidden pull-up">
-                        <div class="box-body">
-                            <div class="icon bg-primary-light rounded w-60 h-60">
-                                <i class="text-primary mr-0 font-size-24 mdi mdi-account-multiple"></i>
-
-                            </div>
-                            <div>
-                                <p class="text-mute mt-20 mb-0 font-size-16">Credit</p>
-                                <h3 class="text-white mb-0 font-weight-500">${{ $asset[0]->credit }} <small class="text-success"><i class="fa fa-caret-up"></i>TK</small></h3>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-                <div class="col-xl-2 col-6">
-                    <div class="box overflow-hidden pull-up">
-                        <div class="box-body">
-                            <div class="icon bg-primary-light rounded w-60 h-60">
-                                <i class="text-success mr-0 font-size-24 glyphicon glyphicon-usd"></i>
-
-                            </div>
-                            <div>
-                                <p class="text-mute mt-20 mb-0 font-size-16">Asset</p>
-                                <h3 class="text-white mb-0 font-weight-500">{{ $asset[0]->credit-$asset[0]->debit }} <small class="text-success"><i class="fa fa-caret-up"></i>TK</small></h3>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-
-            </section>
-        </div>
+  </section>
+ </div>
 
 
     {{-- Total Admin, User, Employee, Salary View  Section End--}}
@@ -377,7 +128,7 @@
                 <div class="box">
                     <div class="box-header">
                         <h4 class="box-title align-items-start flex-column">
-                            Recent All Orders
+                            Recent All Orders Call
 
                         </h4>
                     </div>
@@ -507,7 +258,7 @@
                 animationEnabled: true,
                 theme: "light2", // "light1", "light2", "dark1", "dark2"
                 title: {
-                    text: "Category Wise Product Sell"
+                    text: "Category Wise Project Sell"
                 },
                 axisY: {
                     title: "Max Product Sell/"
@@ -525,7 +276,7 @@
                 animationEnabled: true,
                 theme: "light2", // "light1", "light2", "dark1", "dark2"
                 title: {
-                    text: "Category Wise Product Stock"
+                    text: "Category Wise Project Stock"
                 },
                 axisY: {
                     title: "Max Product Stock/"

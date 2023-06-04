@@ -24,9 +24,6 @@ use App\Http\Controllers\Backend\EmployeeSalary;
 use App\Http\Controllers\Backend\DepartmentController;
 use App\Http\Controllers\Backend\EmployeeController;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
-
-
-
 // for frontend
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\LanguageController;
@@ -46,40 +43,16 @@ use App\Http\Controllers\Backend\PurchaseController;
 use App\Models\User;
 use League\CommonMark\Extension\CommonMark\Node\Block\IndentedCode;
 
-// Home Route
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
-
-
-
-
-
-
-
-
-
-
 // Admin prefix route
 Route::group(['prefix'=> 'admin', 'middleware'=>['admin:admin']], function(){
 	Route::get('/login', [AdminController::class, 'loginForm']);
 	Route::post('/login',[AdminController::class, 'store'])->name('admin.login');
 });
-
 Route::middleware(['auth:admin'])->group(function(){
-
-
-
 // Admin Route
 Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', function () {
     return view('admin.index');
 })->name('admin.dashboard')->middleware('auth:admin');
-
-
-// admin logout route
-// Route::get('admin/logout', [AdminController::class, 'loginForm'])->name('admin.logout');
 
 Route::get('admin/logout', [AuthenticatedSessionController::class, 'adminDestroy'])
         ->name('admin.logout');
