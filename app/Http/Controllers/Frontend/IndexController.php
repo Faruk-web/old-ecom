@@ -6,11 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Mail\ContactUsMail;
 use App\Mail\OrderMail;
 use Illuminate\Http\Request;
-
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Slider;
 use App\Models\Product;
+use App\Models\Project;
 use App\Models\MultiImg;
 use App\Models\Brand;
 use App\Models\Banner;
@@ -19,15 +19,11 @@ use App\Models\SubCategory;
 use App\Models\SubSubCategory;
 use App\Models\Subscriber;
 use App\Models\review;
-
 use App\Models\BannerCatagory;
-
-
 use Illuminate\Support\Carbon;
 use App\Models\Order;
 use App\Models\OrderItem;
 use Illuminate\Support\Facades\DB;
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
@@ -37,73 +33,43 @@ class IndexController extends Controller
 
   // Frontend Index show
    public function index(){
-
-
+//Amfl
+$products = Project::orderBy('id', 'DESC')->limit(4)->get();
      // for  special_deals
   $special_deals = Product::where('special_deals', 1)->orderBy('id', 'DESC')->limit(6)->get();
-
-
   // for  Spacial Offer
   $special_offers = Product::where('special_offer', 1)->orderBy('id', 'DESC')->limit(6)->get();
-
   // for  hot_deals
   $hot_deals = Product::where('hot_deals', 1)->where('discount_price','!=',NULL)->orderBy('id', 'DESC')->limit(6)->get();
-
     // for featured
-    $featureds = Product::where('featured', 1)->orderBy('id', 'DESC')->limit(6)->get();
-
-      // most popular
-      $most_popular_all=Product::where('status',1)->orderBy('product_views','DESC')->limit(10)->get();
-
-      // for product
-      $products = Product::where('status', 1)->orderBy('id', 'DESC')->limit(8)->get();
-
-     // end product
-
-      // for new product
-      $newTwoproducts = Product::where('status', 1)->orderBy('id', 'DESC')->limit(2)->get();
-     // end new product
-
-
-
-     // for slider
-      $sliders = Slider::where('status', 1)->orderBy('id', 'DESC')->limit(10)->get();
-     // end slider
-
-
-    $categories = Category::all();
-
-
-
-
-      // home page banner-category
-      $bannerCatagory = BannerCatagory::where('status',1)->orderBy('id','DESC')->first();
-
-
-      $bennars = Banner::where('status',1)->orderBy('id','DESC')->limit(3)->get();
+$featureds = Product::where('featured', 1)->orderBy('id', 'DESC')->limit(6)->get();
+    // most popular
+    $most_popular_all=Product::where('status',1)->orderBy('product_views','DESC')->limit(10)->get();
+    // for product
+    $products = Product::where('status', 1)->orderBy('id', 'DESC')->limit(8)->get();
+    // end product
+    // for new product
+    $newTwoproducts = Product::where('status', 1)->orderBy('id', 'DESC')->limit(2)->get();
+    // end new product
+    // for slider
+    $sliders = Slider::where('status', 1)->orderBy('id', 'DESC')->limit(10)->get();
+    // end slider
+$categories = Category::all();
+    // home page banner-category
+    $bannerCatagory = BannerCatagory::where('status',1)->orderBy('id','DESC')->first();
+    $bennars = Banner::where('status',1)->orderBy('id','DESC')->limit(3)->get();
     $todayDate = Carbon::now();
-
-      $dailyBestSales =  DB::table('order_items')
-      ->select('product_id', DB::raw('count(*) as total'))
-      ->groupBy('product_id')
-      ->limit(4)
-      ->orderBy('total','DESC')
-      ->get();
-
-
-
-
-
-
+    $dailyBestSales =  DB::table('order_items')
+    ->select('product_id', DB::raw('count(*) as total'))
+    ->groupBy('product_id')
+    ->limit(4)
+    ->orderBy('total','DESC')
+    ->get();
         $deliverdProducts =  OrderItem::select('product_id')->groupBy('product_id')
         ->join('orders', 'order_items.order_id', '=', 'orders.id')
         ->join('products', 'products.id', '=', 'order_items.product_id')
         ->where('orders.status','delivered')
         ->get(['products.*']);
-
-
-
-
         $top_rated = DB::table('reviews')
         ->select('products.*','brands.brand_name_cats_eye')
         ->join('products', 'product_id','products.id')
@@ -112,7 +78,6 @@ class IndexController extends Controller
         ->where('star', '>', 3)
         ->limit(8)
         ->get();
-
         $onsale=Order::select('products.*','brands.brand_name_cats_eye')->where('orders.created_at', '>',Carbon::now()->subHours(12)->toDateTimeString() )
         ->where('orders.status','=','delivered')
         ->join('order_items', 'order_items.order_id', '=', 'orders.id')
@@ -120,33 +85,17 @@ class IndexController extends Controller
         ->join('brands', 'brands.id', '=', 'products.brand_id')
         ->limit(8)
         ->get();
-
-
-
-
-
       $latest_products=Product::orderBy('id','DESC')->limit(3)->get();
-
-
-
        return view('frontend.index',
         compact('categories','sliders', 'products','featureds','hot_deals', 'special_offers','special_deals','bannerCatagory','latest_products',
          'bennars','top_rated','newTwoproducts','dailyBestSales','deliverdProducts','most_popular_all','onsale'));
 
    }
-
-
-
-
-
-
-
   // user logout
    public function UserLogout(){
     Auth::logout();
     return redirect()->route('login');
 }
-
   // user Profile Update
   public function UserProfile(){
     // what is id = specify  user and use find id
@@ -154,9 +103,7 @@ class IndexController extends Controller
       $user = User::find($id);
 
       return view('frontend.profile.user_profile', compact('user'));
-
   }
-
       // User Profile Store
       public function UserProfileStore(Request $request){
         // Auth login user id is find
@@ -170,8 +117,6 @@ class IndexController extends Controller
                 $data->name = $request->name;
                 $data->email = $request->email;
                 $data->phone = $request->phone;
-
-
                 if ($request->file('profile_photo_path')) {
                     $file = $request->file('profile_photo_path');
                     @unlink (public_path('upload/users_images/'.$data->profile_photo_path));
@@ -186,22 +131,14 @@ class IndexController extends Controller
                     'message' =>  'Your Profie Update Sucessyfuly',
                     'alert-type' => 'success'
                 );
-
-
                 return redirect()->route('dashboard')->with($notification);
-
       }
-
-
-
           // user password change
           public function UserChnagePassword(){
             $id = Auth::user()->id;
             $user = User::find($id);
               return view('frontend.profile.change_password', compact('user'));
           }
-
-
           // User Update Password
           public function UserPasswordUpdate(Request $request){
 
@@ -219,7 +156,6 @@ class IndexController extends Controller
             'message' =>  'Your Passowrd Update Sucessyfuly',
             'alert-type' => 'success',
         );
-
           //Auth::logout();
           return redirect()->route('user.password.update')->with($notification);
 
@@ -232,36 +168,23 @@ class IndexController extends Controller
               return redirect()->route('user.password.update')->with($notification);
            }
 
-
           }  // end mahod
-
-
        // product_detalis
        public function ProductDetails($id){
          // for multi img show
          $product = Product::findOrFail($id);
-
          Product::find($id)->increment('product_views');
           $product_color = $product->product_color;
           $product_color_all = explode (',',$product_color);
-
           // for color and size
           $product_size = $product->product_size;
           $product_size_all = explode (',',$product_size);
-
-
-
            // for related product show
           $cat_id = $product->category_id;
           $relatedProduct = Product::where('category_id',$cat_id)->where('id','!=',$id)->orderBy('id','DESC')->get();
-
-
         $multiimgs =  MultiImg::where('product_id',$id)->limit(5)->get();
-
-
         return view('frontend.product.product_detalis', compact('product','multiimgs','product_color_all',
         'product_size_all','relatedProduct'));
-
        } // end mathod
 
    public function TagWiseProduct($tag){
@@ -475,23 +398,15 @@ class IndexController extends Controller
         }
 
     }
-
-
    public function contactUs(Request $request)
    {
                 $validated = $request->validate([
-
-
                 'name' => 'required|max:30',
                 'email' => 'required',
                 'subject' => 'required|max:60',
                 'subject' => 'required|max:60',
                 'message' => 'required|max:255',
-
-
                 ]);
-
-
                 if($validated)
                 {
                   // Mail::to('pabonsub@gmail.com')->send(new ContactUsMail($request));
@@ -508,27 +423,33 @@ class IndexController extends Controller
                 );
                    return redirect()->back()->with($notification);
 
-                  // Mail::send('frontend.contact.contact_us_email',
-                  // array(
-                  //     'name' => $request->get('name'),
-                  //     'email' => $request->get('email'),
-                  //     'subject' => $request->get('subject'),
-                  //     'user_message' => $request->get('message'),
-                  // ), function($message) use ($request)
-                  //   {
-                  //      $message->from($request->email);
-                  //      $message->to();
-                  //   });
-
-
-                 // return back()->with('success', 'Thank you for contact us!');
-
 
                 }
    }
-
-
-
+    //about
+    public function aboutus(){
+        return view('frontend.amfl.about');
+    }
+    //about
+    public function project(){
+        return view('frontend.amfl.project');
+    }
+    //about
+    public function news(){
+        return view('frontend.amfl.news');
+    }
+    //about
+    public function blog(){
+        return view('frontend.amfl.blog');
+    }
+     //about
+     public function contactamfl(){
+        return view('frontend.amfl.contact');
+    }
+    //about
+    public function service(){
+        return view('frontend.amfl.service');
+    }
 
 } // main end
 

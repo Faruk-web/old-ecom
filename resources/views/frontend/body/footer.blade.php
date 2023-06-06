@@ -1,135 +1,165 @@
-<footer class="footer_section electronic_footer clearfix">
-
-    @php
-    $setting = App\Models\SiteSetting::find(1);
-     @endphp
-
-    <div class="footer_widget_area clearfix">
-        <div class="container maxw_1600">
-            <div class="row justify-content-lg-between">
-                <div class="col-lg-3 col-md-4">
-                    <div class="footer_widget footer_about">
-                        <div class="brand_logo mb_30">
-                            {{-- <a href="index.html"> --}}
-                             {{-- <img src="{{asset($setting->logo)}}" srcset="{{asset($setting->logo)}}" alt="logo_not_found"> --}}
-                            {{-- </a> --}}
-                        </div>
-                        <p class="mb_30">
-                            {{ $setting->company_address }}
-                        </p>
+<footer id="footer" class="clearfix">
+    <div id="footer-widgets" class="container">
+        <div class="themesflat-row gutter-30">
+            <div class="col span_1_of_3">
+                <div class="widget widget_text">
+                    <div class="textwidget">
                         <p>
-                            {{ $setting->email }}
+                            <img src="{{ asset('frontend/assets/img/logo-white@2x.png') }}" alt="Image" width="170" height="34">
                         </p>
 
-                        <div class="footer_electronic_hotline mb_30">
-                            <i class="fal fa-headset"></i>
-                            <h4>GOT QUESTION? CALL BD 24/7!</h4>
-                            <span>{{ $setting->phone_one }}</span>
+                        <p class="margin-bottom-15">We have over 15 years of experien able to help you 24 hours a day.</p>
+
+                        <ul>
+                            <li>
+                                <div class="inner">
+                                    <span class="fa fa-map-marker"></span>
+                                    <span class="text">PO BOX 16122 COLLINS STREET <span class="sl">West Victoria, NewYork</span></span>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="inner">
+                                    <span class="fa fa-phone"></span>
+                                    <span class="text">CALL US : (+61) 3 8376 6284</span>
+                                </div>
+                            </li>
+
+                            <li class="margin-top-7">
+                                <div class="inner">
+                                    <span class=" font-size-14 fa fa-envelope"></span>
+                                    <span class="text">SUPPORT@NICHE_THEME</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- /.widget_text -->
+                <div class="themesflat-spacer clearfix" data-desktop="0" data-mobile="0" data-smobile="35"></div>
+            </div><!-- /.col -->
+
+            <div class="col span_1_of_3">
+                <div class="themesflat-spacer clearfix" data-desktop="0" data-mobile="0" data-smobile="0"></div>
+
+                <div class="widget widget_lastest">
+                    <h2 class="widget-title"><span>RECENT POSTS</span></h2>
+                    <ul class="lastest-posts data-effect clearfix">
+                        <li class="clearfix">
+                            <div class="thumb data-effect-item has-effect-icon">
+                                <img src="{{ asset('frontend/assets/img/news/post-1-65x65.jpg') }}" alt="Image">
+                                <div class="overlay-effect bg-color-2"></div>
+                                <div class="elm-link">
+                                    <a href="page-blog-single.html" class="icon-2"></a>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <h3><a href="page-blog-single.html">SMART BUILDING WITH CONCRETE SUSTAINABLE</a></h3>
+                                <span class="post-date"><span class="entry-date">29 June 2018</span></span>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="thumb data-effect-item has-effect-icon">
+                                <img src="{{ asset('frontend/assets/img/news/post-2-65x65.jpg') }}" alt="Image">
+                                <div class="overlay-effect bg-color-2"></div>
+                                <div class="elm-link">
+                                    <a href="page-blog-single.html" class="icon-2"></a>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <h3><a href="page-blog-single.html">HI-TECH WOODEN HOUSE BUILT WITHOUT GLUE</a></h3>
+                                <span class="post-date"><span class="entry-date">31 June 2018</span></span>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!-- /.widget_lastest -->
+            </div><!-- /.col -->
+
+            <div class="col span_1_of_3">
+                <div class="themesflat-spacer clearfix" data-desktop="0" data-mobile="35" data-smobile="35"></div>
+
+                <div class="widget widget_tags">
+                    <h2 class="widget-title margin-bottom-30"><span>TAGS</span></h2>
+                    <div class="tags-list">
+                        <a href="#">Building</a>
+                        <a href="#">Smart House</a>
+                        <a href="#">Costruction</a>
+                        <a href="#">Villa</a>
+                        <a href="#">Residential</a>
+                        <a href="#">Interior</a>
+                        <a href="#">Resort</a>
+                        <a href="#">Commercial</a>
+                    </div>
+                </div>
+            </div><!-- /.col -->
+
+            <div class="col span_1_of_3">
+                <div class="themesflat-spacer clearfix" data-desktop="0" data-mobile="35" data-smobile="35"></div>
+
+                <div class="widget widget_instagram">
+                    <h2 class="widget-title margin-bottom-30"><span>INSTAGRAM PHOTOS</span></h2>
+                    <div class="instagram-wrap data-effect clearfix col3 g10">
+                        <div class="instagram_badge_image has-effect-icon">
+                            <a href="#" target="_blank" class="data-effect-item">
+                                <span class="item"><img src="{{ asset('frontend/assets/img/instagram/instagram-1-83x83.jpg')}}" alt="Image" ></span>
+                                <div class="overlay-effect bg-color-2"></div>
+                                <div class="elm-link">
+                                    <span class="icon-3"></span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="instagram_badge_image has-effect-icon">
+                            <a href="#" target="_blank" class="data-effect-item">
+                                <span class="item"><img src="{{ asset('frontend/assets/img/instagram/instagram-2-83x83.jpg')}}" alt="Image" ></span>
+                                <div class="overlay-effect bg-color-2"></div>
+                                <div class="elm-link">
+                                    <span class="icon-3"></span>
+                                </div>
+                            </a>
 
                         </div>
 
-                        <ul class="circle_social_links ul_li clearfix">
-                            <li><a href="{{ $setting->facebook }}"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="{{ $setting->twitter }}"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#!"><i class="fab fa-pinterest-p"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
+                        <div class="instagram_badge_image has-effect-icon">
+                            <a href="#" target="_blank" class="data-effect-item">
+                                <span class="item"><img src="{{ asset('frontend/assets/img/instagram/instagram-3-83x83.jpg')}}" alt="Image"></span>
+                                <div class="overlay-effect bg-color-2"></div>
+                                <div class="elm-link">
+                                    <span class="icon-3"></span>
+                                </div>
+                            </a>
+                        </div>
 
-                <div class="col-lg-3 col-md-4">
-                    <div class="footer_widget footer_useful_links clearfix">
-                        <h3 class="footer_widget_title text-white text-uppercase">FIND IT FAST</h3>
-                        <ul class="ul_li_block clearfix">
-                            <li><a href="#!">Laptops, Ultrabooks & Computers</a></li>
-                            <li><a href="#!">Cameras & Photography</a></li>
-                            <li><a href="#!">Smart Phones & Tablets</a></li>
-                            <li><a href="#!">Video Games & Consoles</a></li>
-                            <li><a href="#!">TV & Audio</a></li>
-                            <li><a href="#!">Gadgets</a></li>
-                            <li><a href="#!">Car Electronic & GPS</a></li>
+                        <div class="instagram_badge_image has-effect-icon">
+                            <a href="#" target="_blank" class="data-effect-item">
+                                <span class="item"><img src="{{ asset('frontend/assets/img/instagram/instagram-4-83x83.jpg')}}" alt="Image"></span>
+                                <div class="overlay-effect bg-color-2"></div>
+                                <div class="elm-link">
+                                    <span class="icon-3"></span>
+                                </div>
+                            </a>
+                        </div>
 
-                        </ul>
-                    </div>
-                </div>
+                        <div class="instagram_badge_image has-effect-icon">
+                            <a href="#" target="_blank" class="data-effect-item">
+                                <span class="item"><img src="{{ asset('frontend/assets/img/instagram/instagram-5-83x83.jpg')}}" alt="Image"></span>
+                                <div class="overlay-effect bg-color-2"></div>
+                                <div class="elm-link">
+                                    <span class="icon-3"></span>
+                                </div>
+                            </a>
+                        </div>
 
-                <div class="col-lg-2 col-md-4">
-                    <div class="footer_widget footer_useful_links clearfix">
-                        <h3 class="footer_widget_title text-white text-uppercase">CUSTOMER CARE</h3>
-                        <ul class="ul_li_block clearfix">
-                            <li><a href="#!">About Us</a></li>
-                            <li><a href="{{route('contact')}}">Contact US</a></li>
-                            <li><a href="#!">Track your Order</a></li>
-                            <li><a href="#!">Wishlist</a></li>
-                            <li><a href="#!">Customer Service</a></li>
-                            <li><a href="#!">Returns/Exchange</a></li>
-                            <li><a href="#!">FAQs</a></li>
-                            <li><a href="#!">Product Support</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 offset-lg-1 col-md-12">
-                    <div class="footer_widget footer_recent_post">
-                        <h3 class="footer_widget_title text-white text-uppercase mb-0">WE USING SAFE  PAYMENTS</h3>
-                        <div class="row justify-content-lg-between">
-                            <div class="col-lg-4 col-md-4">
-                                <div class="electronic_product_small">
-                                    <a class="item_image" href="#!">
-                                        <img src="{{asset('frontend/assets/images')}}/payment-methods/bkash.jpg" alt="image_not_found">
-                                    </a>
+                        <div class="instagram_badge_image has-effect-icon">
+                            <a href="#" target="_blank" class="data-effect-item">
+                                <span class="item"><img src="{{ asset('frontend/assets/img/instagram/instagram-6-83x83.jpg')}}" alt="Image"></span>
+                                <div class="overlay-effect bg-color-2"></div>
+                                <div class="elm-link">
+                                    <span class="icon-3"></span>
                                 </div>
-                            </div>
-                            <!-- col-end -->
-                            <div class="col-lg-4 col-md-4">
-                                <div class="electronic_product_small">
-                                    <a class="item_image" href="#!">
-                                        <img src="{{asset('frontend/assets/images')}}/payment-methods/Nagad.png" alt="image_not_found">
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- col-end -->
-                            <div class="col-lg-4 col-md-4">
-                                <div class="electronic_product_small">
-                                    <a class="item_image" href="#!">
-                                        <img src="{{asset('frontend/assets/images')}}/payment-methods/rocket.png" alt="image_not_found">
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- col-end -->
-                            <div class="col-lg-4 col-md-4">
-                                <div class="electronic_product_small">
-                                    <a class="item_image" href="#!">
-                                        <img src="{{asset('frontend/assets/images')}}/payment-methods/paypal.png" alt="image_not_found">
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- col-end -->
-                            <div class="col-lg-4 col-md-4">
-                                <div class="electronic_product_small">
-                                    <a class="item_image" href="#!">
-                                        <img src="{{asset('frontend/assets/images')}}/payment-methods/skrill.png" alt="image_not_found">
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- col-end -->
-                            <div class="col-lg-4 col-md-4">
-                                <div class="electronic_product_small">
-                                    <a class="item_image" href="#!">
-                                        <img src="{{asset('frontend/assets/images')}}/payment-methods/discover.png" alt="image_not_found">
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- col-end -->
+                            </a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer_bottom text-center bg_black clearfix">
-        <div class="container maxw_1600">
-            <p class="copyright_text mb-0">Copyright © 2021, <a href="#!" class="author_link">Classy single Vendor Ecommcerce.</a> All Rights Reserved</p>
-        </div>
-    </div>
+                </div><!-- /.widget_instagram -->
+            </div><!-- /.col -->
+        </div><!-- /.themesflat-row -->
+    </div><!-- /#footer-widgets -->
 </footer>
