@@ -15,7 +15,9 @@ use App\Http\Controllers\Backend\ReturnController;
 use App\Http\Controllers\Backend\SiteSettingController;
 use App\Http\Controllers\Backend\AdminUserController;
 //amfl location
+use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\LocationController;
+use App\Http\Controllers\Backend\NewsController;
 //project
 use App\Http\Controllers\Backend\ProjectController;
 // ashim controller add
@@ -71,6 +73,7 @@ Route::get('/about', [IndexController::class, 'aboutus'])->name('user.bout');
 Route::get('/project', [IndexController::class, 'project'])->name('user.project');
 Route::get('/news', [IndexController::class, 'news'])->name('user.news');
 Route::get('/blog', [IndexController::class, 'blog'])->name('user.blog');
+Route::get('/blog/details/{id}', [IndexController::class, 'blogDetails'])->name('user.blog.details');
 Route::get('/contact_us', [IndexController::class, 'contactamfl'])->name('user.contact');
 Route::get('/service', [IndexController::class, 'service'])->name('user.service');
 Route::get('/project/details/{id}', [IndexController::class, 'ProjectDetails'])->name('user.project.details');
@@ -117,8 +120,31 @@ Route::prefix('project')->group(function(){
     Route::post('/edit/update', [ProjectController::class, 'UpdateProject'])->name('project.update');
     // Manage Product
     Route::get('/manage', [ProjectController::class, 'ManageProject'])->name('manage-project');
+    //project update
+    Route::post('/update', [ProjectController::class, 'UpdateProject'])->name('project_update');
+    // For Thambnail Img Update
+    Route::post('/thambnail/update', [ProjectController::class, 'ThambnailImageUpdate'])->name('update_project_thambnail');
+    // For Multiple Img Update
+    Route::post('/update/multiimg', [ProjectController::class, 'UpdateProductMultiImg'])->name('update_project_img');
 });
+Route::prefix('blog')->group(function(){
+    Route::get('/blog', [BlogController::class, 'BlogAdd'])->name('blog.add');
+    Route::post('/store', [BlogController::class, 'BlogStore'])->name('blog.store');
+    // Route::get('/edit/{id}', [ProjectController::class, 'EditProject'])->name('project.edit');
+    // Route::post('/edit/update', [ProjectController::class, 'UpdateProject'])->name('project.update');
+    // // Manage Product
+    Route::get('/manage', [BlogController::class, 'ManageBlog'])->name('manage_blog');
 
+});
+Route::prefix('news')->group(function(){
+    Route::get('/news', [NewsController::class, 'NewsAdd'])->name('news.add');
+    Route::post('/news', [NewsController::class, 'NewsStore'])->name('news.store');
+    // Route::get('/edit/{id}', [ProjectController::class, 'EditProject'])->name('project.edit');
+    // Route::post('/edit/update', [ProjectController::class, 'UpdateProject'])->name('project.update');
+    // // Manage Product
+    Route::get('/manage', [NewsController::class, 'ManageNews'])->name('manage_news');
+
+});
 
 // Admin Product Route Group
 // Route::prefix('product')->group(function(){

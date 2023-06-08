@@ -11,9 +11,9 @@
                 <div id="site-log-inner">
                     <a href="{{ url('/') }}" rel="home" class="main-logo">
                         @if($pp == $p)
-                        <img src="{{ asset('frontend/assets/img/amfl/amlogo.png')}}" alt="Autora" width="169" height="39" data-retina="{{ asset('frontend/assets/img/amfl/amlogo.png')}}" data-width="169" data-height="39">
+                        <img src="{{ asset('frontend/assets/img/amfl/2.png')}}" alt="Autora" width="169" height="39" data-retina="{{ asset('frontend/assets/img/amfl/2.png')}}" data-width="169" data-height="39">
                         @else
-                        <img src="{{ asset('frontend/assets/img/amfl/amlogo.png')}}" alt="Autora" width="169" height="39" data-retina="{{ asset('frontend/assets/img/amfl/amlogo.png')}}" data-width="169" data-height="39">
+                        <img src="{{ asset('frontend/assets/img/amfl/2.png')}}" alt="Autora" width="169" height="39" data-retina="{{ asset('frontend/assets/img/amfl/2.png')}}" data-width="169" data-height="39">
                         @endif
 
                     </a>

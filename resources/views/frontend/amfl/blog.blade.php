@@ -73,9 +73,10 @@
             <div id="content-wrap" class="container">
                 <div id="site-content" class="site-content clearfix">
                     <div id="inner-content" class="inner-content-wrap">
+                        @foreach($blogs as $item)
                         <article class="hentry data-effect">
                             <div class="post-media has-effect-icon offset-v-25 offset-h-24 data-effect-item clerafix">
-                                <a href="page-blog-single.html"><img src="{{ asset('frontend/assets/img/news/post-1-840x385.jpg')}}" alt="Image"></a>
+                                <a href="page-blog-single.html"><img src="{{ asset($item->blog_image)}}" alt="Image"></a>
                                 <div class="post-calendar">
                                     <span class="inner">
                                         <span class="entry-calendar">
@@ -110,13 +111,13 @@
                                 </div><!-- /.post-excerpt -->
                                 <div class="post-read-more">
                                     <div class="post-link">
-                                        <a href="page-blog-single.html">READ MORE</a>
+                                        <a href="{{ url('/blog/details',$item->id) }}">READ MORE</a>
                                     </div>
                                 </div>
                             </div><!-- /.post-content-wrap -->
                         </article><!-- /.hentry -->
-
-                        <article class="hentry data-effect">
+                        @endforeach
+                        {{-- <article class="hentry data-effect">
                             <div class="post-media data-effect-item has-effect-icon offset-v-25 offset-h-24clerafix">
                                 <a href="page-blog-single.html"><img src="{{ asset('frontend/assets/img/news/post-2-840x385.jpg')}}" alt="Image"></a>
                                 <div class="post-calendar">
@@ -153,7 +154,7 @@
                                 </div><!-- /.post-excerpt -->
                                 <div class="post-read-more">
                                     <div class="post-link">
-                                        <a href="page-blog-single.html">READ MORE</a>
+                                        <a href="{{ url('/blog/details') }}">READ MORE</a>
                                     </div>
                                 </div>
                             </div><!-- /.post-content-wrap -->
@@ -196,11 +197,11 @@
                                 </div><!-- /.post-excerpt -->
                                 <div class="post-read-more">
                                     <div class="post-link">
-                                        <a href="page-blog-single.html">READ MORE</a>
+                                        <a href="{{ url('/blog/details') }}">READ MORE</a>
                                     </div>
                                 </div>
                             </div><!-- /.post-content-wrap -->
-                        </article><!-- /.hentry -->
+                        </article><!-- /.hentry --> --}}
 
                         <div class="themesflat-pagination clearfix">
                             <ul>

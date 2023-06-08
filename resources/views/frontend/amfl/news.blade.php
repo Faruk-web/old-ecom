@@ -37,19 +37,20 @@
             <div id="inner-content" class="inner-content-wrap">
                 <div class="themesflat-spacer clearfix" data-desktop="61" data-mobile="60" data-smobile="60"></div>
                 <div class="themesflat-headings style-2 clearfix">
-                    <h2 class="heading">LEADERSHIP TEAM</h2>
+                    <h2 class="heading">CURRENT NEWS</h2>
                     <div class="sep has-width w80 accent-bg clearfix"></div>
                     <p class="sub-heading font-size-16 line-height-28 text-666 margin-top-27">With us you will have the peace of mind knowing that your dream home project is in the hands of a licensed fully insured building company.</p>
                 </div>
                 <div class="themesflat-spacer clearfix" data-desktop="40" data-mobile="35" data-smobile="35"></div>
                 <div class="themesflat-content-box clearfix" data-margin="0 15px 0 0" data-mobilemargin="0 0 0 0">
                     <ol class="comment-list style-2">
+                        @foreach ($news as $item)
                         <li class="comment">
                             <article class="comment-wrap clearfix">
-                                <div class="gravatar"><img alt="image" src="assets/img/testimonials/avatar-1-106x106.jpg" /></div>
+                                <div class="gravatar"><img alt="image" src="{{ asset($item->news_image)}}" /></div>
                                 <div class="comment-content">
                                     <div class="comment-meta">
-                                        <h6 class="comment-author">Ignacio J. Reyes</h6>
+                                        <h6 class="comment-author">{{ $item->news_name }}</h6>
                                         <span class="comment-position">Manager Human resources</span>
                                     </div>
                                     <div class="comment-text">
@@ -63,8 +64,10 @@
                                     </div>
                                 </div>
                             </article>
-                        </li><!-- /.comment -->
-                        <li class="comment">
+                        </li>
+                        @endforeach
+                        <!-- /.comment -->
+                        {{-- <li class="comment">
                             <article class="comment-wrap clearfix">
                                 <div class="gravatar"><img alt="image" src="assets/img/testimonials/avatar-2-106x106.jpg" /></div>
                                 <div class="comment-content">
@@ -123,7 +126,8 @@
                                     </div>
                                 </div>
                             </article>
-                        </li><!-- /.comment -->
+                        </li> --}}
+                        <!-- /.comment -->
                     </ol><!-- /.comment-list -->
                 </div><!-- /.themesflat-content-box -->
                 <div class="themesflat-spacer clearfix" data-desktop="83" data-mobile="60" data-smobile="60"></div>

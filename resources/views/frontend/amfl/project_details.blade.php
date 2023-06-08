@@ -93,20 +93,6 @@
                                                         </div>
                                                     </div>
                                                     @endforeach
-                                                     {{-- <div class="gallery-item" >
-                                                        <div class="inner">
-                                                            <div class="thumb">
-                                                                <img src="{{ asset('frontend/assets/img/gallery/gallery-3-800x450.jpg')}}" alt="Image">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                     <div class="gallery-item" >
-                                                        <div class="inner">
-                                                            <div class="thumb">
-                                                                <img src="{{ asset('frontend/assets/img/gallery/gallery-4-800x450.jpg')}}" alt="Image">
-                                                            </div>
-                                                        </div>
-                                                    </div> --}}
                                                  </div>
                                              </div><!-- /.themesflat-cousel-box -->
                                             <div class="themesflat-spacer clearfix" data-desktop="40" data-mobile="40" data-smobile="40"></div>
@@ -120,7 +106,40 @@
                                     </div>
                                     <div class="themesflat-spacer clearfix" data-desktop="58" data-mobile="60" data-smobile="60"></div>
                                 </div>
-                            </div><!-- /.row -->
+                            </div>
+                            {{-- =================Floor plne================= --}}
+                            <div class="detail-gallery">
+                                <div class="themesflat-spacer clearfix" data-desktop="21" data-mobile="21" data-smobile="21"></div>
+                                <div class="themesflat-gallery style-2 has-arrows arrow-center arrow-circle offset-v-82 has-thumb w185 clearfix" data-gap="0" data-column="1" data-column2="1" data-column3="1" data-auto="false">
+                                     <div class="owl-carousel owl-theme">
+                                        <div class="gallery-item">
+                                            <div class="inner">
+                                                <div class="thumb">
+                                                    <img src="{{asset($projects->floor_image)}}" alt="Image" style="height:750px">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @foreach ($projects->multiImgfloor as $img)
+                                        <div class="gallery-item" >
+                                            <div class="inner">
+                                                <div class="thumb">
+                                                    <img src="{{asset($img->photo_name_floor)}}" alt="Image">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                     </div>
+                                 </div><!-- /.themesflat-cousel-box -->
+                                <div class="themesflat-spacer clearfix" data-desktop="40" data-mobile="40" data-smobile="40"></div>
+                                <div class="flat-content-wrap style-3 clearfix">
+                                    <h5 class="title">FLOOR DESCRIPTION</h5>
+                                    <div class="sep has-width w60 accent-bg margin-top-18 clearfix"></div>
+                                    <p class="margin-top-28">The ten-storey, 325,000 SF Krembil Discovery Centre provides the Toronto Western Hospital with a new research and rehabilitation facility. The Integrated Project Delivery contract included the base building core and shell (and associated functional space), interior fit-up of two floors of the rehab solutions space, two floors of wet labs, a single floor vivarium and the associated interstitial floor</p>
+                                    <p>From November 2013 to April 2014, EllisDon was awarded an additional Lump Sum contract for $5 million. This additional scope of work included a lab fit- up on the fourth level of the Krembil Discovery Centre.</p>
+                                </div>
+                            </div>
+                             {{-- =================Floor plne end================= --}}
+                            <!-- /.row -->
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="themesflat-lines style-1 line-full line-solid clearfix"><span class="line"></span></div>

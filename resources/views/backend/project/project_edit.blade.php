@@ -10,13 +10,13 @@
             <!-- Basic Forms -->
             <div class="box">
                 <div class="box-header with-border">
-                <h4 class="box-title">Edit Product </h4>
+                <h4 class="box-title">Edit Project</h4>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                 <div class="row">
                     <div class="col">
-              <form action="" method="POST" >
+              <form action="{{ route('project_update')}}" method="POST" >
                 @csrf
                 <input type="hidden" name="id" value="{{ $projects->id }}" />
                 <div class="row">
@@ -60,8 +60,8 @@
                         <div class="controls">
                             <select name="location_id" class="form-control" required="" >
                                 <option value="" selected="" disabled="">Select location</option>
-                            @foreach($location as $subcategory)
-                            <option value="{{ $subcategory->id }}" {{ $subcategory->id == $projects->location_id ? 'selected': '' }}  >{{ $subcategory->location_name }}</option>
+                            @foreach($location as $item)
+                            <option value="{{ $item->id }}" {{ $item->id == $projects->location_id ? 'selected': '' }}  >{{ $item->location_name }}</option>
                                 @endforeach
                             </select>
                     </div>
@@ -241,7 +241,7 @@
                      <div class="box-header">
             <h4 class="box-title">Project Thambnail Image <strong>Update</strong></h4>
                      </div>
-           <form method="post" action="" enctype="multipart/form-data">
+           <form method="post" action="{{ route('update_project_thambnail')}}" enctype="multipart/form-data">
            @csrf
             <input type="hidden" name="id" value="{{ $projects->id }}">
               <input type="hidden" name="old_img" value="{{ $projects->project_thambnail }}">
@@ -284,7 +284,7 @@
                          <div class="box-header">
                   <h4 class="box-title">Project Multiple Image <strong>Update</strong></h4>
                         </div>
-               <form method="post" action="" enctype="multipart/form-data">
+               <form method="post" action="{{ route('update_project_img')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="row row-sm">
                        @foreach($multiimgs as $img)

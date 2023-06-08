@@ -215,32 +215,22 @@ $request->validate([
         /// Multiple Image Update
         public function UpdateProductMultiImg(Request $request){
             $imgs = $request->multi_img;
-
             foreach ($imgs as $id => $img) {
             $imgDel = MultiImg::findOrFail($id);
             unlink($imgDel->photo_name);
-
             $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
             Image::make($img)->resize(917,1000)->save('upload/products/multi-image/'.$make_name);
             $uploadPath = 'upload/products/multi-image/'.$make_name;
-
             MultiImg::where('id',$id)->update([
                 'photo_name' => $uploadPath,
                 'updated_at' => Carbon::now(),
-
             ]);
-
         } // end foreach
-
         $notification = array(
                 'message' => 'Product Image Updated Successfully',
                 'alert-type' => 'info'
             );
-
             return redirect()->back()->with($notification);
-
-
-
     } // end mathod
 
             //// Multi Image Delete ////
@@ -264,25 +254,19 @@ $request->validate([
                 $pro_id = $request->id;
                 $oldImage = $request->old_img;
                 unlink($oldImage);
-
             $image = $request->file('product_thambnail');
                 $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
                 Image::make($image)->resize(917,1000)->save('upload/products/thambnail/'.$name_gen);
                 $save_url = 'upload/products/thambnail/'.$name_gen;
-
                 Product::findOrFail($pro_id)->update([
                     'product_thambnail' => $save_url,
                     'updated_at' => Carbon::now(),
-
                 ]);
-
                     $notification = array(
                     'message' => 'Product Image Thambnail Updated Successfully',
                     'alert-type' => 'info'
                 );
-
                 return redirect()->back()->with($notification);
-
                 } // end method
 
 

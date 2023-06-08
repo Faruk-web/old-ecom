@@ -5,7 +5,7 @@
                 <div class="widget widget_text">
                     <div class="textwidget">
                         <p>
-                            <img src="{{ asset('frontend/assets/img/logo-white@2x.png') }}" alt="Image" width="170" height="34">
+                            <img src="{{ asset('frontend/assets/img/amfl/2.png')}}" alt="Image" width="170" height="34">
                         </p>
 
                         <p class="margin-bottom-15">We have over 25 years of experien able to help you 24 hours a day.</p>

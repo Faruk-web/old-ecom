@@ -11,43 +11,31 @@ class CategoryController extends Controller
 {
     //  categoary view
     public function CategoryView(){
-
         $category = Category::latest()->get();
         return view('backend.category.category_view', compact('category') );
-
     }  // end mathod
-
        // store category
   public function CategoryStore(Request $request){
     // validation
         $request->validate([
             'category_name' => 'required|required|regex:/[a-zA-Z ]*/',
             'category_icon' => 'required',
-
           ],[
             'category_name.required' => 'Input The Category Name',
             'category_icon.required' => 'Input The Category Name',
-
-
           ]);
-
         // Category Insert
           Category::insert([
            'category_name' => $request->category_name,
            'category_icon' => $request->category_icon,
            'category_slug_name' => strtolower(str_replace(' ', '-', $request->category_name)),
-
-
           ]);
 
           $notification = array(
             'message' =>  'Category Add Sucessyfuly',
             'alert-type' => 'success'
         );
-
         return redirect()->back()->with($notification);
-
-
 
   } // end method
 

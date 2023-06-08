@@ -8,6 +8,7 @@ use App\Mail\OrderMail;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\Blog;
 use App\Models\Slider;
 use App\Models\Product;
 use App\Models\Project;
@@ -16,7 +17,7 @@ use App\Models\Brand;
 use App\Models\Banner;
 use App\Models\ContactUs;
 use App\Models\SubCategory;
-use App\Models\SubSubCategory;
+use App\Models\News;
 use App\Models\Subscriber;
 use App\Models\review;
 use App\Models\BannerCatagory;
@@ -397,11 +398,18 @@ class IndexController extends Controller
     }
     //about
     public function news(){
-        return view('frontend.amfl.news');
+        $news = News::orderBy('id', 'ASC')->limit(5)->get();
+        return view('frontend.amfl.news',compact('news'));
     }
-    //about
+    //blog
     public function blog(){
-        return view('frontend.amfl.blog');
+        $blogs = Blog::orderBy('id', 'ASC')->limit(4)->get();
+        return view('frontend.amfl.blog',compact('blogs'));
+    }
+    //blog details
+    public function blogDetails($id){
+        $blogs = Blog::find($id);
+         return view('frontend.amfl.blog_details',compact('blogs'));
     }
      //about
      public function contactamfl(){
@@ -416,7 +424,7 @@ class IndexController extends Controller
         $projects = Project::find($id);
         return view('frontend.amfl.project_details',compact('projects'));
     }
-
+   //
 } // main end
 
 

@@ -115,14 +115,11 @@
                     <div class="row-about">
                         <div class="container-fluid">
                             <div class="row equalize sm-equalize-auto">
-                                <div class="col-md-6 half-background style-1">
-
-                                </div><!-- /.col-md-6 -->
                                 <div class="col-md-6 bg-light-grey">
                                     <div class="themesflat-spacer clearfix" data-desktop="64" data-mobile="35" data-smobile="35"></div>
                                     <div class="themesflat-content-box clearfix" data-margin="0 25% 0 4.5%" data-mobilemargin="0 0 0 4.5%">
                                         <div class="themesflat-headings style-1 clearfix">
-                                            <h2 class="heading">WELCOME TO AUTORA</h2>
+                                            <h2 class="heading">WHO WE ARE</h2>
                                             <div class="sep has-width w80 accent-bg margin-top-11 clearfix"></div>
                                             <p class="sub-heading margin-top-30">We have successfully completed projects in numerous states across the continental United States. Autora Construction Services has a proven track record of:</p>
                                         </div>
@@ -162,104 +159,139 @@
                                             </div><!-- /.themeslat-list -->
                                         </div><!-- /.content-list -->
                                         <div class="themesflat-spacer clearfix" data-desktop="42" data-mobile="35" data-smobile="35"></div>
-                                        <div class="elm-button">
+                                        {{-- <div class="elm-button">
                                             <a href="#"  class="themesflat-button bg-white">GET IN TOUCH</a>
+                                        </div> --}}
+                                    </div><!-- /.themesflat-content-box -->
+                                    <div class="themesflat-spacer clearfix" data-desktop="76" data-mobile="60" data-smobile="60"></div>
+                                </div>
+
+                                <!-- /.col-md-6 -->
+                                <div class="col-md-6 half-background style-1" style="background-image: url('{{ asset('frontend/assets/img/amfl/slider-2-1920x600.jpg')}}');center center no-repeat; background-size: cover;">
+                                </div>
+                                <!-- /.col-md-6 -->
+                            </div><!-- /.row -->
+                        </div><!-- /.container-fluid -->
+                    </div>
+                    <div class="row-about">
+                        <div class="container-fluid">
+                            <div class="row equalize sm-equalize-auto">
+                                <div class="col-md-6 half-background style-1" style="background-image: url('{{ asset('frontend/assets/img/amfl/slider-2-1920x600.jpg')}}');center center no-repeat; background-size: cover;">
+                                </div><!-- /.col-md-6 -->
+                                <div class="col-md-6 bg-light-grey">
+                                    <div class="themesflat-spacer clearfix" data-desktop="64" data-mobile="35" data-smobile="35"></div>
+                                    <div class="themesflat-content-box clearfix" data-margin="0 25% 0 4.5%" data-mobilemargin="0 0 0 4.5%">
+                                        <div class="themesflat-headings style-1 clearfix">
+                                            <h2 class="heading">MISSION & VISION</h2>
+                                            <div class="sep has-width w80 accent-bg margin-top-11 clearfix"></div>
+                                            <p class="sub-heading margin-top-30">We have successfully completed projects in numerous states across the continental United States. Autora Construction Services has a proven track record of:</p>
                                         </div>
+                                        <div class="themesflat-spacer clearfix" data-desktop="26" data-mobile="35" data-smobile="35"></div>
+                                        <div class="content-list">
+                                            <div class="themesflat-list has-icon style-1 icon-left clearfix">
+                                                <div class="inner">
+                                                    <span class="item">
+                                                        <span class="icon"><i class="fa fa-check-square"></i></span>
+                                                        <span class="text">Completing projects on time & Following budget guidelines</span>
+                                                    </span>
+                                                </div>
+                                            </div><!-- /.themeslat-list -->
+                                            <div class="themesflat-list has-icon style-1 icon-left clearfix">
+                                                <div class="inner">
+                                                    <span class="item">
+                                                        <span class="icon"><i class="fa fa-check-square"></i></span>
+                                                        <span class="text">Elevated quality of workmanship</span>
+                                                    </span>
+                                                </div>
+                                            </div><!-- /.themeslat-list -->
+                                            <div class="themesflat-list has-icon style-1 icon-left clearfix">
+                                                <div class="inner">
+                                                    <span class="item">
+                                                        <span class="icon"><i class="fa fa-check-square"></i></span>
+                                                        <span class="text">Meeting diverse supplier requirements</span>
+                                                    </span>
+                                                </div>
+                                            </div><!-- /.themeslat-list -->
+                                            <div class="themesflat-list has-icon style-1 icon-left clearfix">
+                                                <div class="inner">
+                                                    <span class="item">
+                                                        <span class="icon"><i class="fa fa-check-square"></i></span>
+                                                        <span class="text">Implementing appropriate safety precautions and procedures</span>
+                                                    </span>
+                                                </div>
+                                            </div><!-- /.themeslat-list -->
+                                        </div><!-- /.content-list -->
+                                        <div class="themesflat-spacer clearfix" data-desktop="42" data-mobile="35" data-smobile="35"></div>
+                                        {{-- <div class="elm-button">
+                                            <a href="#"  class="themesflat-button bg-white">GET IN TOUCH</a>
+                                        </div> --}}
                                     </div><!-- /.themesflat-content-box -->
                                     <div class="themesflat-spacer clearfix" data-desktop="76" data-mobile="60" data-smobile="60"></div>
                                 </div><!-- /.col-md-6 -->
                             </div><!-- /.row -->
                         </div><!-- /.container-fluid -->
                     </div>
-                    <!-- END ABOUT -->
-
-                    <!-- COUNTER -->
-                    <div class="row-counter parallax parallax-4 parallax-overlay">
-                        <div class="container">
-                            <div class="row clearfix">
-                                <div class="col-md-12">
-                                    <div class="themesflat-spacer clearfix" data-desktop="92" data-mobile="60" data-smobile="60"></div>
-                                </div><!-- /.col-md-12 -->
+                    <div class="row-about">
+                        <div class="container-fluid">
+                            <div class="row equalize sm-equalize-auto">
+                                <div class="col-md-6 bg-light-grey">
+                                    <div class="themesflat-spacer clearfix" data-desktop="64" data-mobile="35" data-smobile="35"></div>
+                                    <div class="themesflat-content-box clearfix" data-margin="0 25% 0 4.5%" data-mobilemargin="0 0 0 4.5%">
+                                        <div class="themesflat-headings style-1 clearfix">
+                                            <h2 class="heading">CHAIRMAN'S MESSAGE</h2>
+                                            <div class="sep has-width w80 accent-bg margin-top-11 clearfix"></div>
+                                            <p class="sub-heading margin-top-30">We have successfully completed projects in numerous states across the continental United States. Autora Construction Services has a proven track record of:</p>
+                                        </div>
+                                        <div class="themesflat-spacer clearfix" data-desktop="26" data-mobile="35" data-smobile="35"></div>
+                                        <div class="content-list">
+                                            <div class="themesflat-list has-icon style-1 icon-left clearfix">
+                                                <div class="inner">
+                                                    <span class="item">
+                                                        <span class="icon"><i class="fa fa-check-square"></i></span>
+                                                        <span class="text">Completing projects on time & Following budget guidelines</span>
+                                                    </span>
+                                                </div>
+                                            </div><!-- /.themeslat-list -->
+                                            <div class="themesflat-list has-icon style-1 icon-left clearfix">
+                                                <div class="inner">
+                                                    <span class="item">
+                                                        <span class="icon"><i class="fa fa-check-square"></i></span>
+                                                        <span class="text">Elevated quality of workmanship</span>
+                                                    </span>
+                                                </div>
+                                            </div><!-- /.themeslat-list -->
+                                            <div class="themesflat-list has-icon style-1 icon-left clearfix">
+                                                <div class="inner">
+                                                    <span class="item">
+                                                        <span class="icon"><i class="fa fa-check-square"></i></span>
+                                                        <span class="text">Meeting diverse supplier requirements</span>
+                                                    </span>
+                                                </div>
+                                            </div><!-- /.themeslat-list -->
+                                            <div class="themesflat-list has-icon style-1 icon-left clearfix">
+                                                <div class="inner">
+                                                    <span class="item">
+                                                        <span class="icon"><i class="fa fa-check-square"></i></span>
+                                                        <span class="text">Implementing appropriate safety precautions and procedures</span>
+                                                    </span>
+                                                </div>
+                                            </div><!-- /.themeslat-list -->
+                                        </div><!-- /.content-list -->
+                                        <div class="themesflat-spacer clearfix" data-desktop="42" data-mobile="35" data-smobile="35"></div>
+                                        {{-- <div class="elm-button">
+                                            <a href="#"  class="themesflat-button bg-white">GET IN TOUCH</a>
+                                        </div> --}}
+                                    </div><!-- /.themesflat-content-box -->
+                                    <div class="themesflat-spacer clearfix" data-desktop="76" data-mobile="60" data-smobile="60"></div>
+                                </div>
+                                <!-- /.col-md-6 -->
+                                <div class="col-md-6 half-background style-1" style="background-image: url('{{ asset('frontend/assets/img/amfl/slider-2-1920x600.jpg')}}');center center no-repeat; background-size: cover;">
+                                </div>
+                                <!-- /.col-md-6 -->
                             </div><!-- /.row -->
-                            <div class="themesflat-row gutter-30 separator light clearfix">
-                                <div class="col span_1_of_3">
-                                    <div class="themesflat-content-box clearfix" data-margin="0 0 0 0" data-mobilemargin="0 0 0 0">
-                                        <div class="themesflat-counter style-1 align-center clearfix">
-                                            <div class="counter-item">
-                                                <div class="inner">
-                                                    <div class="text-wrap">
-                                                        <div class="number-wrap">
-                                                            <span class="number" data-speed="2000" data-to="9240" data-inviewport="yes">9240</span><span class="suffix">+</span>
-                                                        </div>
-                                                        <h3 class="heading margin-right-18">PROJECT COMPLETED</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.themesflat-counter -->
-                                    </div>
-                                    <div class="themesflat-spacer clearfix" data-desktop="0" data-mobile="35" data-smobile="35"></div>
-                                </div><!-- /.col-md-3 -->
-                                <div class="col span_1_of_3">
-                                    <div class="themesflat-content-box clearfix" data-margin="0 0 0 0" data-mobilemargin="0 0 0 0">
-                                        <div class="themesflat-counter style-1 align-center clearfix">
-                                            <div class="counter-item">
-                                                <div class="inner">
-                                                    <div class="text-wrap">
-                                                        <div class="number-wrap">
-                                                            <span class="number" data-speed="2000" data-to="336" data-inviewport="yes">336</span><span class="suffix">+</span>
-                                                        </div>
-                                                        <h3 class="heading margin-right-6">AWARDS WON</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.themesflat-counter -->
-                                    </div>
-                                    <div class="themesflat-spacer clearfix" data-desktop="0" data-mobile="35" data-smobile="35"></div>
-                                </div><!-- /.col-md-3 -->
-                                <div class="col span_1_of_3">
-                                    <div class="themesflat-content-box clearfix" data-margin="0 0 0 0" data-mobilemargin="0 0 0 0">
-                                        <div class="themesflat-counter style-1 align-center clearfix">
-                                            <div class="counter-item">
-                                                <div class="inner">
-                                                    <div class="text-wrap">
-                                                        <div class="number-wrap">
-                                                            <span class="number" data-speed="2000" data-to="725" data-inviewport="yes">725</span><span class="suffix">+</span>
-                                                        </div>
-                                                        <h3 class="heading margin-right-8">SATISFIED CLIENTS</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.themesflat-counter -->
-                                    </div>
-                                    <div class="themesflat-spacer clearfix" data-desktop="0" data-mobile="0" data-smobile="35"></div>
-                                </div><!-- /.col-md-3 -->
-                                <div class="col span_1_of_3">
-                                    <div class="themesflat-content-box clearfix" data-margin="0 0 0 0" data-mobilemargin="0 0 0 0">
-                                        <div class="themesflat-counter style-1 align-center clearfix">
-                                            <div class="counter-item">
-                                                <div class="inner">
-                                                    <div class="text-wrap">
-                                                        <div class="number-wrap">
-                                                            <span class="number" data-speed="2000" data-to="2984" data-inviewport="yes">2984</span><span class="suffix">+</span>
-                                                        </div>
-                                                        <h3 class="heading margin-right-10">WORKERS EMPLOYED</h3>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.themesflat-counter -->
-                                    </div>
-                                </div><!-- /.col-md-3 -->
-                            </div><!-- /.row -->
-                            <div class="row clearfix">
-                                <div class="col-md-12">
-                                    <div class="themesflat-spacer clearfix" data-desktop="72" data-mobile="60" data-smobile="60"></div>
-                                </div><!-- /.col-md-12 -->
-                            </div><!-- /.row -->
-                        </div><!-- /.container -->
-                        <div class="bg-parallax-overlay overlay-black style2"></div>
+                        </div><!-- /.container-fluid -->
                     </div>
-                    <!-- END COUNTER -->
-
+                    <!-- END ABOUT -->
                     <!-- TABS -->
                     <div class="row-tabs">
                         <div class="container">
@@ -423,7 +455,7 @@
                     <!-- END TABS -->
 
                     <!-- PARTNER -->
-                    <div class="row-partner">
+                    {{-- <div class="row-partner">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
@@ -536,11 +568,11 @@
                                 </div><!-- /.col-md-12 -->
                             </div><!-- /.row -->
                         </div><!-- /.container -->
-                    </div>
+                    </div> --}}
                     <!-- END PARTNER -->
-
+                    <br><br>
                     <!-- QUOTE -->
-                    <div class="row-quote bg-row-1" style="background-image: url('{{ asset('frontend/assets/img/amfl/slider-2-1920x600.jpg')}}');center center no-repeat; background-size: cover;">
+                    <div class="row-quote bg-row-1 mt-3" style="background-image: url('{{ asset('frontend/assets/img/amfl/slider-2-1920x600.jpg')}}');center center no-repeat; background-size: cover;">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
@@ -571,7 +603,7 @@
                                 <div class="col-md-12">
                                     <div class="themesflat-spacer clearfix" data-desktop="61" data-mobile="60" data-smobile="60"></div>
                                     <div class="themesflat-headings style-1 text-center clearfix">
-                                        <h2 class="heading">LEADERSHIP TEAM</h2>
+                                        <h2 class="heading">BOARD OF DIRECTORS </h2>
                                         <div class="sep has-icon width-125 clearfix">
                                             <div class="sep-icon">
                                                 <span class="sep-icon-before sep-center sep-solid"></span>

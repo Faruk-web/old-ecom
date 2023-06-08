@@ -182,7 +182,7 @@
                 <!-- end col md 4 -->
                 <div class="col-md-4">
                     <div class="form-group">
-                        <h5>Product Thambnail<span class="text-danger">*</span></h5>
+                        <h5>Project Thambnail<span class="text-danger">*</span></h5>
                         <div class="controls">
                             <input type="file" name="project_thambnail" class="form-control" onchange="mainThamUrl(this)" > </div>
                          @error('project_thambnail')
@@ -193,13 +193,36 @@
                 </div> <!-- end col md 4 -->
                 <div class="col-md-4">
                     <div class="form-group">
-                        <h5>Product Multi Img <span class="text-danger">*</span></h5>
+                        <h5>Project Multi Img <span class="text-danger">*</span></h5>
                         <div class="controls">
                          <input type="file" name="multi_img[]"  multiple="" id="MultiImg" class="form-control"  > </div>
                          @error('multi_img')
                          <span class="text-danger">{{ $message }}</span>
                          @enderror
                          <div class="row" id="preview_img"></div>
+                        </div>
+                </div>
+                <!-- end col md 4 -->
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h5>Project Floor Image<span class="text-danger"></span></h5>
+                        <div class="controls">
+                            <input type="file" name="floor_image" class="form-control" onchange="mainThamUrlfloor(this)" > </div>
+                         {{-- @error('project_thambnail')
+                         <span class="text-danger">{{ $message }}</span>
+                         @enderror --}}
+                         <img src="" id="mainThmbfloor"  />
+                        </div>
+                </div> <!-- end col md 4 -->
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h5>Project Floor multi Image<span class="text-danger"></span></h5>
+                        <div class="controls">
+                         <input type="file" name="multi_img_floor[]"  multiple="" id="MultiImgfloor" class="form-control"  > </div>
+                         {{-- @error('multi_img')
+                         <span class="text-danger">{{ $message }}</span>
+                         @enderror --}}
+                         <div class="row" id="preview_imgfloor"></div>
                         </div>
                 </div>
                 <div class="col-md-4">
@@ -232,9 +255,6 @@
                     <div class="form-group">
                         <h5>Product Long Descraption<span class="text-danger"></span></h5>
                         	<textarea id="editor1" name="project_long_descp" rows="5" cols="80" ></textarea>
-                         {{-- @error('product_long_descp')
-                         <span class="text-danger">{{ $message }}</span>
-                         @enderror --}}
                         </div>
 
                 </div> <!-- end col md 4 -->
@@ -279,66 +299,66 @@
 {{-- for sub category  --}}
 <script>
     $(document).ready(function() {
-      $('select[name="category_id"]').on('change', function(){
-          var category_id = $(this).val();
-          if(category_id) {
-              $.ajax({
-                  url: "{{  url('/subsubcategory/subcategory/ajax') }}/"+category_id,
-                  type:"GET",
-                  dataType:"json",
-                  success:function(data) {
-                      // sub sub category bug fix
-                    //$('select[name="subsubcategory_id"]').html('');
-                     var d =$('select[name="subcategory_id"]').empty();
-                        $.each(data, function(key, value){
-                            $('select[name="subcategory_id"]').append('<option value="'+ value.id +'">' + value.sub_category_name + '</option>');
-				            showSubSubCategory(value.id);
-                        });
-                  },
-              });
-          } else {
-              alert('danger');
-          }
-      });
+    //   $('select[name="category_id"]').on('change', function(){
+    //       var category_id = $(this).val();
+    //       if(category_id) {
+    //           $.ajax({
+    //               url: "{{  url('/subsubcategory/subcategory/ajax') }}/"+category_id,
+    //               type:"GET",
+    //               dataType:"json",
+    //               success:function(data) {
+    //                   // sub sub category bug fix
+    //                 //$('select[name="subsubcategory_id"]').html('');
+    //                  var d =$('select[name="subcategory_id"]').empty();
+    //                     $.each(data, function(key, value){
+    //                         $('select[name="subcategory_id"]').append('<option value="'+ value.id +'">' + value.sub_category_name + '</option>');
+	// 			            showSubSubCategory(value.id);
+    //                     });
+    //               },
+    //           });
+    //       } else {
+    //           alert('danger');
+    //       }
+    //   });
 
 
-        function showSubSubCategory(subcategory_id){
+        // function showSubSubCategory(subcategory_id){
 
-                $.ajax({
-                    url: "{{  url('subsubcategory/sub-subcategory/ajax/') }}/"+subcategory_id,
-                    type:"GET",
-                    dataType:"json",
-                    success:function(data) {
-                        console.log('from sub sub category');
-                        console.log(data);
-                        var d =$('select[name="subsubcategory_id"]').empty();
-                            $.each(data, function(key, value){
-                                $('select[name="subsubcategory_id"]').append(`<option value="${value.id}">${value.subsubcategory_name}</option>`);
-                            });
-                    }
-                });
-            }
+        //         $.ajax({
+        //             url: "{{  url('subsubcategory/sub-subcategory/ajax/') }}/"+subcategory_id,
+        //             type:"GET",
+        //             dataType:"json",
+        //             success:function(data) {
+        //                 console.log('from sub sub category');
+        //                 console.log(data);
+        //                 var d =$('select[name="subsubcategory_id"]').empty();
+        //                     $.each(data, function(key, value){
+        //                         $('select[name="subsubcategory_id"]').append(`<option value="${value.id}">${value.subsubcategory_name}</option>`);
+        //                     });
+        //             }
+        //         });
+        //     }
 
  // sub sub category auto select
-        $('select[name="subcategory_id"]').on('change', function(){
-                var subcategory_id = $(this).val();
-                console.log('this is running for subcategory',subcategory_id);
-                if(subcategory_id) {
-                    $.ajax({
-                        url: "{{  url('/subsubcategory/sub-subcategory/ajax/') }}/"+subcategory_id,
-                        type:"GET",
-                        dataType:"json",
-                        success:function(data) {
-                            var d =$('select[name="subsubcategory_id"]').empty();
-                                $.each(data, function(key, value){
-                                    $('select[name="subsubcategory_id"]').append('<option value="'+ value.id +'">' + value.subsubcategory_name + '</option>');
-                                });
-                        },
-                    });
-                } else {
-                    alert('danger');
-                }
-            });
+        // $('select[name="subcategory_id"]').on('change', function(){
+        //         var subcategory_id = $(this).val();
+        //         console.log('this is running for subcategory',subcategory_id);
+        //         if(subcategory_id) {
+        //             $.ajax({
+        //                 url: "{{  url('/subsubcategory/sub-subcategory/ajax/') }}/"+subcategory_id,
+        //                 type:"GET",
+        //                 dataType:"json",
+        //                 success:function(data) {
+        //                     var d =$('select[name="subsubcategory_id"]').empty();
+        //                         $.each(data, function(key, value){
+        //                             $('select[name="subsubcategory_id"]').append('<option value="'+ value.id +'">' + value.subsubcategory_name + '</option>');
+        //                         });
+        //                 },
+        //             });
+        //         } else {
+        //             alert('danger');
+        //         }
+        //     });
   });
   </script>
 {{-- // Img Tham script --}}
@@ -352,6 +372,16 @@
 			reader.readAsDataURL(input.files[0]);
 		}
 	}
+
+    function mainThamUrlfloor(input){
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e){
+				$('#mainThmbfloor').attr('src',e.target.result).width(80).height(80);
+			};
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
 </script>
 {{-- ---------------------------Show Multi Image JavaScript Code ------------------------ --}}
 <script>
@@ -360,7 +390,6 @@
       if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
       {
           var data = $(this)[0].files; //this file data
-
           $.each(data, function(index, file){ //loop though each file
               if(/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)){ //check supported file type
                   var fRead = new FileReader(); //new filereader
@@ -374,13 +403,35 @@
                   fRead.readAsDataURL(file); //URL representing the file's data.
               }
           });
-
       }else{
           alert("Your browser doesn't support File API!"); //if File API is absent
       }
    });
   });
 
+  $(document).ready(function(){
+   $('#MultiImgfloor').on('change', function(){ //on file input change
+      if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
+      {
+          var data = $(this)[0].files; //this file data
+          $.each(data, function(index, file){ //loop though each file
+              if(/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)){ //check supported file type
+                  var fRead = new FileReader(); //new filereader
+                  fRead.onload = (function(file){ //trigger function on successful read
+                  return function(e) {
+                      var img = $('<img/>').addClass('thumb').attr('src', e.target.result) .width(80)
+                  .height(80); //create image element
+                      $('#preview_imgfloor').append(img); //append image to output element
+                  };
+                  })(file);
+                  fRead.readAsDataURL(file); //URL representing the file's data.
+              }
+          });
+      }else{
+          alert("Your browser doesn't support File API!"); //if File API is absent
+      }
+   });
+  });
   </script>
 {{-- ================================= End Show Multi Image JavaScript Code. ==================== --}}
 

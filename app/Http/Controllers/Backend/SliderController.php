@@ -34,7 +34,7 @@ class SliderController extends Controller
           // img upload and save
           $image = $request->file('slider_img');
           $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-          Image::make($image)->resize(1920,600)->save('upload/slider/'.$name_gen);
+          Image::make($image)->resize(1920,860)->save('upload/slider/'.$name_gen);
           $save_url = 'upload/slider/'.$name_gen;
 
        // Brand Insert
@@ -70,7 +70,7 @@ class SliderController extends Controller
             unlink($old_img);
             $image = $request->file('slider_img');
             $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-            Image::make($image)->resize(1920,600)->save('upload/slider/'.$name_gen);
+            Image::make($image)->resize(1920,860)->save('upload/slider/'.$name_gen);
             $save_url = 'upload/slider/'.$name_gen;
         Slider::findOrFail($slider_id)->update([
             'title' => $request->title,
