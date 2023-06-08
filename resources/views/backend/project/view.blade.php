@@ -73,7 +73,28 @@
                         @enderror
                         </div>
                     </div>
-                </div> <!-- end col md 3 -->
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                    <h5>Project Type <span class="text-danger">*</span></h5>
+                        <div class="controls">
+                            <select name="project_type" class="form-control"  >
+                                <option value="" selected="" disabled="">Select Project Type</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="residential">Residential</option>
+                                <option value="green_house">Green House</option>
+                                <option value="architechtur">Architechtur</option>
+                                <option value="construction">Construction</option>
+                                <option value="villa">Villa</option>
+                                <option value="building">Building</option>
+                            </select>
+                            @error('project_type')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        </div>
+                    </div>
+                </div>
+                 <!-- end col md 3 -->
                 <div class="col-md-4">
                     <div class="form-group">
                         <h5>Project Name<span class="text-danger">*</span></h5>
@@ -82,9 +103,83 @@
                          @error('project_name')
                          <span class="text-danger">{{ $message }}</span>
                          @enderror
-                         <img src="" id="mainThmb"  />
                         </div>
-                </div> <!-- end col md 4 -->
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h5>Square Feet<span class="text-danger"></span></h5>
+                        <div class="controls">
+                            <input type="text" name="suqare_feet" class="form-control" > </div>
+                         {{-- @error('project_name')
+                         <span class="text-danger">{{ $message }}</span>
+                         @enderror --}}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h5>Hight<span class="text-danger"></span></h5>
+                        <div class="controls">
+                            <input type="text" name="hight" class="form-control" > </div>
+                         {{-- @error('project_name')
+                         <span class="text-danger">{{ $message }}</span>
+                         @enderror --}}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h5>Width<span class="text-danger"></span></h5>
+                        <div class="controls">
+                            <input type="text" name="width" class="form-control" > </div>
+                         {{-- @error('project_name')
+                         <span class="text-danger">{{ $message }}</span>
+                         @enderror --}}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h5>Basement<span class="text-danger"></span></h5>
+                        <div class="controls">
+                            <input type="text" name="basement" class="form-control" > </div>
+                         {{-- @error('project_name')
+                         <span class="text-danger">{{ $message }}</span>
+                         @enderror --}}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h5>Parking<span class="text-danger"></span></h5>
+                        <div class="controls">
+                            <input type="text" name="parking" class="form-control" > </div>
+                         {{-- @error('project_name')
+                         <span class="text-danger">{{ $message }}</span>
+                         @enderror --}}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h5>Facing<span class="text-danger"></span></h5>
+                        <div class="controls">
+                            <input type="text" name="facing" class="form-control" > </div>
+                         {{-- @error('project_name')
+                         <span class="text-danger">{{ $message }}</span>
+                         @enderror --}}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h5>Beedroom<span class="text-danger"></span></h5>
+                        <div class="controls">
+                            <input type="text" name="beedroom" class="form-control" > </div>
+                        </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h5>Available Units<span class="text-danger"></span></h5>
+                        <div class="controls">
+                            <input type="text" name="available_units" class="form-control" > </div>
+                        </div>
+                </div>
+                <!-- end col md 4 -->
                 <div class="col-md-4">
                     <div class="form-group">
                         <h5>Product Thambnail<span class="text-danger">*</span></h5>
@@ -106,9 +201,23 @@
                          @enderror
                          <div class="row" id="preview_img"></div>
                         </div>
-                </div> <!-- end col md 4 -->
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h5>Location Address<span class="text-danger">*</span></h5>
+                          <textarea name="location_address" rows="3"  id="textarea" class="form-control"  placeholder="Textarea text"></textarea>
+                         @error('product_short_descp')
+                         <span class="text-danger">{{ $message }}</span>
+                         @enderror
+                        </div>
+                </div>
+                <!-- end col md 4 -->
             </div> <!-- end 1st row  -->
-            <br> <br>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 style="text-align: center;">  <b class="btn btn-dark btn-lg" style="height: 25%; width:100%"> Floor Plan </b> </h1>
+                </div>
+            </div>
             <div class="row"> <!-- start 5th row  -->
                 <div class="col-md-4">
                     <div class="form-group">
@@ -137,8 +246,8 @@
                 <div class="form-group">
                     <div class="controls">
                         <fieldset>
-                            <input type="checkbox" id="checkbox_2" name="residential" value="1">
-                            <label for="checkbox_2">Residential</label>
+                            <input type="checkbox" id="checkbox_2" name="feature_project" value="1">
+                            <label for="checkbox_2">Feature Project</label>
                         </fieldset>
                     </div>
                 </div>
@@ -148,8 +257,8 @@
 
                     <div class="controls">
                         <fieldset>
-                            <input type="checkbox" id="checkbox_4" name="commercial" value="1">
-                            <label for="checkbox_4">Commercial</label>
+                            <input type="checkbox" id="checkbox_4" name="delivered_project" value="1">
+                            <label for="checkbox_4">Delivered Project</label>
                         </fieldset>
                     </div>
                 </div>

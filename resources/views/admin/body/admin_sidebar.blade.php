@@ -3,7 +3,6 @@
 $prefix = Request::route()->getPrefix();
   $route = Route::current()->getName();
 @endphp
-
 <aside class="main-sidebar">
     <!-- sidebar-->
     <section class="sidebar">
@@ -86,7 +85,7 @@ $prefix = Request::route()->getPrefix();
           <ul class="treeview-menu">
             <li><a href="{{ route('project.add')}}"><i class="ti-more"></i>Add Projects </a></li>
             {{-- <li><a href="{{ route('product.add')}}"><i class="ti-more"></i>Add Projects </a></li> --}}
-            {{-- <li><a href="{{ route('manage-product') }}"><i class="ti-more"></i>Manage All Projects</a></li> --}}
+            <li><a href="{{ route('manage-project') }}"><i class="ti-more"></i>Manage All Projects</a></li>
             {{-- <li><a href="{{ route('porduct.hotDeals') }}"><i class="ti-more"></i>Manage Hot Deals Time</a></li> --}}
           </ul>
         </li>

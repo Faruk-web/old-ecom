@@ -2,32 +2,32 @@
     <div id="bottom-bar-inner" class="container">
         <div class="bottom-bar-inner-wrap">
             <div class="bottom-bar-content">
-                <div id="copyright">© <span class="text">Construction Template. Design <a href="#" class="text-accent">by @Niche_Theme</a></span>
+                <div id="copyright">© <span class="text">Construction Template. Design <a href="https://www.amflbd.com/" class="text-accent">by @AMFL</a></span>
                 </div>
             </div><!-- /.bottom-bar-content -->
 
             <div class="bottom-bar-menu">
                 <ul class="bottom-nav">
                     <li class="menu-item current-menu-item">
-                        <a href="home.html">HOME</a>
+                        <a href="{{ url('/') }}">HOME</a>
                     </li>
                     <li class="menu-item">
-                        <a href="page-about.htnml">ABOUT US</a>
+                        <a href="{{ url('/about') }}">ABOUT US</a>
                     </li>
-                    <li class="menu-item">
+                    {{-- <li class="menu-item">
                         <a href="page-services.html">SERVICES</a>
+                    </li> --}}
+                    <li class="menu-item">
+                        <a href="{{ url('/project') }}">PROJECTS</a>
                     </li>
                     <li class="menu-item">
-                        <a href="page-projects.html">PROJECTS</a>
+                        <a href="{{ url('/news') }}">NEWS</a>
                     </li>
                     <li class="menu-item">
-                        <a href="page-testimonial.html">PAGE</a>
+                        <a href="{{ url('/blog') }}">BLOG</a>
                     </li>
                     <li class="menu-item">
-                        <a href="page-blog.html">BLOG</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="page-contact.html">CONTACT</a>
+                        <a href="{{ url('/contact_us') }}">CONTACT</a>
                     </li>
                 </ul>
             </div><!-- /.bottom-bar-menu -->

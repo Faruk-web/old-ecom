@@ -1,15 +1,10 @@
 @extends('admin.admin_master')
-
 {{-- section id is yeild name  --}}
-
 @section('admin')
-
 <div class="container-full">
  <section class="content">
-
 <div class="row">
     <div class="col-lg-12">
-
        <div class="box">
          <div class="box-header with-border">
            <h3 class="box-title">All Projrct List</h3>
@@ -33,8 +28,8 @@
                        <td>{{ $item->project_name }}</td>
                        <td>{{ $item->project_short_descp }}</td>
                        <td>
-                        <a href="{{ route('product.edit',$item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
-                        <a href="{{ route('product.delete',$item->id) }}" class="btn btn-danger" title="Delete Data" id="#">
+                        <a href="{{ route('project.edit',$item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
+                        <a href="#" class="btn btn-danger" title="Delete Data" id="#">
                         <i class="fa fa-trash"></i>
                         </a>
                        </td>

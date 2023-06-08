@@ -22,8 +22,18 @@ class CreateProjectsTable extends Migration
             $table->string('project_short_descp');
             $table->string('project_long_descp');
             $table->string('project_thambnail');
-            $table->integer('residential')->nullable();
-            $table->integer('commercial')->nullable();
+            $table->string('project_type');
+            $table->string('suqare_feet');
+            $table->string('hight');
+            $table->string('width');
+            $table->string('basement');
+            $table->string('parking');
+            $table->string('facing');
+            $table->string('beedroom');
+            $table->string('available_units');
+            $table->string('location_address');
+            $table->integer('feature_project')->nullable();
+            $table->integer('delivered_project')->nullable();
             $table->timestamps();
         });
     }

@@ -66,7 +66,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 // Frontend Route
 Route::get('/', [IndexController::class, 'index'])->name('user.index');
-
 //amfl
 Route::get('/about', [IndexController::class, 'aboutus'])->name('user.bout');
 Route::get('/project', [IndexController::class, 'project'])->name('user.project');
@@ -74,6 +73,7 @@ Route::get('/news', [IndexController::class, 'news'])->name('user.news');
 Route::get('/blog', [IndexController::class, 'blog'])->name('user.blog');
 Route::get('/contact_us', [IndexController::class, 'contactamfl'])->name('user.contact');
 Route::get('/service', [IndexController::class, 'service'])->name('user.service');
+Route::get('/project/details/{id}', [IndexController::class, 'ProjectDetails'])->name('user.project.details');
 // User Logout Route
 Route::get('/user/logout', [IndexController::class, 'UserLogout'])->name('user.logout');
 // User Update Profile
@@ -113,6 +113,8 @@ Route::prefix('location')->group(function(){
 Route::prefix('project')->group(function(){
     Route::get('/view', [ProjectController::class, 'ProjectAdd'])->name('project.add');
     Route::post('/store', [ProjectController::class, 'ProjectStore'])->name('project.store');
+    Route::get('/edit/{id}', [ProjectController::class, 'EditProject'])->name('project.edit');
+    Route::post('/edit/update', [ProjectController::class, 'UpdateProject'])->name('project.update');
     // Manage Product
     Route::get('/manage', [ProjectController::class, 'ManageProject'])->name('manage-project');
 });
@@ -244,9 +246,7 @@ Route::prefix('bannerCategory')->group(function(){
             // Seo Meta data
             Route::post('/seo/update', [SiteSettingController::class, 'SeoSettingUpdate'])->name('update.seosetting');
              });
-
 //################# start Checkout Route //####################
-
 Route::get('/checkout', [CartController::class, 'CheckoutCreate'])->name('checkout');
 // Shop Page Route
 Route::get('/shop', [ShopController::class, 'ShopPage'])->name('shop.page');

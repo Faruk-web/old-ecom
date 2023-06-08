@@ -11,9 +11,9 @@
                 <div id="site-log-inner">
                     <a href="{{ url('/') }}" rel="home" class="main-logo">
                         @if($pp == $p)
-                        <img src="{{ asset('frontend/assets/img/amfl/logo-small.png')}}" alt="Autora" width="169" height="39" data-retina="{{ asset('frontend/assets/img/amfl/logo-small.png')}}" data-width="169" data-height="39">
+                        <img src="{{ asset('frontend/assets/img/amfl/amlogo.png')}}" alt="Autora" width="169" height="39" data-retina="{{ asset('frontend/assets/img/amfl/amlogo.png')}}" data-width="169" data-height="39">
                         @else
-                        <img src="{{ asset('frontend/assets/img/amfl/logo-small.png')}}" alt="Autora" width="169" height="39" data-retina="{{ asset('frontend/assets/img/amfl/logo-small.png')}}" data-width="169" data-height="39">
+                        <img src="{{ asset('frontend/assets/img/amfl/amlogo.png')}}" alt="Autora" width="169" height="39" data-retina="{{ asset('frontend/assets/img/amfl/amlogo.png')}}" data-width="169" data-height="39">
                         @endif
 
                     </a>
@@ -42,25 +42,25 @@
                             <li class="menu-item"><a href="page-about-careers.html">ABOUT CAREERS</a></li> --}}
                         </ul>
                     </li>
-                    <li class="menu-item menu-item-has-children">
+                    {{-- <li class="menu-item menu-item-has-children">
                         <a href="{{ url('/service') }}">SERVICES</a>
                         <ul class="sub-menu">
-                            {{-- <li class="menu-item"><a href="page-services.html">SERVICES</a></li> --}}
+                            <li class="menu-item"><a href="page-services.html">SERVICES</a></li>
                             <li class="menu-item"><a href="{{ url('/service') }}">SERVICES DETAIL</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
                     <li class="menu-item menu-item-has-children">
                         <a href="{{ url('/project') }}">PROJECTS</a>
                         <ul class="sub-menu">
-                            <li class="menu-item"><a href="{{ url('/project') }}">PROJECTS</a></li>
-                            <li class="menu-item"><a href="page-projects-full.html">PROJECTS FULL WIDTH</a></li>
-                            <li class="menu-item"><a href="page-project-detail.html">PROJECTS DETAIL</a></li>
+                            <li class="menu-item"><a href="{{ url('/project') }}">ONGOING PROJECTS</a></li>
+                            <li class="menu-item"><a href="{{ url('/project')}}">UPCOMING PROJECTS</a></li>
+                            <li class="menu-item"><a href="{{ url('/project')}}">COMPLETED PROJECTS</a></li>
                         </ul>
                     </li>
                     <li class="menu-item menu-item-has-children" >
-                        <a href="{{ url('/news') }}">News</a>
+                        <a href="{{ url('/news') }}">NEWS</a>
                         <ul class="sub-menu">
-                            <li class="menu-item"><a href="{{ url('/news') }}">News</a></li>
+                            <li class="menu-item"><a href="{{ url('/news') }}"> NEWS</a></li>
                             {{-- <li class="menu-item"><a href="page-pricing.html">PAGE PRICING</a></li> --}}
                         </ul>
                     </li>

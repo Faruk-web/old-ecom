@@ -33,62 +33,22 @@ class IndexController extends Controller
 
   // Frontend Index show
    public function index(){
-//Amfl
-$products = Project::orderBy('id', 'DESC')->limit(4)->get();
-     // for  special_deals
-  $special_deals = Product::where('special_deals', 1)->orderBy('id', 'DESC')->limit(6)->get();
-  // for  Spacial Offer
-  $special_offers = Product::where('special_offer', 1)->orderBy('id', 'DESC')->limit(6)->get();
-  // for  hot_deals
-  $hot_deals = Product::where('hot_deals', 1)->where('discount_price','!=',NULL)->orderBy('id', 'DESC')->limit(6)->get();
-    // for featured
-$featureds = Product::where('featured', 1)->orderBy('id', 'DESC')->limit(6)->get();
-    // most popular
-    $most_popular_all=Product::where('status',1)->orderBy('product_views','DESC')->limit(10)->get();
-    // for product
-    $products = Product::where('status', 1)->orderBy('id', 'DESC')->limit(8)->get();
+  //Amfl
+   $products = Project::orderBy('id', 'DESC')->limit(4)->get();
+  // for  featureds
+    $featureds = Project::where('feature_project', 1)->orderBy('id', 'DESC')->limit(8)->get();
     // end product
-    // for new product
-    $newTwoproducts = Product::where('status', 1)->orderBy('id', 'DESC')->limit(2)->get();
-    // end new product
-    // for slider
     $sliders = Slider::where('status', 1)->orderBy('id', 'DESC')->limit(10)->get();
     // end slider
-$categories = Category::all();
+    $categories = Category::all();
     // home page banner-category
     $bannerCatagory = BannerCatagory::where('status',1)->orderBy('id','DESC')->first();
     $bennars = Banner::where('status',1)->orderBy('id','DESC')->limit(3)->get();
     $todayDate = Carbon::now();
-    $dailyBestSales =  DB::table('order_items')
-    ->select('product_id', DB::raw('count(*) as total'))
-    ->groupBy('product_id')
-    ->limit(4)
-    ->orderBy('total','DESC')
-    ->get();
-        $deliverdProducts =  OrderItem::select('product_id')->groupBy('product_id')
-        ->join('orders', 'order_items.order_id', '=', 'orders.id')
-        ->join('products', 'products.id', '=', 'order_items.product_id')
-        ->where('orders.status','delivered')
-        ->get(['products.*']);
-        $top_rated = DB::table('reviews')
-        ->select('products.*','brands.brand_name_cats_eye')
-        ->join('products', 'product_id','products.id')
-        ->join('brands', 'products.brand_id','brands.id')
-        ->distinct('product_id')
-        ->where('star', '>', 3)
-        ->limit(8)
-        ->get();
-        $onsale=Order::select('products.*','brands.brand_name_cats_eye')->where('orders.created_at', '>',Carbon::now()->subHours(12)->toDateTimeString() )
-        ->where('orders.status','=','delivered')
-        ->join('order_items', 'order_items.order_id', '=', 'orders.id')
-        ->join('products', 'products.id', '=', 'order_items.product_id')
-        ->join('brands', 'brands.id', '=', 'products.brand_id')
-        ->limit(8)
-        ->get();
       $latest_products=Product::orderBy('id','DESC')->limit(3)->get();
        return view('frontend.index',
-        compact('categories','sliders', 'products','featureds','hot_deals', 'special_offers','special_deals','bannerCatagory','latest_products',
-         'bennars','top_rated','newTwoproducts','dailyBestSales','deliverdProducts','most_popular_all','onsale'));
+        compact('categories','sliders', 'products','featureds','bannerCatagory','latest_products',
+         'bennars'));
 
    }
   // user logout
@@ -432,7 +392,8 @@ $categories = Category::all();
     }
     //about
     public function project(){
-        return view('frontend.amfl.project');
+        $projects = Project::limit(30)->orderBy('id', 'desc')->paginate(9);
+        return view('frontend.amfl.project',compact('projects'));
     }
     //about
     public function news(){
@@ -449,6 +410,11 @@ $categories = Category::all();
     //about
     public function service(){
         return view('frontend.amfl.service');
+    }
+    //about
+    public function ProjectDetails($id){
+        $projects = Project::find($id);
+        return view('frontend.amfl.project_details',compact('projects'));
     }
 
 } // main end

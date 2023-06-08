@@ -3,7 +3,7 @@
   * Retina Logos
   * Header Fixed
   * Mobile Navigation
-  * Scroll to Top  
+  * Scroll to Top
 */
 
 ;(function($) {
@@ -122,14 +122,14 @@
                             injectSpace.hide();
                         }
 
-                        if ( $(window).scrollTop() > 300 ) { 
+                        if ( $(window).scrollTop() > 300 ) {
                             nav.addClass('is-small');
                         } else {
                             nav.removeClass('is-small');
                         }
                     })
                 }
-            }     
+            }
         },
 
         // Mobile Navigation
@@ -169,7 +169,7 @@
                             .find('.sub-menu')
                                 .removeAttr('style')
                             .prev().remove();
-                                
+
                         $('.mobile-button').removeClass('active');
                     }
                 }
@@ -200,13 +200,28 @@
             return false;
             });
         },
+        //scroll number two
+        scrollToTop: function() {
+            $(window).scroll(function() {
+                if ( $(this).scrollTop() > 200 ) {
+                    $('#scroll_top_call').addClass('show');
+                } else {
+                    $('#scroll_top_call').removeClass('show');
+                }
+            });
+
+            $('#scroll_top_call').on('click', function() {
+                $('html, body').animate({ scrollTop: 0 }, 1300 , 'easeInOutExpo');
+            return false;
+            });
+        },
 
     }; // end themesflatTheme
 
     // Start things up
     themesflatTheme.init();
 
-    var ajaxContactForm = function() {  
+    var ajaxContactForm = function() {
         $('#contactform').each(function() {
             $(this).validate({
                 submitHandler: function( form ) {
@@ -222,8 +237,8 @@
                             $form.find('.form-submit').append(loading);
                         },
                         success: function( msg ) {
-                            var result, cls;                            
-                            if ( msg === 'Success' ) {                                
+                            var result, cls;
+                            if ( msg === 'Success' ) {
                                 result = 'Message Sent Successfully To Email Administrator. ( You can change the email management a very easy way to get the message of customers in the user manual )';
                                 cls = 'msg-success';
                             } else {
@@ -336,7 +351,7 @@
         $(document).on('click', '.close', function(e) {
             $(this).closest('.flat-alert').remove();
             e.preventDefault();
-        })     
+        })
 
     };
     // Dom Ready

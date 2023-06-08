@@ -156,10 +156,8 @@ $request->validate([
 
         // Edit Product
         public function EditProduct($id){
-
             // Multi img
             $multiimgs = MultiImg::where('product_id', $id)->get();
-
             $category = Category::latest()->get();
             $brands = Brand::latest()->get();
             $subcategory = SubCategory::latest()->get();

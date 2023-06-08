@@ -11,9 +11,9 @@
         <div class="top-bar-inner-wrap">
             <div class="top-bar-content">
                 <div class="inner">
-                    <span class="address content">4946 Marmora Road, Central New</span>
-                    <span class="phone content">+61 3 8376 6284</span>
-                    <span class="time content">Mon-Sat: 8am - 6pm</span>
+                    <span class="address content">E-mail: amfl@amgbd.com</span>
+                    <span class="phone content">CALL US : +880 1844 527 808</span>
+                    {{-- <span class="time content"></span> --}}
                 </div>
             </div><!-- /.top-bar-content -->
 
@@ -37,9 +37,9 @@
         <div class="top-bar-inner-wrap">
             <div class="top-bar-content">
                 <div class="inner">
-                    <span class="address content">4946 Marmora Road, Central New</span>
-                    <span class="phone content">+61 3 8376 6284</span>
-                    <span class="time content">Mon-Sat: 8am - 6pm</span>
+                    <span class="address content">E-mail: amfl@amgbd.com</span>
+                    <span class="phone content">CALL US : +880 1844 527 808</span>
+                    {{-- <span class="time content">Mon-Sat: 8am - 6pm</span> --}}
                 </div>
             </div><!-- /.top-bar-content -->
 

@@ -27,7 +27,8 @@ public function ProjectStore(Request $request){
     // dd($request);
     // validation product
     $request->validate([
-        'project_name' => 'required|max:255|regex:/^[A-Za-z_][A-Za-z\d_]*$/',
+        // 'project_name' => 'required|max:255|regex:/^[A-Za-z_][A-Za-z\d_]*$/',
+        'project_name' => 'required',
         'status_id' => 'required',
         'category_id' => 'required',
         'location_id' => 'required',
@@ -50,8 +51,18 @@ public function ProjectStore(Request $request){
             'project_short_descp' => $request->project_short_descp,
             'project_long_descp' => $request->project_long_descp,
             'project_thambnail' => $request->project_thambnail,
-            'residential' => $request->residential,
-            'commercial' => $request->commercial,
+            'project_type' => $request->project_type,
+            'suqare_feet' => $request->suqare_feet,
+            'hight' => $request->hight,
+            'width' => $request->width,
+            'basement' => $request->basement,
+            'parking' => $request->parking,
+            'facing' => $request->facing,
+            'beedroom' => $request->beedroom,
+            'available_units' => $request->available_units,
+            'location_address' => $request->location_address,
+            'feature_project' => $request->feature_project,
+            'delivered_project' => $request->delivered_project,
             'project_thambnail' => $save_url,
             'created_at' => Carbon::now(),
         ]);
@@ -84,5 +95,17 @@ public function ProjectStore(Request $request){
         $project = Project::latest()->get();
         return view('backend/project/project_view', compact('project'));
     } // end mathod
-
+   //edit
+   public function EditProject($id){
+    $multiimgs = MultiImg::where('project_id', $id)->get();
+    $category = Category::latest()->get();
+    $location = Location::latest()->get();
+    $status = Status::latest()->get();
+    $projects = Project::findOrFail($id);
+    return view('backend.project.project_edit',compact('category','projects','location','status','multiimgs'));
+   }
+  //update
+  public function UpdateProduct(Request $request){
+    return redirect('')->route();
+  }
 }

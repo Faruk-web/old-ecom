@@ -35,134 +35,150 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="themesflat-spacer clearfix" data-desktop="73" data-mobile="60" data-smobile="60"></div>
-                                    <ul class="themesflat-filter style-1 clearfix">
-                                        <li class="active"><a href="#" data-filter="*">All</a></li>
-                                        <li><a href="#" data-filter=".green">GREEN HOUSE</a></li>
-                                        <li><a href="#" data-filter=".architecture">ARCHITECTURE   </a></li>
-                                        <li><a href="#" data-filter=".construction">CONSTRUCTION </a></li>
-                                        <li><a href="#" data-filter=".villa">VILLA</a></li>
-                                        <li><a href="#" data-filter=".building">BUILDING</a></li>
-                                    </ul>
+                                    <div class="themesflat-spacer clearfix" data-desktop="60" data-mobile="60" data-smobile="60"></div>
+                                    <div class="position-relative">
+                                        <div class="themesflat-headings style-1 clearfix">
+                                        <h2 class="heading ">All PROJECT</h2>
+                                        </div>
+                                        <ul class="themesflat-filter style-1 filter-absolute clearfix">
+                                            <li class="active"><a href="#" data-filter="*">All</a></li>
+                                            <li><a href="#" data-filter=".commercial">COMMERCIAL</a></li>
+                                            <li><a href="#" data-filter=".residential">RESIDENTIAL</a></li>
+                                            <li><a href="#" data-filter=".green">GREEN HOUSE</a></li>
+                                            <li><a href="#" data-filter=".architecture">ARCHITECTURE   </a></li>
+                                            <li><a href="#" data-filter=".construction">CONSTRUCTION </a></li>
+                                            {{-- <li><a href="#" data-filter=".villa">VILLA</a></li>
+                                            <li><a href="#" data-filter=".building">BUILDING</a></li> --}}
+                                        </ul>
+                                    </div>
                                     <div class="themesflat-spacer clearfix" data-desktop="40" data-mobile="35" data-smobile="35"></div>
                                     <div class="themesflat-project style-2 isotope-project has-margin mg15 data-effect clearfix">
-                                        <div class="project-item green villa">
+                                        @php
+                                            $project = App\Models\Project::where('project_type','commercial')->orderBy('id','desc')->limit(4)->get();
+                                        @endphp
+                                         @foreach ($project as $item)
+                                        <div class="project-item residential">
                                             <div class="inner">
                                                 <div class="thumb data-effect-item has-effect-icon w40 offset-v-19 offset-h-49">
-                                                    <img src="{{ asset('frontend/assets/img/project/project-1-370x245.jpg')}}" alt="Image">
+                                                    <img src="{{ asset($item->project_thambnail)}}" alt="Image">
                                                     <div class="elm-link">
-                                                        <a href="#" class="icon-1 icon-search"></a>
-                                                        <a href="#" class="icon-1"></a>
+                                                        <a href="{{ route('user.project.details',$item->id) }}" class="icon-1 icon-search"></a>
+                                                        {{-- <a href="#" class="icon-1"></a> --}}
                                                     </div>
                                                     <div class="overlay-effect bg-color-3"></div>
                                                 </div>
                                                 <div class="text-wrap">
-                                                    <h5 class="heading"><a href="#">LAKE MEADOWS APARTMENTS</a></h5>
+                                                    <h5 class="heading"><a href="#">{{$item->project_name}}</a></h5>
                                                     <div class="elm-meta">
-                                                        <span><a href="#">Green House</a></span>
-                                                        <span><a href="#">Villa</a></span>
+                                                        <span><a href="{{ route('user.project.details',$item->id) }}">Green House</a></span>
+                                                        <span><a href="{{ route('user.project.details',$item->id) }}">Villa</a></span>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div><!-- /.product-item -->
-                                        <div class="project-item architecture building construction">
+                                        </div>
+                                        @endforeach
+                                        <!-- /.product-item -->
+                                        @php
+                                        $project = App\Models\Project::where('project_type','residential')->orderBy('id','desc')->limit(4)->get();
+                                        @endphp
+                                        @foreach ($project as $item)
+                                        <div class="project-item architecture">
                                             <div class="inner">
                                                 <div class="thumb data-effect-item has-effect-icon w40 offset-v-19 offset-h-49">
-                                                    <img src="{{ asset('frontend/assets/img/project/project-2-370x245.jpg')}}" alt="Image">
+                                                    <img src="{{ asset($item->project_thambnail)}}" alt="Image">
                                                     <div class="elm-link">
-                                                        <a href="#" class="icon-1 icon-search"></a>
-                                                        <a href="#" class="icon-1"></a>
+                                                        <a href="{{ route('user.project.details',$item->id) }}" class="icon-1 icon-search"></a>
+                                                        {{-- <a href="#" class="icon-1"></a> --}}
                                                     </div>
                                                     <div class="overlay-effect bg-color-3"></div>
                                                 </div>
                                                 <div class="text-wrap">
-                                                    <h5 class="heading"><a href="#">CAVAL RIDGE MINE PROJECT </a></h5>
+                                                    <h5 class="heading"><a href="#">{{$item->project_name}}</a></h5>
                                                     <div class="elm-meta">
-                                                        <span><a href="#">Architecture</a></span>
+                                                        <span><a href="{{ route('user.project.details',$item->id) }}">Green House</a></span>
+                                                        <span><a href="{{ route('user.project.details',$item->id) }}">Villa</a></span>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div><!-- /.product-item -->
-                                        <div class="project-item villa architecture building construction">
+                                        </div>
+                                        @endforeach
+                                        <!-- /.product-item -->
+                                        @php
+                                        $project = App\Models\Project::where('project_type','residential')->orderBy('id','desc')->limit(4)->get();
+                                        @endphp
+                                        @foreach ($project as $item)
+                                        <div class="project-item construction">
                                             <div class="inner">
                                                 <div class="thumb data-effect-item has-effect-icon w40 offset-v-19 offset-h-49">
-                                                    <img src="{{ asset('frontend/assets/img/project/project-3-370x245.jpg')}}" alt="Image">
+                                                    <img src="{{ asset($item->project_thambnail)}}" alt="Image">
                                                     <div class="elm-link">
-                                                        <a href="#" class="icon-1 icon-search"></a>
-                                                        <a href="#" class="icon-1"></a>
+                                                        <a href="{{ route('user.project.details',$item->id) }}" class="icon-1 icon-search"></a>
+                                                        {{-- <a href="#" class="icon-1"></a> --}}
                                                     </div>
                                                     <div class="overlay-effect bg-color-3"></div>
                                                 </div>
                                                 <div class="text-wrap">
-                                                    <h5 class="heading"><a href="#">GRAM HOTEL MAMZANA, MEWYORK</a></h5>
+                                                    <h5 class="heading"><a href="#">{{$item->project_name}}</a></h5>
                                                     <div class="elm-meta">
-                                                        <span><a href="#">Green House</a></span>
-                                                        <span><a href="#">Villa</a></span>
+                                                        <span><a href="{{ route('user.project.details',$item->id) }}">Green House</a></span>
+                                                        <span><a href="{{ route('user.project.details',$item->id) }}">Villa</a></span>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div><!-- /.product-item -->
-                                        <div class="project-item green villa">
+                                        </div>
+                                        @endforeach
+                                        <!-- /.product-item -->
+                                        @php
+                                        $project = App\Models\Project::where('project_type','residential')->orderBy('id','desc')->limit(4)->get();
+                                        @endphp
+                                        @foreach ($project as $item)
+                                        <div class="project-item green">
                                             <div class="inner">
                                                 <div class="thumb data-effect-item has-effect-icon w40 offset-v-19 offset-h-49">
-                                                    <img src="{{ asset('frontend/assets/img/project/project-4-370x245.jpg')}}" alt="Image">
+                                                    <img src="{{ asset($item->project_thambnail)}}" alt="Image">
                                                     <div class="elm-link">
-                                                        <a href="#" class="icon-1 icon-search"></a>
-                                                        <a href="#" class="icon-1"></a>
+                                                        <a href="{{ route('user.project.details',$item->id) }}" class="icon-1 icon-search"></a>
+                                                        {{-- <a href="#" class="icon-1"></a> --}}
                                                     </div>
                                                     <div class="overlay-effect bg-color-3"></div>
                                                 </div>
                                                 <div class="text-wrap">
-                                                    <h5 class="heading"><a href="#">LAKE MEADOWS APARTMENTS</a></h5>
+                                                    <h5 class="heading"><a href="#">{{$item->project_name}}</a></h5>
                                                     <div class="elm-meta">
-                                                        <span><a href="#">Green House</a></span>
-                                                        <span><a href="#">Villa</a></span>
+                                                        <span><a href="{{ route('user.project.details',$item->id) }}">Green House</a></span>
+                                                        <span><a href="{{ route('user.project.details',$item->id) }}">Villa</a></span>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div><!-- /.product-item -->
-                                        <div class="project-item architecture building construction">
+                                        </div>
+                                        @endforeach
+                                        <!-- /.product-item -->
+                                        @php
+                                        $project = App\Models\Project::where('project_type','residential')->orderBy('id','desc')->limit(4)->get();
+                                        @endphp
+                                        @foreach ($project as $item)
+                                        <div class="project-item commercial">
                                             <div class="inner">
                                                 <div class="thumb data-effect-item has-effect-icon w40 offset-v-19 offset-h-49">
-                                                    <img src="{{ asset('frontend/assets/img/project/project-5-370x245.jpg')}}" alt="Image">
+                                                    <img src="{{ asset($item->project_thambnail)}}" alt="Image">
                                                     <div class="elm-link">
-                                                        <a href="#" class="icon-1 icon-search"></a>
-                                                        <a href="#" class="icon-1"></a>
+                                                        <a href="{{ route('user.project.details',$item->id) }}" class="icon-1 icon-search"></a>
+                                                        {{-- <a href="#" class="icon-1"></a> --}}
                                                     </div>
                                                     <div class="overlay-effect bg-color-3"></div>
                                                 </div>
                                                 <div class="text-wrap">
-                                                    <h5 class="heading"><a href="#">CAVAL RIDGE MINE PROJECT </a></h5>
+                                                    <h5 class="heading"><a href="#">{{$item->project_name}}</a></h5>
                                                     <div class="elm-meta">
-                                                        <span><a href="#">Architecture</a></span>
+                                                        <span><a href="{{ route('user.project.details',$item->id) }}">Green House</a></span>
+                                                        <span><a href="{{ route('user.project.details',$item->id) }}">Villa</a></span>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div><!-- /.product-item -->
-                                        <div class="project-item villa green">
-                                            <div class="inner">
-                                                <div class="thumb data-effect-item has-effect-icon w40 offset-v-19 offset-h-49">
-                                                    <img src="{{ asset('frontend/assets/img/project/project-6-370x245.jpg')}}" alt="Image">
-                                                    <div class="elm-link">
-                                                        <a href="#" class="icon-1 icon-search"></a>
-                                                        <a href="#" class="icon-1"></a>
-                                                    </div>
-                                                    <div class="overlay-effect bg-color-3"></div>
-                                                </div>
-                                                <div class="text-wrap">
-                                                    <h5 class="heading"><a href="#">GRAM HOTEL MAMZANA, MEWYORK</a></h5>
-                                                    <div class="elm-meta">
-                                                        <span><a href="#">Green House</a></span>
-                                                        <span><a href="#">Villa</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.product-item -->
+                                        </div>
+                                        @endforeach
+                                        <!-- /.product-item -->
                                     </div><!-- /.themesflat-project -->
-                                    <div class="button-wrap has-icon icon-left size-14 pf21 text-center">
-                                        <a href="#" class="themesflat-button bg-accent pd32"><span>LOAD MORE <span class="icon"><i class="ion-load-c"></i></span></span></a>
-                                    </div>
-                                    <div class="themesflat-spacer clearfix" data-desktop="72" data-mobile="60" data-smobile="60"></div>
                                 </div><!-- /.col-md-12 -->
                             </div><!-- /.row -->
                         </div><!-- /.container -->

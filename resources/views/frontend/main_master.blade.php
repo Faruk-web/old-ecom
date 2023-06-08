@@ -62,7 +62,7 @@
 
     </div><!-- /#page -->
 </div><!-- /#wrapper -->
-
+<a id="scroll_top_call"></a>
 <a id="scroll-top"></a>
 <!-- Javascript -->
 <!-- Javascript -->

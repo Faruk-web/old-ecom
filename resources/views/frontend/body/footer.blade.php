@@ -8,27 +8,27 @@
                             <img src="{{ asset('frontend/assets/img/logo-white@2x.png') }}" alt="Image" width="170" height="34">
                         </p>
 
-                        <p class="margin-bottom-15">We have over 15 years of experien able to help you 24 hours a day.</p>
+                        <p class="margin-bottom-15">We have over 25 years of experien able to help you 24 hours a day.</p>
 
                         <ul>
                             <li>
                                 <div class="inner">
                                     <span class="fa fa-map-marker"></span>
-                                    <span class="text">PO BOX 16122 COLLINS STREET <span class="sl">West Victoria, NewYork</span></span>
+                                    <span class="text">752, Satmasjid Road, Dhanmondi C/A,<span class="text"> Dhaka-1205, Bangladesh</span></span>
                                 </div>
                             </li>
 
                             <li>
                                 <div class="inner">
                                     <span class="fa fa-phone"></span>
-                                    <span class="text">CALL US : (+61) 3 8376 6284</span>
+                                    <span class="text">CALL US : (+88) 01844 527 808</span>
                                 </div>
                             </li>
 
                             <li class="margin-top-7">
                                 <div class="inner">
                                     <span class=" font-size-14 fa fa-envelope"></span>
-                                    <span class="text">SUPPORT@NICHE_THEME</span>
+                                    <span class="text">E-mail: amfl@amgbd.com</span>
                                 </div>
                             </li>
                         </ul>
