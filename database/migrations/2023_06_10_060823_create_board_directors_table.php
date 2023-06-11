@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNewsTable extends Migration
+class CreateBoardDirectorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateNewsTable extends Migration
      */
     public function up()
     {
-        Schema::create('news', function (Blueprint $table) {
+        Schema::create('board_directors', function (Blueprint $table) {
             $table->id();
-            $table->string('news_name');
-            $table->string('news_image');
-            $table->string('news_short_descp');
-            $table->string('news_long_descp');
-            $table->date('date');
+            $table->string('director_name');
+            $table->string('director_image');
+            $table->string('director_short_descp');
+            $table->string('director_designation');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateNewsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news');
+        Schema::dropIfExists('board_directors');
     }
 }

@@ -47,7 +47,8 @@
                                     </div>
                                     <div class="themesflat-spacer clearfix" data-desktop="36" data-mobile="35" data-smobile="35"></div>
                                     <div class="themesflat-contact-form style-2 clearfix">
-                                        <form id="" action="" method="post" accept-charset="utf-8" class="">
+                                        <form method="POST" action="{{ route('contactUs.send')  }}" enctype="multipart/form-data">
+                                            @csrf
                                             <span class="wpcf7-form-control-wrap your-name">
                                                 <input type="text" tabindex="1" id="name" name="name" value="" class="wpcf7-form-control" placeholder="Name*" required>
                                             </span>
@@ -63,9 +64,9 @@
                                             <span class="wpcf7-form-control-wrap your-message">
                                                <textarea name="message" tabindex="5" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" placeholder="Message*" required ></textarea>
                                             </span>
-                                            <span class="wrap-submit">
-                                                <input type="submit" value="SEND US" class="submit wpcf7-form-control wpcf7-submit" id="submit" name="submit">
-                                            </span>
+                                            <div class="text-xs-right">
+                                                <input type="submit" class="btn btn-rounded btn-info" value="Send US">
+                                            </div>
                                         </form>
                                     </div><!-- /.themesflat-contact-form -->
                                 </div><!-- /.col-md-6 -->

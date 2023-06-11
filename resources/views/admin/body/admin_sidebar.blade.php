@@ -201,6 +201,19 @@ $prefix = Request::route()->getPrefix();
         <li class="treeview  {{ ($prefix=='/blog')?'active':'' }}  ">
             <a href="#">
               <i class="fa fa-sliders fa-5x"></i>
+              <span>Board Of Director</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{ route('board.director.add')}}"><i class="ti-more"></i>Director</a></li>
+              <li><a href="{{ route('manage_director')}}"><i class="ti-more"></i>Director View</a></li>
+            </ul>
+          </li>
+        <li class="treeview  {{ ($prefix=='/blog')?'active':'' }}  ">
+            <a href="#">
+              <i class="fa fa-sliders fa-5x"></i>
               <span>News Option</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-right pull-right"></i>

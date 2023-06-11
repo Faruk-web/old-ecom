@@ -316,9 +316,116 @@
             </div>
           </div> <!-- // end row  -->
        </section>
-
+       <section class="content">
+        <div class="row">
+         <div class="col-md-12">
+                   <div class="box bt-3 border-info">
+                     <div class="box-header">
+            <h4 class="box-title">Project Floor Image <strong>Update</strong></h4>
+                     </div>
+           <form method="post" action="{{ route('update_project_floor_image')}}" enctype="multipart/form-data">
+           @csrf
+            <input type="hidden" name="id" value="{{ $projects->id }}">
+              <input type="hidden" name="old_imgfloor" value="{{ $projects->floor_image }}">
+               <div class="row row-sm">
+                   <div class="col-md-3">
+                <div class="card">
+                    <img src="{{ asset($projects->floor_image) }}" class="card-img-top" style="height: 130px; width: 280px;">
+                    <div class="card-body">
+                    <p class="card-text">
+                        <div class="form-group">
+                            <label class="form-control-label">Change Image <span class="tx-danger">*</span></label>
+                    <input type="file" name="floor_image" class="form-control" onChange="mainThamUrlfloor(this)"  >
+                        <img src="" id="mainThmbfloor">
+                        </div>
+                    </p>
+                    </div>
+                </div>
+                   </div><!--  end col md 3		 -->
+               </div>
+               <div class="text-xs-right">
+              <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update Image">
+            </div>
+           </form>
+         </div>
+        </div>
+        </div>
+    </section>
     <!-- ///////////////// End Multiple Image Update Area ///////// -->
-
+    <section class="content">
+        <div class="row">
+               <div class="col-md-12">
+                   <div class="box bt-3 border-info">
+                     <div class="box-header">
+              <h4 class="box-title">Project Floor Multiple Image <strong>Update</strong></h4>
+                    </div>
+           <form method="post" action="{{ route('update_project_img_floor')}}" enctype="multipart/form-data">
+            @csrf
+            <div class="row row-sm">
+                   @foreach($multiimgsfloor as $img)
+                   <div class="col-md-3">
+                    <div class="card">
+                        <img src="{{ asset($img->photo_name_floor) }}" class="card-img-top" style="height: 130px; width: 280px;">
+                        <div class="card-body">
+                        <h5 class="card-title">
+                        <a href="" class="btn btn-sm btn-danger" id="#" title="Delete Data"><i class="fa fa-trash"></i> </a>
+                            </h5>
+                        <p class="card-text">
+                            <div class="form-group">
+                                <label class="form-control-label">Change Image <span class="tx-danger">*</span></label>
+                                <input class="form-control" type="file" name="multi_imgfloor[{{ $img->id }}]">
+                            </div>
+                        </p>
+                        </div>
+                    </div>
+                   </div><!--  end col md 3		 -->
+                   @endforeach
+               </div>
+               <div class="text-xs-right">
+               <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update Image">
+            </div>
+            <br>
+            <br>
+           </form>
+         </div>
+        </div>
+      </div> <!-- // end row  -->
+   </section>
+   <section class="content">
+    <div class="row">
+     <div class="col-md-12">
+               <div class="box bt-3 border-info">
+                 <div class="box-header">
+        <h4 class="box-title">Project Map <strong>Update</strong></h4>
+                 </div>
+       <form method="post" action="{{ route('update_project_map_image')}}" enctype="multipart/form-data">
+       @csrf
+        <input type="hidden" name="id" value="{{ $projects->id }}">
+          <input type="hidden" name="old_imgmap" value="{{ $projects->project_map }}">
+           <div class="row row-sm">
+               <div class="col-md-3">
+            <div class="card">
+                <img src="{{ asset($projects->project_map) }}" class="card-img-top" style="height: 130px; width: 280px;">
+                <div class="card-body">
+                <p class="card-text">
+                    <div class="form-group">
+                        <label class="form-control-label">Change Image <span class="tx-danger">*</span></label>
+                <input type="file" name="project_map" class="form-control" onChange="mainThamUrlmap(this)"  >
+                    <img src="" id="mainThmbmap">
+                    </div>
+                </p>
+                </div>
+            </div>
+               </div><!--  end col md 3		 -->
+           </div>
+           <div class="text-xs-right">
+          <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update Image">
+        </div>
+       </form>
+     </div>
+    </div>
+    </div>
+</section>
     </div>
 
 
@@ -346,10 +453,7 @@
               alert('danger');
           }
       });
-
-
         // sub sub category auto select
-
         $('select[name="subcategory_id"]').on('change', function(){
                 var subcategory_id = $(this).val();
                 if(subcategory_id) {
@@ -368,18 +472,9 @@
                     alert('danger');
                 }
             });
-
-
-
-
-
-
   });
   </script>
-
-
 {{-- // Img Tham script --}}
-
 <script type="text/javascript">
 	function mainThamUrl(input){
 		if (input.files && input.files[0]) {
@@ -390,13 +485,29 @@
 			reader.readAsDataURL(input.files[0]);
 		}
 	}
+    // floor image
+    function mainThamUrlfloor(input){
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e){
+				$('#mainThmbfloor').attr('src',e.target.result).width(80).height(80);
+			};
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+      // project map
+      function mainThamUrlmap(input){
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e){
+				$('#mainThmbmap').attr('src',e.target.result).width(80).height(80);
+			};
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
 </script>
-
-
 {{-- ---------------------------Show Multi Image JavaScript Code ------------------------ --}}
-
 <script>
-
   $(document).ready(function(){
    $('#MultiImg').on('change', function(){ //on file input change
       if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
@@ -417,6 +528,30 @@
               }
           });
 
+      }else{
+          alert("Your browser doesn't support File API!"); //if File API is absent
+      }
+   });
+  });
+  // floor multi image
+  $(document).ready(function(){
+   $('#MultiImgfloor').on('change', function(){ //on file input change
+      if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
+      {
+          var data = $(this)[0].files; //this file data
+          $.each(data, function(index, file){ //loop though each file
+              if(/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)){ //check supported file type
+                  var fRead = new FileReader(); //new filereader
+                  fRead.onload = (function(file){ //trigger function on successful read
+                  return function(e) {
+                      var img = $('<img/>').addClass('thumb').attr('src', e.target.result) .width(80)
+                  .height(80); //create image element
+                      $('#preview_imgfloor').append(img); //append image to output element
+                  };
+                  })(file);
+                  fRead.readAsDataURL(file); //URL representing the file's data.
+              }
+          });
       }else{
           alert("Your browser doesn't support File API!"); //if File API is absent
       }

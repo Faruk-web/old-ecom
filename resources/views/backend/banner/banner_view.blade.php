@@ -15,10 +15,7 @@
             <div class="table-responsive">
                 <div id="example1_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
                     <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
-
-
                         <thead>
-
                             <tr role="row" class="btn-primary"><th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 133.734px;">Bennar Img</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 222.891px;">Title</th><th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 98.6719px;">Discription</th><th>Status</th><th>Update</th><th>Delete</th><th>Active/Deactive</th>
                             </tr>
 

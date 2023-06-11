@@ -213,7 +213,8 @@
                          @enderror --}}
                          <img src="" id="mainThmbfloor"  />
                         </div>
-                </div> <!-- end col md 4 -->
+                </div>
+                 <!-- end col md 4 -->
                 <div class="col-md-4">
                     <div class="form-group">
                         <h5>Project Floor multi Image<span class="text-danger"></span></h5>
@@ -223,6 +224,18 @@
                          <span class="text-danger">{{ $message }}</span>
                          @enderror --}}
                          <div class="row" id="preview_imgfloor"></div>
+                        </div>
+                </div>
+                 <!-- end col md 4 -->
+                 <div class="col-md-4">
+                    <div class="form-group">
+                        <h5>Project Map<span class="text-danger"></span></h5>
+                        <div class="controls">
+                            <input type="file" name="project_map" class="form-control" onchange="mainThamUrlmap(this)" > </div>
+                         {{-- @error('project_map')
+                         <span class="text-danger">{{ $message }}</span>
+                         @enderror --}}
+                         <img src="" id="mainThmbmap"  />
                         </div>
                 </div>
                 <div class="col-md-4">
@@ -378,6 +391,15 @@
 			var reader = new FileReader();
 			reader.onload = function(e){
 				$('#mainThmbfloor').attr('src',e.target.result).width(80).height(80);
+			};
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+    function mainThamUrlmap(input){
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e){
+				$('#mainThmbmap').attr('src',e.target.result).width(80).height(80);
 			};
 			reader.readAsDataURL(input.files[0]);
 		}

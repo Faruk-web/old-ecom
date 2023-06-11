@@ -46,6 +46,7 @@
                     <ol class="comment-list style-2">
                         @foreach ($news as $item)
                         <li class="comment">
+                            <a href="{{ route('user.news.details',$item->id) }}">
                             <article class="comment-wrap clearfix">
                                 <div class="gravatar"><img alt="image" src="{{ asset($item->news_image)}}" /></div>
                                 <div class="comment-content">
@@ -64,70 +65,9 @@
                                     </div>
                                 </div>
                             </article>
+                        </a>
                         </li>
                         @endforeach
-                        <!-- /.comment -->
-                        {{-- <li class="comment">
-                            <article class="comment-wrap clearfix">
-                                <div class="gravatar"><img alt="image" src="assets/img/testimonials/avatar-2-106x106.jpg" /></div>
-                                <div class="comment-content">
-                                    <div class="comment-meta">
-                                        <h6 class="comment-author">Dana lewis </h6>
-                                        <span class="comment-position">Executive vice president</span>
-                                    </div>
-                                    <div class="comment-text">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit doli. Aenean commodo ligula eget dolor. Aenean massa. Cumtipsu sociis natoque penatibus et magnis</p>
-                                        <div class="socials">
-                                            <a href="#" class="facebook"><span class="fa fa-facebook-square"></span></a>
-                                            <a href="#" class="twitter"><span class="fa fa-twitter"></span></a>
-                                            <a href="#" class="linkedin"><span class="fa fa-linkedin-square"></span></a>
-                                            <a href="#" class="pinterest"><span class="fa fa-pinterest-p"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </li><!-- /.comment -->
-                        <li class="comment">
-                            <article class="comment-wrap clearfix">
-                                <div class="gravatar"><img alt="image" src="assets/img/testimonials/avatar-3-106x106.jpg" /></div>
-                                <div class="comment-content">
-                                    <div class="comment-meta">
-                                        <h6 class="comment-author">Bill tomlinson</h6>
-                                        <span class="comment-position">Manager, Aggregates </span>
-                                    </div>
-                                    <div class="comment-text">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit doli. Aenean commodo ligula eget dolor. Aenean massa. Cumtipsu sociis natoque penatibus et magnis</p>
-                                        <div class="socials">
-                                            <a href="#" class="facebook"><span class="fa fa-facebook-square"></span></a>
-                                            <a href="#" class="twitter"><span class="fa fa-twitter"></span></a>
-                                            <a href="#" class="linkedin"><span class="fa fa-linkedin-square"></span></a>
-                                            <a href="#" class="pinterest"><span class="fa fa-pinterest-p"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </li><!-- /.comment -->
-                        <li class="comment">
-                            <article class="comment-wrap clearfix">
-                                <div class="gravatar"><img alt="image" src="assets/img/testimonials/avatar-4-106x106.jpg" /></div>
-                                <div class="comment-content">
-                                    <div class="comment-meta">
-                                        <h6 class="comment-author">Scott berquist </h6>
-                                        <span class="comment-position">Maketing Manager </span>
-                                    </div>
-                                    <div class="comment-text">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit doli. Aenean commodo ligula eget dolor. Aenean massa. Cumtipsu sociis natoque penatibus et magnis</p>
-                                        <div class="socials">
-                                            <a href="#" class="facebook"><span class="fa fa-facebook-square"></span></a>
-                                            <a href="#" class="twitter"><span class="fa fa-twitter"></span></a>
-                                            <a href="#" class="linkedin"><span class="fa fa-linkedin-square"></span></a>
-                                            <a href="#" class="pinterest"><span class="fa fa-pinterest-p"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </li> --}}
-                        <!-- /.comment -->
                     </ol><!-- /.comment-list -->
                 </div><!-- /.themesflat-content-box -->
                 <div class="themesflat-spacer clearfix" data-desktop="83" data-mobile="60" data-smobile="60"></div>

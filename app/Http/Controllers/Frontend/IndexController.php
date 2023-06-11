@@ -14,6 +14,7 @@ use App\Models\Product;
 use App\Models\Project;
 use App\Models\MultiImg;
 use App\Models\Brand;
+use App\Models\BoardDirector;
 use App\Models\Banner;
 use App\Models\ContactUs;
 use App\Models\SubCategory;
@@ -156,11 +157,6 @@ class IndexController extends Controller
     return view('frontend.tags.tags_view', compact('products','categories'));
 
    }
-
-
-
-
-
     // Subcategory wise data
 	public function SubCatWiseProduct($subcat_id){
 
@@ -172,7 +168,6 @@ class IndexController extends Controller
     return view('frontend.product.subcategory_view',compact('products','categories','breadsubcat'));
 
 	}
-
 
      // Subcategory wise data
 	public function SubSubCatWiseProduct($subsubcat_id){
@@ -188,37 +183,23 @@ class IndexController extends Controller
 
  /// Product View With Ajax
  public function ProductViewAjax($id){
-
-
   $product = Product::with('category', 'brand')->findOrFail($id);
-
-
-
   $color = $product->product_color;
   $product_colors = explode(',', $color);
-
   // size varibale is messing
   $size = $product->product_size;
   $product_sizes = explode(',', $size);
-
   return response()->json(array(
     'product' =>$product,
     'color' => $product_colors,
     'size' => $product_sizes,
 // problem is same varibale
-
-
   ));
 
  } // end mathod
 
-
-
-
     // Product Seach
     public function ProductSearch(Request $request){
-
-
       if(isset($request->cat))
       {
         $categories = $request->cat;
@@ -227,9 +208,6 @@ class IndexController extends Controller
       {
         $item = $request->search;
       }
-
-
-
       if(isset($item)&&!isset($categories))
       {
         $products = Product::where('product_name','LIKE',"%$item%")->paginate(9);
@@ -247,15 +225,8 @@ class IndexController extends Controller
         return view('frontend.product.search',compact('products'));
 
       }
-
-
-
        return redirect()->route('user.index');
-
-
-
     }
-
     public function searchByColor($color)
     {
       $products  = Product::where('product_color','like','%'.$color.'%')->paginate(6);
@@ -304,8 +275,6 @@ class IndexController extends Controller
       $products = Product::where('special_deals','1')->limit(30)->paginate(9);
       return view('frontend.product.search',compact('products'));
     }
-
-
     public function subscribe(Request $request)
     {
           $validated = $request->validate([
@@ -320,8 +289,6 @@ class IndexController extends Controller
             return redirect()->back()->with('message', 'Thanks For Subscribe');
           }
     }
-
-
     public function review(Request $request,$id)
     {
 
@@ -330,16 +297,11 @@ class IndexController extends Controller
         return redirect()->route('login');
       }else
       {
-
-
-
           $validated = $request->validate([
               'name' => 'required|max:50',
               'review' => 'required|max:255',
               'quality' => 'required',
           ]);
-
-
           if($validated)
           {
             $review = new review();
@@ -354,17 +316,15 @@ class IndexController extends Controller
                 'alert-type' => 'success'
             );
               return redirect()->back()->with($notification);
-
           }
         }
 
     }
    public function contactUs(Request $request)
    {
-                $validated = $request->validate([
+    $validated = $request->validate([
                 'name' => 'required|max:30',
                 'email' => 'required',
-                'subject' => 'required|max:60',
                 'subject' => 'required|max:60',
                 'message' => 'required|max:255',
                 ]);
@@ -374,8 +334,10 @@ class IndexController extends Controller
                   // return 'Email Sent';
                    $contact  = new ContactUs();
                    $contact->name = $request->name;
+                   $contact->phone = $request->phone;
                    $contact->email = $request->email;
                    $contact->subject = $request->subject;
+                   $contact->submit = $request->submit;
                    $contact->message = $request->message;
                    $contact->save();
                    $notification = array(
@@ -384,47 +346,78 @@ class IndexController extends Controller
                 );
                    return redirect()->back()->with($notification);
 
-
                 }
    }
     //about
     public function aboutus(){
-        return view('frontend.amfl.about');
+        $boardof_directors = BoardDirector::get();
+        return view('frontend.amfl.about',compact('boardof_directors'));
     }
-    //about
+    //project
     public function project(){
         $projects = Project::limit(30)->orderBy('id', 'desc')->paginate(9);
         return view('frontend.amfl.project',compact('projects'));
     }
-    //about
+
+    //ongoingProject
+    public function ongoingProject(){
+        $projects = Project::limit(30)->orderBy('id', 'desc')->paginate(9);
+        return view('frontend.amfl.all.ongoing_project',compact('projects'));
+    }
+    //upcomingProject
+    public function upcomingProject(){
+        $projects = Project::limit(30)->orderBy('id', 'desc')->paginate(9);
+        return view('frontend.amfl.all.upcoming_project',compact('projects'));
+    }
+    //completedProject
+    public function completedProject(){
+        $projects = Project::limit(30)->orderBy('id', 'desc')->paginate(9);
+        return view('frontend.amfl.all.completed_project',compact('projects'));
+    }
+
+     //ProjectDetails
+     public function ProjectDetails($id){
+        $projects = Project::find($id);
+        $related_projects = Project::orderBy('id', 'desc')->limit(4)->get();
+        return view('frontend.amfl.project_details',compact('projects','related_projects'));
+    }
+     //ProjectDetails by slide
+     public function ProjectDetailsSlide($id){
+        $slider = Slider::find($id);
+        $projects = Project::find($slider->project_id);
+        $related_projects = Project::orderBy('id', 'desc')->limit(4)->get();
+        return view('frontend.amfl.project_details',compact('projects','related_projects'));
+    }
+    //news
     public function news(){
         $news = News::orderBy('id', 'ASC')->limit(5)->get();
         return view('frontend.amfl.news',compact('news'));
+    }
+       // newsDetails
+       public function newsDetails($id){
+        $news_details = News::find($id);
+        return view('frontend.amfl.news_details',compact('news_details'));
     }
     //blog
     public function blog(){
         $blogs = Blog::orderBy('id', 'ASC')->limit(4)->get();
         return view('frontend.amfl.blog',compact('blogs'));
     }
-    //blog details
+    //blogDetails
     public function blogDetails($id){
         $blogs = Blog::find($id);
          return view('frontend.amfl.blog_details',compact('blogs'));
     }
-     //about
+     //contactamfl
      public function contactamfl(){
         return view('frontend.amfl.contact');
     }
     //about
-    public function service(){
-        return view('frontend.amfl.service');
+    public function BoardOfDirector($id){
+        $boardof_directors = BoardDirector::find($id);
+        return view('frontend.amfl.boardof_director',compact('boardof_directors'));
     }
-    //about
-    public function ProjectDetails($id){
-        $projects = Project::find($id);
-        return view('frontend.amfl.project_details',compact('projects'));
-    }
-   //
+
 } // main end
 
 

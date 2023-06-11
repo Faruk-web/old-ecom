@@ -23,6 +23,7 @@ class CreateProjectsTable extends Migration
             $table->string('project_long_descp');
             $table->string('project_thambnail');
             $table->string('floor_image');
+            $table->string('project_map');
             $table->string('project_type');
             $table->string('suqare_feet');
             $table->string('hight');

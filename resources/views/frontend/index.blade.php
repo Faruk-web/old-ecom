@@ -93,7 +93,7 @@
                                         data-splitin="none"
                                         data-splitout="none"
                                         data-responsive_offset="on">
-                                        <a href="{{ url('/project/details') }}" class="themesflat-button bg-accent big"><span>GET IN TOUCH</span></a>
+                                        <a href="{{ route('user.project.details.slide',$slider->id) }}" class="themesflat-button bg-accent big"><span>GET IN TOUCH</span></a>
                                     </div>
                                 </li>
                                 @endforeach
@@ -686,7 +686,8 @@
                                             </div><!-- /.themesflat-heading -->
                                             <div class="themesflat-contact-form style-1 clearfix">
                                                 <div class="themesflat-spacer clearfix" data-desktop="8" data-mobile="8" data-smobile="8"></div>
-                                                <form action="#" method="post" class="contact-form wpcf7-form">
+                                                <form method="POST" action="{{ route('contactUs.send')  }}" enctype="multipart/form-data">
+                                                    @csrf
                                                     <span class="wpcf7-form-control-wrap your-name">
                                                         <input type="text" tabindex="1" id="name" name="name" value="" class="wpcf7-form-control" placeholder="Name" required>
                                                     </span>
@@ -718,7 +719,7 @@
                                     <div class="themesflat-spacer clearfix" data-desktop="60" data-mobile="60" data-smobile="60"></div>
                                     <div class="position-relative">
                                         <div class="themesflat-headings style-1 clearfix">
-                                        <h2 class="heading ">FEATURED PROJECT</h2>
+                                        <h2 class="heading ">TOP TWENTY PROJECT</h2>
                                         </div>
                                         <ul class="themesflat-filter style-1 filter-absolute clearfix">
                                             <li class="active"><a href="#" data-filter="*">All</a></li>

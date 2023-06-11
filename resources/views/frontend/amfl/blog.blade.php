@@ -7,22 +7,17 @@
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
     <title>AMFL</title>
-
     <meta name="author" content="themesflat.com">
-
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <!-- Theme Style -->
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/style.css')}}">
-
     <!-- Colors -->
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/colors/color1.css')}}" id="colors">
-
     <!-- Favicon and Touch Icons  -->
     <link rel="shortcut icon" href="{{ asset('frontend/assets/icon/favicon.png')}}">
     <link rel="apple-touch-icon-precomposed" href="{{ asset('frontend/assets/icon/apple-touch-icon-158-precomposed.png')}}">
-
     <!--[if lt IE 9]>
         <script src="javascript/html5shiv.js"></script>
         <script src="javascript/respond.min.js"></script>
@@ -41,10 +36,8 @@
             <!-- Header -->
             @include('frontend.body.header')
             <!-- /#site-header -->
-
             <!-- /#site-header -->
         </div><!-- #site-header-wrap -->
-
         <!-- Featured Title -->
         <div id="featured-title" class="featured-title clearfix">
             <div id="featured-title-inner" class="container clearfix">
@@ -52,7 +45,7 @@
                     <div id="breadcrumbs">
                         <div class="breadcrumbs-inner">
                             <div class="breadcrumb-trail">
-                                <a href="home.html" class="trail-begin">Home</a>
+                                <a href="{{ url('/') }}" class="trail-begin">Home</a>
                                 <span class="sep">|</span>
                                 <span class="trail-end">Blog</span>
                             </div>
@@ -67,7 +60,6 @@
             </div><!-- /#featured-title-inner -->
         </div>
         <!-- End Featured Title -->
-
         <!-- Main Content -->
         <div id="main-content" class="site-main clearfix">
             <div id="content-wrap" class="container">
@@ -90,7 +82,6 @@
                                     <a href="page-blog-single.html" class="icon-1"></a>
                                 </div>
                             </div><!-- /.post-media -->
-
                             <div class="post-content-wrap clearfix">
                                 <h2 class="post-title">
                                     <span class="post-title-inner">
@@ -117,92 +108,6 @@
                             </div><!-- /.post-content-wrap -->
                         </article><!-- /.hentry -->
                         @endforeach
-                        {{-- <article class="hentry data-effect">
-                            <div class="post-media data-effect-item has-effect-icon offset-v-25 offset-h-24clerafix">
-                                <a href="page-blog-single.html"><img src="{{ asset('frontend/assets/img/news/post-2-840x385.jpg')}}" alt="Image"></a>
-                                <div class="post-calendar">
-                                    <span class="inner">
-                                        <span class="entry-calendar">
-                                            <span class="day">23</span>
-                                            <span class="month">MAY</span>
-                                        </span>
-                                    </span>
-                                </div>
-                                <div class="overlay-effect bg-color-1"></div>
-                                <div class="elm-link">
-                                    <a href="page-blog-single.html" class="icon-1"></a>
-                                </div>
-                            </div><!-- /.post-media -->
-
-                            <div class="post-content-wrap clearfix">
-                                <h2 class="post-title">
-                                    <span class="post-title-inner">
-                                        <a href="page-blog-single.html">BIG TECH WILL GET BIGGER IN 2018, WHILE MALLER PLAYERS LOOK FOR EXITS</a>
-                                    </span>
-                                </h2><!-- /.post-title -->
-                                <div class="post-meta">
-                                    <div class="post-meta-content">
-                                        <div class="post-meta-content-inner">
-                                            <span class="post-date item"><span class="inner"><span class="entry-date">May 23, 2018</span></span></span>
-                                            <span class="post-by-author item"><span class="inner"><a href="#">By: Admin</a></span></span>
-                                            <span class="comment item"><span class="inner"><a href="#">3 Comments</a></span></span>
-                                        </div>
-                                    </div>
-                                </div><!-- /.post-meta -->
-                                <div class="post-content post-excerpt">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.</p>
-                                </div><!-- /.post-excerpt -->
-                                <div class="post-read-more">
-                                    <div class="post-link">
-                                        <a href="{{ url('/blog/details') }}">READ MORE</a>
-                                    </div>
-                                </div>
-                            </div><!-- /.post-content-wrap -->
-                        </article><!-- /.hentry -->
-
-                        <article class="hentry margin-top-33 padding-top-45 data-effect">
-                            <div class="post-media data-effect-item has-effect-icon offset-v-25 offset-h-24 clerafix">
-                                <a href="page-blog-single.html"><img src="{{ asset('frontend/assets/img/news/post-3-840x385.jpg')}}" alt="Image"></a>
-                                <div class="post-calendar">
-                                    <span class="inner">
-                                        <span class="entry-calendar">
-                                            <span class="day">23</span>
-                                            <span class="month">MAY</span>
-                                        </span>
-                                    </span>
-                                </div>
-                                <div class="overlay-effect bg-color-1"></div>
-                                <div class="elm-link">
-                                    <a href="page-blog-single.html" class="icon-1"></a>
-                                </div>
-                            </div><!-- /.post-media -->
-
-                            <div class="post-content-wrap clearfix">
-                                <h2 class="post-title">
-                                    <span class="post-title-inner">
-                                        <a href="page-blog-single.html">BIG TECH WILL GET BIGGER IN 2018, WHILE MALLER PLAYERS LOOK FOR EXITS</a>
-                                    </span>
-                                </h2><!-- /.post-title -->
-                                <div class="post-meta">
-                                    <div class="post-meta-content">
-                                        <div class="post-meta-content-inner">
-                                            <span class="post-date item"><span class="inner"><span class="entry-date">May 23, 2018</span></span></span>
-                                            <span class="post-by-author item"><span class="inner"><a href="#">By: Admin</a></span></span>
-                                            <span class="comment item"><span class="inner"><a href="#">3 Comments</a></span></span>
-                                        </div>
-                                    </div>
-                                </div><!-- /.post-meta -->
-                                <div class="post-content post-excerpt">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.</p>
-                                </div><!-- /.post-excerpt -->
-                                <div class="post-read-more">
-                                    <div class="post-link">
-                                        <a href="{{ url('/blog/details') }}">READ MORE</a>
-                                    </div>
-                                </div>
-                            </div><!-- /.post-content-wrap -->
-                        </article><!-- /.hentry --> --}}
-
                         <div class="themesflat-pagination clearfix">
                             <ul>
                                 <li><a href="#" class="page-numbers prev"><span class="fa fa-angle-left"></span></a></li>
@@ -340,13 +245,11 @@
 <script src="{{ asset('frontend/assets/js/equalize.min.js')}}"></script>
 <script src="{{ asset('frontend/assets/js/jquery.isotope.min.js')}}"></script>
 <script src="{{ asset('frontend/assets/js/owl.carousel2.thumbs.js')}}"></script>
-
 <script src="{{ asset('frontend/assets/js/jquery.cookie.js')}}"></script>
 <script src="{{ asset('frontend/assets/js/gmap3.min.js')}}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIEU6OT3xqCksCetQeNLIPps6-AYrhq-s&region=GB"></script>
 <script src="{{ asset('frontend/assets/js/shortcodes.js')}}"></script>
 <script src="{{ asset('frontend/assets/js/main.js')}}"></script>
-
 <!-- Revolution Slider -->
 <script src="{{ asset('frontend/includes/rev-slider/js/jquery.themepunch.tools.min.js')}}"></script>
 <script src="{{ asset('frontend/includes/rev-slider/js/jquery.themepunch.revolution.min.js')}}"></script>

@@ -33,6 +33,7 @@ class NewsController extends Controller
                 'news_name' => $request->news_name,
                 'news_short_descp' => $request->news_short_descp,
                 'news_image' => $request->news_image,
+                'news_long_descp' => $request->news_long_descp,
                 'news_image' => $save_url,
                 'date' => $request->date,
                 'created_at' => Carbon::now(),

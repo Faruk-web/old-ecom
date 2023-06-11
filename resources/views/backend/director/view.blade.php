@@ -10,39 +10,39 @@
             <!-- Basic Forms -->
             <div class="box">
                 <div class="box-header with-border">
-                <h4 class="box-title">Add News</h4>
+                <h4 class="box-title">Add Director</h4>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                 <div class="row">
                     <div class="col">
-              <form action="{{ route('news.store') }}" method="POST" enctype="multipart/form-data">
+              <form action="{{ route('Director.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                  <div class="col-12">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 style="text-align: center;">  <b class="btn btn-dark btn-lg" style="height: 25%; width:100%"> News Info </b> </h1>
+                        <h1 style="text-align: center;">  <b class="btn btn-dark btn-lg" style="height: 25%; width:100%"> Director Info </b> </h1>
                     </div>
                 </div>
             <div class="row"> <!-- start 1st row  -->
                  <!-- end col md 3 -->
                 <div class="col-md-4">
                     <div class="form-group">
-                    <h5>News Title<span class="text-danger">*</span></h5>
+                    <h5>Director Name<span class="text-danger">*</span></h5>
                     <div class="controls">
-                        <input type="text" name="news_name" class="form-control" > </div>
-                        @error('project_name')
+                        <input type="text" name="director_name" class="form-control" > </div>
+                        @error('director_name')
                         <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <h5>News Image<span class="text-danger">*</span></h5>
+                        <h5>Director Image<span class="text-danger">*</span></h5>
                         <div class="controls">
-                            <input type="file" name="news_image" class="form-control" onchange="mainThamUrl(this)" > </div>
-                         @error('news_image')
+                            <input type="file" name="director_image" class="form-control" onchange="mainThamUrl(this)" > </div>
+                         @error('director_image')
                          <span class="text-danger">{{ $message }}</span>
                          @enderror
                          <img src="" id="mainThmb"  />
@@ -50,34 +50,25 @@
                 </div> <!-- end col md 4 -->
                 <div class="col-md-4">
                     <div class="form-group">
-                        <h5>Date<span class="text-danger"></span></h5>
+                        <h5>Director Designation<span class="text-danger"></span></h5>
                         <div class="controls">
-                            <input type="date" name="date" class="form-control" > </div>
+                            <input type="text" name="director_designation" class="form-control" > </div>
                         </div>
                 </div>
             </div> <!-- end 1st row  -->
             <div class="row"> <!-- start 5th row  -->
-                <div class="col-md-5">
+                <div class="col-md-12">
                     <div class="form-group">
-                        <h5>News Short Descraption<span class="text-danger">*</span></h5>
-                          <textarea name="news_short_descp" rows="10"  id="textarea" class="form-control"  placeholder="Textarea text"></textarea>
-                         @error('product_short_descp')
-                         <span class="text-danger">{{ $message }}</span>
-                         @enderror
-                        </div>
-                </div> <!-- end col md 4 -->
-                <div class="col-md-7">
-                    <div class="form-group">
-                        <h5>News Long Descraption<span class="text-danger">*</span></h5>
-                        	<textarea id="editor1" name="news_long_descp" rows="5" cols="80" ></textarea>
-                         {{-- @error('news_long_descp')
+                        <h5>Director Short Descraption<span class="text-danger">*</span></h5>
+                          <textarea name="director_short_descp" rows="10"  id="textarea" class="form-control"  placeholder="Textarea text"></textarea>
+                         {{-- @error('director_short_descp')
                          <span class="text-danger">{{ $message }}</span>
                          @enderror --}}
                         </div>
                 </div> <!-- end col md 4 -->
             </div> <!-- end 6th row  -->
           <div class="text-align-center">
-            <input type="submit" class="btn btn-rounded btn-primary mb-5 " value="Post News" >
+            <input type="submit" class="btn btn-rounded btn-primary mb-5 " value="Save" >
         </div>
     </form>
  </div>

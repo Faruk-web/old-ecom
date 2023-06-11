@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
@@ -18,6 +17,7 @@ use App\Http\Controllers\Backend\AdminUserController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\LocationController;
 use App\Http\Controllers\Backend\NewsController;
+use App\Http\Controllers\Backend\BoardOfDirectorController;
 //project
 use App\Http\Controllers\Backend\ProjectController;
 // ashim controller add
@@ -34,7 +34,6 @@ use App\Http\Controllers\User\CashController;
 use App\Http\Controllers\Frontend\SocialiteLoginController;
 use App\Models\User;
 use League\CommonMark\Extension\CommonMark\Node\Block\IndentedCode;
-
 // Admin prefix route
 Route::group(['prefix'=> 'admin', 'middleware'=>['admin:admin']], function(){
 	Route::get('/login', [AdminController::class, 'loginForm']);
@@ -58,7 +57,6 @@ Route::get('/admin/change/password', [AdminProfileController::class, 'AdminChang
 ////Admin update password
 Route::post('/update/change/password', [AdminProfileController::class, 'AdminUpdateChangePassword'])->name('update.change.password');
 });
-
 // User Route
 // Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -71,12 +69,17 @@ Route::get('/', [IndexController::class, 'index'])->name('user.index');
 //amfl
 Route::get('/about', [IndexController::class, 'aboutus'])->name('user.bout');
 Route::get('/project', [IndexController::class, 'project'])->name('user.project');
+Route::get('/ongoing/project', [IndexController::class, 'ongoingProject'])->name('user.project.ongoing');
+Route::get('/upcoming/project', [IndexController::class, 'upcomingProject'])->name('user.project.upcoming');
+Route::get('/completed/project', [IndexController::class, 'completedProject'])->name('user.project.completed');
 Route::get('/news', [IndexController::class, 'news'])->name('user.news');
+Route::get('/news/details/{id}', [IndexController::class, 'newsDetails'])->name('user.news.details');
 Route::get('/blog', [IndexController::class, 'blog'])->name('user.blog');
 Route::get('/blog/details/{id}', [IndexController::class, 'blogDetails'])->name('user.blog.details');
 Route::get('/contact_us', [IndexController::class, 'contactamfl'])->name('user.contact');
-Route::get('/service', [IndexController::class, 'service'])->name('user.service');
+Route::get('/boardof/director/{id}', [IndexController::class, 'BoardOfDirector'])->name('user.director');
 Route::get('/project/details/{id}', [IndexController::class, 'ProjectDetails'])->name('user.project.details');
+Route::get('/project/details/slide/{id}', [IndexController::class, 'ProjectDetailsSlide'])->name('user.project.details.slide');
 // User Logout Route
 Route::get('/user/logout', [IndexController::class, 'UserLogout'])->name('user.logout');
 // User Update Profile
@@ -126,6 +129,12 @@ Route::prefix('project')->group(function(){
     Route::post('/thambnail/update', [ProjectController::class, 'ThambnailImageUpdate'])->name('update_project_thambnail');
     // For Multiple Img Update
     Route::post('/update/multiimg', [ProjectController::class, 'UpdateProductMultiImg'])->name('update_project_img');
+     // For floor Img Update
+     Route::post('/floor/image/update', [ProjectController::class, 'ThambnailImageUpdateFloor'])->name('update_project_floor_image');
+     // For floor Multiple Img Update
+     Route::post('/floor/update/multiimg', [ProjectController::class, 'UpdateProductMultiImgFloor'])->name('update_project_img_floor');
+    // For map Img Update
+    Route::post('/map/image/update', [ProjectController::class, 'ThambnailImageUpdateMap'])->name('update_project_map_image');
 });
 Route::prefix('blog')->group(function(){
     Route::get('/blog', [BlogController::class, 'BlogAdd'])->name('blog.add');
@@ -134,7 +143,14 @@ Route::prefix('blog')->group(function(){
     // Route::post('/edit/update', [ProjectController::class, 'UpdateProject'])->name('project.update');
     // // Manage Product
     Route::get('/manage', [BlogController::class, 'ManageBlog'])->name('manage_blog');
-
+});
+Route::prefix('board')->group(function(){
+    Route::get('/board/of/director', [BoardOfDirectorController::class, 'DirectorAdd'])->name('board.director.add');
+    Route::post('/store', [BoardOfDirectorController::class, 'DirectorStore'])->name('Director.store');
+    // Route::get('/edit/{id}', [ProjectController::class, 'EditProject'])->name('project.edit');
+    // Route::post('/edit/update', [ProjectController::class, 'UpdateProject'])->name('project.update');
+    // // Manage Product
+    Route::get('/manage', [BoardOfDirectorController::class, 'ManageDirector'])->name('manage_director');
 });
 Route::prefix('news')->group(function(){
     Route::get('/news', [NewsController::class, 'NewsAdd'])->name('news.add');

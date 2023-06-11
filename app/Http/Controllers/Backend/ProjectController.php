@@ -48,6 +48,11 @@ public function ProjectStore(Request $request){
      $name_gen_floor = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
      Image::make($image)->resize(917,1000)->save('upload/projects/thambnail/'.$name_gen_floor);
      $save_url_floor = 'upload/projects/thambnail/'.$name_gen_floor;
+     // img upload and save and img intervations packge use
+     $image = $request->file('project_map');
+     $name_gen_map = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+     Image::make($image)->resize(917,1000)->save('upload/projects/thambnail/'.$name_gen_map);
+     $save_url_map = 'upload/projects/thambnail/'.$name_gen_map;
         $project_id =   Project::insertGetId([
             'status_id' => $request->status_id,
             'category_id' => $request->category_id,
@@ -57,6 +62,7 @@ public function ProjectStore(Request $request){
             'project_long_descp' => $request->project_long_descp,
             'project_thambnail' => $request->project_thambnail,
             'floor_image' => $request->floor_image,
+            'project_map' => $request->project_map,
             'project_type' => $request->project_type,
             'suqare_feet' => $request->suqare_feet,
             'hight' => $request->hight,
@@ -71,6 +77,7 @@ public function ProjectStore(Request $request){
             'delivered_project' => $request->delivered_project,
             'project_thambnail' => $save_url,
             'floor_image' => $save_url_floor,
+            'floor_image' => $save_url_map,
             'created_at' => Carbon::now(),
         ]);
         // Multiple img upload start
@@ -110,7 +117,6 @@ public function ProjectStore(Request $request){
     }
     return redirect()->route('manage-project')->with($notification);
     } // end mathod
-
     public function ManageProject(){
         $project = Project::latest()->get();
         return view('backend/project/project_view', compact('project'));
@@ -118,11 +124,12 @@ public function ProjectStore(Request $request){
    //edit
    public function EditProject($id){
     $multiimgs = MultiImg::where('project_id', $id)->get();
+    $multiimgsfloor = MultiImgfloor::where('project_id', $id)->get();
     $category = Category::latest()->get();
     $location = Location::latest()->get();
     $status = Status::latest()->get();
     $projects = Project::findOrFail($id);
-    return view('backend.project.project_edit',compact('category','projects','location','status','multiimgs'));
+    return view('backend.project.project_edit',compact('category','projects','location','status','multiimgs','multiimgsfloor'));
    }
    // update Product
    public function UpdateProject(Request $request){
@@ -178,6 +185,48 @@ public function ProjectStore(Request $request){
         );
         return redirect()->back()->with($notification);
         } // end method
+        /// Product Main Floor Update ///
+    public function ThambnailImageUpdateFloor(Request $request){
+        $pro_id = $request->id;
+        $oldImagefloor = $request->old_imgfloor;
+        if (file_exists($oldImagefloor)){
+            unlink($oldImagefloor);
+        }
+    $image = $request->file('floor_image');
+        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+        Image::make($image)->resize(917,1000)->save('upload/projects/thambnail/'.$name_gen);
+        $save_url = 'upload/projects/thambnail/'.$name_gen;
+        Project::findOrFail($pro_id)->update([
+            'floor_image' => $save_url,
+            'updated_at' => Carbon::now(),
+        ]);
+            $notification = array(
+            'message' => 'Project Floor Image Thambnail Updated Successfully',
+            'alert-type' => 'info'
+        );
+        return redirect()->back()->with($notification);
+        } // end method
+         /// Product Main Floor Update ///
+    public function ThambnailImageUpdateMap(Request $request){
+        $pro_id = $request->id;
+        $oldImagemap = $request->old_imgmap;
+        if (file_exists($oldImagemap)){
+            unlink($oldImagemap);
+        }
+    $image = $request->file('project_map');
+        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+        Image::make($image)->resize(917,1000)->save('upload/projects/thambnail/'.$name_gen);
+        $save_url = 'upload/projects/thambnail/'.$name_gen;
+        Project::findOrFail($pro_id)->update([
+            'project_map' => $save_url,
+            'updated_at' => Carbon::now(),
+        ]);
+            $notification = array(
+            'message' => 'Project Map Image Thambnail Updated Successfully',
+            'alert-type' => 'info'
+        );
+        return redirect()->back()->with($notification);
+        } // end method
         /// Multiple Image Update
         public function UpdateProductMultiImg(Request $request){
             $imgs = $request->multi_img;
@@ -203,4 +252,29 @@ public function ProjectStore(Request $request){
             );
             return redirect()->back()->with($notification);
     } // end mathod
+    /// Multiple Image Update
+    public function UpdateProductMultiImgFloor(Request $request){
+        $imgsfloor = $request->multi_imgfloor;
+        foreach ($imgsfloor as $id => $img) {
+        $imgDel = MultiImgfloor::findOrFail($id);
+        $image_deletfloor = $imgDel->photo_name_floor;
+        // dd($imgDel);
+        // unlink($imgDel->photo_name);
+        if (file_exists($image_deletfloor)){
+            unlink($image_deletfloor);
+        }
+        $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
+        Image::make($img)->resize(917,1000)->save('upload/projects/multi_image/'.$make_name);
+        $uploadPath = 'upload/projects/multi_image/'.$make_name;
+        MultiImgfloor::where('id',$id)->update([
+            'photo_name_floor' => $uploadPath,
+            'updated_at' => Carbon::now(),
+        ]);
+    } // end foreach
+    $notification = array(
+            'message' => 'Project Floor multi Image Updated Successfully',
+            'alert-type' => 'info'
+        );
+        return redirect()->back()->with($notification);
+} // end mathod
 }

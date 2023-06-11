@@ -52,17 +52,17 @@
                     <div id="breadcrumbs">
                         <div class="breadcrumbs-inner">
                             <div class="breadcrumb-trail">
-                                <a href="home.html" class="trail-begin">Home</a>
+                                <a href="{{ url('/') }}" class="trail-begin">Home</a>
                                 <span class="sep">|</span>
-                                <a href="page-blog.html" class="trail-begin">Blog</a>
+                                <a href="{{ url('/blog') }}" class="trail-begin">Blog</a>
                                 <span class="sep">|</span>
-                                <span class="trail-end">Blog Single</span>
+                                <span class="trail-end">Blog Details</span>
                             </div>
                         </div>
                     </div>
                     <div class="featured-title-heading-wrap">
                         <h1 class="feautured-title-heading">
-                            Blog Single
+                            Blog Details
                         </h1>
                     </div>
                 </div><!-- /.featured-title-inner-wrap -->

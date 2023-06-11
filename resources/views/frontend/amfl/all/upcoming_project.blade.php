@@ -10,6 +10,8 @@
                     <div class="breadcrumb-trail">
                         <a href="{{ url('/') }}" class="trail-begin">Home</a>
                         <span class="sep">|</span>
+                        <span class="trail-end">Upcoming</span>
+                        <span class="sep">|</span>
                         <span class="trail-end">Projects</span>
                     </div>
                 </div>
@@ -38,7 +40,7 @@
                                     <div class="themesflat-spacer clearfix" data-desktop="60" data-mobile="60" data-smobile="60"></div>
                                     <div class="position-relative">
                                         <div class="themesflat-headings style-1 clearfix">
-                                        <h2 class="heading ">All PROJECT</h2>
+                                        <h2 class="heading ">All UPCOMING PROJECT</h2>
                                         </div>
                                         <ul class="themesflat-filter style-1 filter-absolute clearfix">
                                             <li class="active"><a href="#" data-filter="*">All</a></li>
