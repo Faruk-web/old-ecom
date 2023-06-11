@@ -8,7 +8,7 @@
             <div id="breadcrumbs">
                 <div class="breadcrumbs-inner">
                     <div class="breadcrumb-trail">
-                        <a href="home.html" class="trail-begin">Home</a>
+                        <a href="{{ url('/') }}" class="trail-begin">Home</a>
                         <span class="sep">|</span>
                         <span class="trail-end">Contact</span>
                     </div>
@@ -97,21 +97,21 @@
                                                         <li class="clearfix">
                                                             <div class="inner">
                                                                 <span class="fa fa-map-marker"></span>
-                                                                <span class="text">PO BOX 16122 COLLINS STREET WEST VICTORIA, NEWYORK </span>
+                                                                <span class="text">Address : 752, Satmasjid Road, Dhanmondi C/A, Dhaka-1205, Bangladesh </span>
                                                             </div>
                                                         </li>
 
                                                         <li class="clearfix">
                                                             <div class="inner">
                                                                 <span class="fa fa-phone"></span>
-                                                                <span class="text">CALL US : (+61) 3 8376 6284</span>
+                                                                <span class="text">Call Us : (+88) 01844 527 808</span>
                                                             </div>
                                                         </li>
 
                                                         <li class="clearfix">
                                                             <div class="inner">
                                                                 <span class="fa fa-envelope"></span>
-                                                                <span class="text">EMAIL : SUPPORT@NICHE_THEME</span>
+                                                                <span class="text">EmailL : amfl@amgbd.com</span>
                                                             </div>
                                                         </li>
                                                     </ul>

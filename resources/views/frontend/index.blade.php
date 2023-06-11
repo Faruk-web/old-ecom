@@ -710,7 +710,6 @@
                         </div><!-- /.container -->
                     </div>
                     <!-- END REQUEST -->
-
                     <!-- PROJECT -->
                     <div class="row-project clearfix">
                         <div class="container">
@@ -1110,3 +1109,4 @@
     </div><!-- /#content-wrap -->
 </div>
 @endsection
+

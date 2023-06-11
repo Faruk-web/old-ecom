@@ -12,7 +12,7 @@
 
        <div class="box">
          <div class="box-header with-border">
-           <h3 class="box-title">All News List</h3>
+           <h3 class="box-title">Contact Client</h3>
          </div>
          <!-- /.box-header -->
          <div class="box-body">
@@ -20,24 +20,27 @@
                <table id="example1" class="table table-bordered table-striped">
                  <thead>
                      <tr>
-                        <th>Image</th>
-                        <th>News Name</th>
-                        <th>News Short Description</th>
-                        <th>Date </th>
+                        <th>Client Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th>Date</th>
                         <th>Action</th>
                      </tr>
                  </thead>
                  <tbody>
-
-                    @foreach($news as $item)
+                    @foreach($contacts as $item)
                     <tr>
-                       <td> <img src="{{ asset($item->news_image) }}" style="width: 60px; height: 50px;">  </td>
-                       <td>{{ $item->news_name }}</td>
-                       <td>{{ $item->news_short_descp }}</td>
-                        <td>{{ $item->date }}</td>
+                       <td> {{$item->name}} </td>
+                       <td>{{ $item->phone }}</td>
+                       <td>{{ $item->email }}</td>
+                       <td>{{ $item->subject }}</td>
+                       <td>{{ $item->message }}</td>
+                        <td>{{ $item->created_at }}</td>
                        <td>
-                        <a href="" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
-                        <a href="" class="btn btn-danger" title="Delete Data" id="#">
+                        {{-- <a href="" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a> --}}
+                        <a href="{{ route('contact.delete',$item->id) }}" class="btn btn-danger" title="Delete Data" id="#">
                         <i class="fa fa-trash"></i>
                        </a>
                        </td>
@@ -52,6 +55,5 @@
 </div> <!--  row end-->
 </section> <!--  content end-->
 </div> <!--  row end-->
-
 @endsection
 

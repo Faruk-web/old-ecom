@@ -224,6 +224,18 @@ $prefix = Request::route()->getPrefix();
               <li><a href="{{ route('manage_news')}}"><i class="ti-more"></i>News View</a></li>
             </ul>
           </li>
+          <li class="treeview  {{ ($prefix=='/blog')?'active':'' }}  ">
+            <a href="#">
+              <i class="fa fa-sliders fa-5x"></i>
+              <span>Contact Client</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{ route('contact.client')}}"><i class="ti-more"></i>Contact</a></li>
+            </ul>
+          </li>
         @if($setting == true)
         <li class="treeview {{ ($prefix == '/setting')?'active':'' }}  ">
           <a href="#">

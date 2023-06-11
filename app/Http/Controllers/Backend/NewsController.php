@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\News;
+use App\Models\ContactUs;
 use Intervention\Image\Facades\Image;
 use Carbon\Carbon;
 class NewsController extends Controller
@@ -13,6 +14,19 @@ class NewsController extends Controller
     public function NewsAdd(){
         return view('backend.news.view');
     }
+    // contact client
+    public function ContactClient(){
+        $contacts = ContactUs::get();
+        return view('backend.news.contact_client',compact('contacts'));
+    }
+    public function ContactDelete($id){
+        ContactUs::findOrFail($id)->delete();
+        $notification = array(
+          'message' =>  'Contact History Delete Sucessyfully',
+          'alert-type' => 'success'
+      );
+      return redirect()->back()->with($notification);
+      } // end mathod
     //NewsStore
     public function NewsStore(Request $request){
         // dd($request);

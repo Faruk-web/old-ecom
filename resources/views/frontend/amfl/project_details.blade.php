@@ -159,7 +159,8 @@
                                                     <div class="gallery-item" >
                                                         <div class="inner">
                                                             <div class="thumb">
-                                                                <img src="{{asset($projects->project_thambnail)}}" alt="Image">
+                                                                <img src="{{ asset('frontend/assets/img/amfl/Icon.jpg') }}" alt="Image">
+                                                                {{-- <img src="{{asset($projects->project_thambnail)}}" alt="Image"> --}}
                                                             </div>
                                                         </div>
                                                     </div>

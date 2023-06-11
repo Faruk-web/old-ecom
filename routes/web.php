@@ -157,6 +157,9 @@ Route::prefix('news')->group(function(){
     Route::post('/news', [NewsController::class, 'NewsStore'])->name('news.store');
     // Route::get('/edit/{id}', [ProjectController::class, 'EditProject'])->name('project.edit');
     // Route::post('/edit/update', [ProjectController::class, 'UpdateProject'])->name('project.update');
+    // contact client
+    Route::get('/contact/client', [NewsController::class, 'ContactClient'])->name('contact.client');
+    Route::get('/contact/delete/{id}', [NewsController::class, 'ContactDelete'])->name('contact.delete');
     // // Manage Product
     Route::get('/manage', [NewsController::class, 'ManageNews'])->name('manage_news');
 
@@ -292,6 +295,10 @@ Route::prefix('bannerCategory')->group(function(){
 Route::get('/checkout', [CartController::class, 'CheckoutCreate'])->name('checkout');
 // Shop Page Route
 Route::get('/shop', [ShopController::class, 'ShopPage'])->name('shop.page');
+// search project
+Route::get('/search_project', [ShopController::class, 'search_project']);
+Route::get('/create/search/project', [ShopController::class, 'search_amfl_project'])->name('search_amfl_project.store');
+
 //Facebook Login
 Route::get('login/google', [SocialiteLoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('login/google/callback', [SocialiteLoginController::class, 'handleGoogleCallback']);

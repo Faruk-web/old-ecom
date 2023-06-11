@@ -87,12 +87,39 @@
                     </span>
                 </a>
 
-                <form role="search" method="get" class="header-search-form" action="#">
+                <form role="search" method="get" class="header-search-form" action="{{ route('search_amfl_project.store')  }}" enctype="multipart/form-data">
                     <label class="screen-reader-text">Search for:</label>
-                    <input type="text" value="" name="s" class="header-search-field" placeholder="Search...">
+                    <input type="text" value="" name="material_search_new" id="material_search_new" class="header-search-field" placeholder="Search...">
                     <button type="submit" class="header-search-submit" title="Search"><i class="fa fa-search"></i></button>
+                    <div class="row mt-2 p-3" id="member_show_info">
+                    </div>
                 </form>
             </div><!-- /#header-search -->
         </div><!-- /.wrap-inner -->
     </div><!-- /#site-header-inner -->
 </header>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"
+referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function () {
+        SidebarColpase();
+    });
+
+</script>
+<script>
+    // Begin:: members Search for
+    $('#material_search_new').keyup(function () {
+        var material_info = $(this).val();
+        $.ajax({
+            type: 'get',
+            url: '/create/search/project',
+            data: {
+                'material_info': material_info
+            },
+            success: function (data) {
+                $('#member_show_info').html(data);
+            }
+        });
+    });
+    // End:: doner Search for
+</script>

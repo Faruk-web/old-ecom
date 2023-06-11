@@ -27,7 +27,7 @@
 <!-- End Featured Title -->
 <div class="row"  style="background-image: url('{{ asset('frontend/assets/img/amfl/news.jpg')}}');center center no-repeat; background-size: cover;">
     <div class="col-md-12">
-        <div class="themesflat-spacer clearfix" data-desktop="350" data-mobile="60" data-smobile="60"></div>
+        <div class="themesflat-spacer clearfix" data-desktop="150" data-mobile="60" data-smobile="60"></div>
         <div class="themesflat-headings style-1 text-center clearfix">
             <h2 class="heading text-white">News Details</h2>
             <div class="sep has-icon width-125 border-color-light clearfix">
