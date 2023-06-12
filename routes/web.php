@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\ReturnController;
 use App\Http\Controllers\Backend\SiteSettingController;
 use App\Http\Controllers\Backend\AdminUserController;
+use App\Http\Controllers\Backend\EmployeeController;
 //amfl location
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\LocationController;
@@ -135,6 +136,8 @@ Route::prefix('project')->group(function(){
      Route::post('/floor/update/multiimg', [ProjectController::class, 'UpdateProductMultiImgFloor'])->name('update_project_img_floor');
     // For map Img Update
     Route::post('/map/image/update', [ProjectController::class, 'ThambnailImageUpdateMap'])->name('update_project_map_image');
+    // For map Img Update
+    Route::post('/icon/image/update', [ProjectController::class, 'ThambnailImageUpdateIconImage'])->name('update_project_icon_image');
 });
 Route::prefix('blog')->group(function(){
     Route::get('/blog', [BlogController::class, 'BlogAdd'])->name('blog.add');
@@ -313,15 +316,18 @@ Route::get('login/google/callback', [SocialiteLoginController::class, 'handleGoo
 // Twitter Login
 Route::get('login/twitter', [App\Http\Controllers\Auth\LoginController::class, 'redirectToTwitter'])->name('login.twitter');
 Route::get('login/twitter/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleTwitterCallback']);
-// for department employee salary
-Route::prefix('salary')->group(function(){
-    // All user view
-    Route::get('/add', [EmployeeSalary::class, 'AddSalary'])->name('salary-add');
-    Route::get('/get_employee/{id}', [EmployeeSalary::class,'getEmployee'])->name('get.employee');
-    Route::post('/get_employee', [EmployeeSalary::class,'find'])->name('employee.find');
-    Route::post('/salary_payment', [EmployeeSalary::class,'getSalary'])->name('payment_salary');
-    Route::get('/paid_salary', [EmployeeSalary::class,'paidSalary'])->name('paid_salary');
-    Route::get('/paid_salary', [EmployeeSalary::class,'paidSalary'])->name('paid_salary');
+//  Employee Route Group
+Route::prefix('employee')->group(function(){
+    Route::get('/view', [EmployeeController::class, 'EmployeeView'])->name('employee.view');
+    Route::get('/addform', [EmployeeController::class, 'EmployeeAddForm'])->name('employee.addform');
+    Route::post('/store', [EmployeeController::class, 'EmployeeStore'])->name('employee.store');
+ // Edit Employee
+Route::get('/edit/{id}', [EmployeeController::class, 'EmployeeEdit'])->name('employee.edit');
+// Upadte Employee
+Route::post('/update', [EmployeeController::class, 'EmployeeUpdate'])->name('employee.update');
+  //Employee Full View
+  Route::get('/details/{id}', [EmployeeController::class, 'EmployeeDetails'])->name('employee.details');
+  Route::get('/delete/{id}', [EmployeeController::class, 'EmployeetDelete'])->name('employee.delete');
 });
 
 Route::post('/subscribe',[IndexController::class,'subscribe'])->name('subscribe');

@@ -244,7 +244,19 @@
                          @enderror --}}
                          <img src="" id="mainThmbmap"  />
                         </div>
-                </div>
+                   </div>
+                     <!-- end col md 4 -->
+                 <div class="col-md-4">
+                    <div class="form-group">
+                        <h5>Project Icon Image<span class="text-danger"></span></h5>
+                        <div class="controls">
+                            <input type="file" name="project_icon_img" class="form-control" onchange="mainThamUrlmapIconImage(this)" > </div>
+                         {{-- @error('project_map')
+                         <span class="text-danger">{{ $message }}</span>
+                         @enderror --}}
+                         <img src="" id="mainThmbmapIconImage"  />
+                        </div>
+                   </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <h5>Location Address<span class="text-danger">*</span></h5>
@@ -255,10 +267,10 @@
                         </div>
                 </div>
                 <!-- end col md 4 -->
-                <div class="col-md-8">
+                <div class="col-md-4">
                     <div class="form-group">
                         <h5>Project Short Descraption<span class="text-danger">*</span></h5>
-                          <textarea name="project_short_descp" rows="5"  id="textarea" class="form-control"  placeholder="Textarea text"></textarea>
+                          <textarea name="project_short_descp" rows="3"  id="textarea" class="form-control"  placeholder="Textarea text"></textarea>
                          @error('product_short_descp')
                          <span class="text-danger">{{ $message }}</span>
                          @enderror
@@ -400,6 +412,15 @@
 			var reader = new FileReader();
 			reader.onload = function(e){
 				$('#mainThmbmap').attr('src',e.target.result).width(80).height(80);
+			};
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+    function mainThamUrlmapIconImage(input){
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e){
+				$('#mainThmbmapIconImage').attr('src',e.target.result).width(80).height(80);
 			};
 			reader.readAsDataURL(input.files[0]);
 		}

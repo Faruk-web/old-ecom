@@ -47,11 +47,16 @@
                                                     </div>
                                                 </div>
                                                 <ul class="list-info has-icon icon-left">
-                                                    <li><span class="text">Client <span class="icon"><i class="fa fa-user"></i></span></span><span class="right">KenVin, LuHam</span></li>
-                                                    <li><span class="text">Budget <span class="icon"><i class="fa fa-usd"></i></span></span><span class="right">$46 Million</span></li>
-                                                    <li><span class="text">Surface Area <span class="icon"><i class="fa fa-search"></i></span></span><span class="right">145,000 sq. ft </span></li>
-                                                    <li><span class="text">Year completed <span class="icon"><i class="fa fa-calendar"></i></span></span><span class="right">2017</span></li>
-                                                    <li><span class="text">Prime Consultant: <span class="icon"><i class="fa fa-folder-open"></i></span></span><span class="right">Dialog Ontario</span></li>
+                                                    <li><span class="text">Project Type <span class="icon"><i class="fa fa-folder-open"></i></span></span><span class="right">{{ $projects->project_type }}</span></li>
+                                                    <li><span class="text">Square Feet <span class="icon"><i class="fa fa-check-square-o" aria-hidden="true"></i></span></span><span class="right">{{ $projects->suqare_feet }}</span></li>
+                                                    <li><span class="text">Hight<span class="icon"><i class="fa fa-folder-open"></i></span></span><span class="right">{{ $projects->hight}}</span></li>
+                                                    <li><span class="text">Width <span class="icon"><i class="fa fa-calendar"></i></span></span><span class="right">{{ $projects->width}}</span></li>
+                                                    <li><span class="text">Parking<span class="icon"><i class="fa fa-folder-open"></i></span></span><span class="right">{{ $projects->parking }}</span></li>
+                                                    <li><span class="text">Facing<span class="icon"><i class="fa fa-fighter-jet" aria-hidden="true"></i></span></span><span class="right">{{ $projects->facing}}</span></li>
+                                                    <li><span class="text">Beedroom<span class="icon"><i class="fa fa-folder-open"></i></span></span><span class="right">{{ $projects->beedroom}}</span></li>
+                                                    <li><span class="text">Available Units<span class="icon"><i class="fa fa-folder-open"></i></span></span><span class="right">{{ $projects->available_units}}</span></li>
+                                                    <li><span class="text">Basement<span class="icon"><i class="fa fa-folder-open"></i></span></span><span class="right">{{ $projects->basement}}</span></li>
+                                                    <li><span class="text">Location Address<span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span></span><span class="right">{{ $projects->location_address}}</span></li>
                                                     <li><span class="text">Tag <span class="icon"><i class="fa fa-tag"></i></span></span><span class="right"><a href="#">Building</a> / <a href="#">Green house</a></span></li>
                                                 </ul>
                                             </div><!-- /.content-info -->
@@ -130,18 +135,23 @@
                                     <div class="detail-inner-wrap">
                                         <div class="detail-info">
                                             <div class="content-info">
+                                                {{-- <div class="themesflat-headings style-2 clearfix">
+                                                    <h2 class="heading line-height-62">AMENITIES</h2>
+                                                    <div class="sep has-width w80 accent-bg clearfix">
+                                                    </div>
+                                                </div> --}}
                                                 <div class="themesflat-headings style-2 clearfix">
                                                     <h2 class="heading line-height-62">AMENITIES</h2>
                                                     <div class="sep has-width w80 accent-bg clearfix">
                                                     </div>
                                                 </div>
                                                 <ul class="list-info has-icon icon-left">
-                                                <li><span class="text">Lavish Ground Floor Reception. <span class="icon"><i class="">1 )</i></li>
-                                                <li><span class="text">Modern Fire Fighting system. <span class="icon"><i class="">2 )</i></li>
-                                                <li><span class="text">State of the Art Security System. <span class="icon"><i class="">3 )</i></li>
-                                                <li><span class="text">55% open space & airy design. <span class="icon"><i class="">4 )</i></li>
-                                                <li><span class="text">Earthquake Resistance Structure.<span class="icon"><i class="">5 )</i></li>
-                                                <li><span class="text">Strictly Maintained BNBC Rules.<span class="icon"><i class="">6 )</i></li>
+                                                <li><span class="text">Lavish Ground Floor Reception. <span class="icon"><i class="fa fa-folder-open"></i></li>
+                                                <li><span class="text">Modern Fire Fighting system. <span class="icon"><i class="fa fa-folder-open"></i></li>
+                                                <li><span class="text">State of the Art Security System. <span class="icon"><i class="fa fa-folder-open"></i></li>
+                                                <li><span class="text">55% open space & airy design. <span class="icon"><i class="fa fa-folder-open"></i></li>
+                                                <li><span class="text">Earthquake Resistance Structure.<span class="icon"><i class="fa fa-folder-open"></i></li>
+                                                <li><span class="text">Strictly Maintained BNBC Rules.<span class="icon"><i class="fa fa-folder-open"></i></li>
 
                                                 </ul>
                                             </div><!-- /.content-info -->
@@ -159,7 +169,7 @@
                                                     <div class="gallery-item" >
                                                         <div class="inner">
                                                             <div class="thumb">
-                                                                <img src="{{ asset('frontend/assets/img/amfl/Icon.jpg') }}" alt="Image">
+                                                                <img src="{{asset($projects->project_icon_img)}}" alt="Image">
                                                                 {{-- <img src="{{asset($projects->project_thambnail)}}" alt="Image"> --}}
                                                             </div>
                                                         </div>
@@ -192,15 +202,15 @@
                                                     @endforeach
                                                  </div>
                                              </div><!-- /.themesflat-cousel-box -->
-                                            <div class="themesflat-spacer clearfix" data-desktop="40" data-mobile="40" data-smobile="40"></div>
+                                            {{-- <div class="themesflat-spacer clearfix" data-desktop="40" data-mobile="40" data-smobile="40"></div>
                                             <div class="flat-content-wrap style-3 clearfix">
                                                 <h5 class="title">FLOOR DESCRIPTION</h5>
                                                 <div class="sep has-width w60 accent-bg margin-top-18 clearfix"></div>
                                                 <p>From November 2013 to April 2014, EllisDon was awarded an additional Lump Sum contract for $5 million. This additional scope of work included a lab fit- up on the fourth level of the Krembil Discovery Centre.</p>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
-                                    <div class="themesflat-spacer clearfix" data-desktop="58" data-mobile="60" data-smobile="60"></div>
+                                    {{-- <div class="themesflat-spacer clearfix" data-desktop="58" data-mobile="60" data-smobile="60"></div> --}}
                                 </div>
                             </div>
 

@@ -34,11 +34,9 @@ class AdminUserController extends Controller
         $employees = Employee::all();
     	return view('backend.role.admin_role_create',compact('employees'));
     }
-
-
  // Admin All User store
  public function StoreAdminRole(Request $request){
-
+// dd($request);
     // $request->validate([
     //     'name' => 'required',
     //     'email' => 'required',
@@ -47,28 +45,22 @@ class AdminUserController extends Controller
     //     'image' => 'required',
     // ]);
     $value=$request->all();
-
        if(array_key_exists('type',$value)){
         $emp= Employee::find($request->type);
-
-
-
-
 	     Admin::insert([
-
 		'name' => $emp->employee_name,
 		'email' => $emp->email_id,
 		'password' => Hash::make($request->password),
 		'phone' => $emp->employee_phone,
-		'brand' => $request->brand,
+		'board' => $request->board,
 		'category' => $request->category,
-		'product' => $request->product,
+		'project' => $request->project,
 		'slider' => $request->slider,
-		'cupons' => $request->cupons,
+		'blog' => $request->blog,
 		'shipping' => $request->shipping,
 		'setting' => $request->setting,
-		'returnorder' => $request->returnorder,
-        'review'=> $request->review,
+		'news' => $request->news,
+		'bannerCategory' => $request->bannerCategory,
 		'orders' => $request->orders,
 		'stock' => $request->stock,
 		'reports' => $request->reports,
@@ -77,40 +69,28 @@ class AdminUserController extends Controller
 		'type' =>$emp->department_id,
 		'profile_photo_path' =>$emp->employee_img,
 		'created_at' => Carbon::now(),
-
-
     	]);
-
 
        }
        else{
-
     	$image = $request->file('profile_photo_path');
     	$name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
     	Image::make($image)->resize(225,225)->save('upload/admin_images/'.$name_gen);
     	$save_url = 'upload/admin_images/'.$name_gen;
-
 	     Admin::insert([
-
-
-
 		'name' => $request->name,
 		'email' => $request->email,
 		'password' => Hash::make($request->password),
 		'phone' => $request->phone,
-		'brand' => $request->brand,
+		'board' => $request->board,
 		'category' => $request->category,
-		'product' => $request->product,
+		'project' => $request->project,
 		'slider' => $request->slider,
-		'cupons' => $request->cupons,
-
+		'blog' => $request->blog,
 		'shipping' => $request->shipping,
-
 		'setting' => $request->setting,
-		'returnorder' => $request->returnorder,
-
-        'review'=> $request->review,
-
+		'news' => $request->news,
+		'bannerCategory' => $request->bannerCategory,
 		'orders' => $request->orders,
 		'stock' => $request->stock,
 		'reports' => $request->reports,
@@ -119,8 +99,6 @@ class AdminUserController extends Controller
 		'type' =>$request->type,
 		'profile_photo_path' => $save_url,
 		'created_at' => Carbon::now(),
-
-
     	]);
     }
 	    $notification = array(
@@ -176,16 +154,12 @@ class AdminUserController extends Controller
 		'profile_photo_path' => $save_url,
 		'created_at' => Carbon::now(),
     	]);
-
 	    $notification = array(
 			'message' => 'Admin User Updated Successfully',
 			'alert-type' => 'info'
 		);
-
 		return redirect()->route('all.admin.user')->with($notification);
-
     	}else{
-
     	Admin::findOrFail($admin_id)->update([
             'name' => $request->name,
             'email' => $request->email,
@@ -209,47 +183,23 @@ class AdminUserController extends Controller
 		'created_at' => Carbon::now(),
 
     	]);
-
 	    $notification = array(
 			'message' => 'Admin User Updated Successfully',
 			'alert-type' => 'info'
 		);
-
 		return redirect()->route('all.admin.user')->with($notification);
-
     	} // end else
-
     } // end method
-
-
-
 	//
 	public function DeleteAdminRole($id){
-
 		$adminimg = Admin::findOrFail($id);
 		$img = $adminimg->profile_photo_path;
 		unlink($img);
-
 		Admin::findOrFail($id)->delete();
-
 		 $notification = array(
 		   'message' => 'Admin User Deleted Successfully',
 		   'alert-type' => 'info'
 	   );
-
 	   return redirect()->back()->with($notification);
-
 	} // end method
-
-
-
-
-
-
-
-
-
-
-
-
 }  // main end

@@ -53,6 +53,11 @@ public function ProjectStore(Request $request){
      $name_gen_map = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
      Image::make($image)->resize(917,1000)->save('upload/projects/thambnail/'.$name_gen_map);
      $save_url_map = 'upload/projects/thambnail/'.$name_gen_map;
+     // img upload and save and img intervations packge use
+     $image = $request->file('project_icon_img');
+     $name_gen_icon_image = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+     Image::make($image)->resize(917,1000)->save('upload/projects/thambnail/'.$name_gen_icon_image);
+     $save_url_iconimage = 'upload/projects/thambnail/'.$name_gen_icon_image;
         $project_id =   Project::insertGetId([
             'status_id' => $request->status_id,
             'category_id' => $request->category_id,
@@ -63,6 +68,7 @@ public function ProjectStore(Request $request){
             'project_thambnail' => $request->project_thambnail,
             'floor_image' => $request->floor_image,
             'project_map' => $request->project_map,
+            'project_icon_img' => $request->project_icon_img,
             'project_type' => $request->project_type,
             'suqare_feet' => $request->suqare_feet,
             'hight' => $request->hight,
@@ -78,6 +84,7 @@ public function ProjectStore(Request $request){
             'project_thambnail' => $save_url,
             'floor_image' => $save_url_floor,
             'floor_image' => $save_url_map,
+            'floor_image' => $save_url_iconimage,
             'created_at' => Carbon::now(),
         ]);
         // Multiple img upload start
@@ -223,6 +230,27 @@ public function ProjectStore(Request $request){
         ]);
             $notification = array(
             'message' => 'Project Map Image Thambnail Updated Successfully',
+            'alert-type' => 'info'
+        );
+        return redirect()->back()->with($notification);
+        } // end method
+         /// Product Main Floor Update ///
+    public function ThambnailImageUpdateIconImage(Request $request){
+        $pro_id = $request->id;
+        $oldImageicon = $request->old_imgicon;
+        if (file_exists($oldImageicon)){
+            unlink($oldImageicon);
+        }
+    $image = $request->file('project_icon_img');
+        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+        Image::make($image)->resize(917,1000)->save('upload/projects/thambnail/'.$name_gen);
+        $save_url = 'upload/projects/thambnail/'.$name_gen;
+        Project::findOrFail($pro_id)->update([
+            'project_icon_img' => $save_url,
+            'updated_at' => Carbon::now(),
+        ]);
+            $notification = array(
+            'message' => 'Project Icon Image Thambnail Updated Successfully',
             'alert-type' => 'info'
         );
         return redirect()->back()->with($notification);

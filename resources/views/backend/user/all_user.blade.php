@@ -1,15 +1,14 @@
 @extends('admin.admin_master')
 @section('admin')
-
 	  <div class="container-full">
 		<!-- Main content -->
 		<section class="content">
 		  <div class="row">
 			<div class="col-12">
 			 <div class="box">
-				<div class="box-header with-border">				 
+				<div class="box-header with-border">
                   <h3 class="box-title">Total User <span class="badge badge-pill badge-danger"> {{ count($users) }} </span> </h3>
-                  
+                  <a href="{{ route('employee.addform') }}" class="btn btn-success" style="float:right;">Employee Create</a>
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
@@ -23,7 +22,6 @@
 								<th>Phone</th>
 								<th>Status</th>
 								<th>Action</th>
-
 							</tr>
 						</thead>
 						<tbody>
@@ -33,30 +31,23 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->phone }}</td>
-
-
                             {{--  user online or offline Start --}}
-                            <td> 
+                            <td>
                                 @if($user->UserOnline())
                                  <span class="badge badge-pill badge-success">Active Now</span>
                                 @else
                                     <span class="badge badge-pill badge-danger">{{ Carbon\Carbon::parse($user->last_seen)->diffForHumans() }}</span>
-                                @endif 
+                                @endif
                                 </td>
-
                                 {{--  user online or offline end --}}
-
-
                             <td>
-                    <a href=" " class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
+                    {{-- <a href=" " class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a> --}}
                     <a href=" " class="btn btn-danger" title="Delete Data" id="delete">
                         <i class="fa fa-trash"></i></a>
                             </td>
-
                         </tr>
                         @endforeach
 						</tbody>
-
 					  </table>
 					</div>
 				</div>
@@ -65,10 +56,9 @@
 			  <!-- /.box -->
 			</div>
 			<!-- /.end col-12 -->
-
 		  </div>
 		  <!-- /.row -->
 		</section>
 		<!-- /.content -->
 	  </div>
-@endsection 
+@endsection

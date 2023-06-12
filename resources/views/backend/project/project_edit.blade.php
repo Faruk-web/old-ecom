@@ -392,41 +392,76 @@
       </div> <!-- // end row  -->
    </section>
    <section class="content">
-    <div class="row">
-     <div class="col-md-12">
-               <div class="box bt-3 border-info">
-                 <div class="box-header">
-        <h4 class="box-title">Project Map <strong>Update</strong></h4>
-                 </div>
-       <form method="post" action="{{ route('update_project_map_image')}}" enctype="multipart/form-data">
-       @csrf
-        <input type="hidden" name="id" value="{{ $projects->id }}">
-          <input type="hidden" name="old_imgmap" value="{{ $projects->project_map }}">
-           <div class="row row-sm">
-               <div class="col-md-3">
-            <div class="card">
-                <img src="{{ asset($projects->project_map) }}" class="card-img-top" style="height: 130px; width: 280px;">
-                <div class="card-body">
-                <p class="card-text">
-                    <div class="form-group">
-                        <label class="form-control-label">Change Image <span class="tx-danger">*</span></label>
-                <input type="file" name="project_map" class="form-control" onChange="mainThamUrlmap(this)"  >
-                    <img src="" id="mainThmbmap">
-                    </div>
-                </p>
+        <div class="row">
+            <div class="col-md-12">
+            <div class="box bt-3 border-info">
+                <div class="box-header">
+                <h4 class="box-title">Project Map <strong>Update</strong></h4>
                 </div>
+            <form method="post" action="{{ route('update_project_map_image')}}" enctype="multipart/form-data">
+            @csrf
+                <input type="hidden" name="id" value="{{ $projects->id }}">
+                <input type="hidden" name="old_imgmap" value="{{ $projects->project_map }}">
+                <div class="row row-sm">
+                    <div class="col-md-3">
+                            <div class="card">
+                                <img src="{{ asset($projects->project_map) }}" class="card-img-top" style="height: 130px; width: 280px;">
+                                <div class="card-body">
+                                <p class="card-text">
+                                    <div class="form-group">
+                                        <label class="form-control-label">Change Image <span class="tx-danger">*</span></label>
+                                <input type="file" name="project_map" class="form-control" onChange="mainThamUrlmap(this)"  >
+                                    <img src="" id="mainThmbmap">
+                                    </div>
+                                </p>
+                                </div>
+                            </div>
+                    </div><!--  end col md 3		 -->
+                </div>
+                <div class="text-xs-right">
+                <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update Image">
+                </div>
+            </form>
             </div>
-               </div><!--  end col md 3		 -->
-           </div>
-           <div class="text-xs-right">
-          <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update Image">
+            </div>
+         </div>
+   </section>
+   <section class="content">
+    <div class="row">
+        <div class="col-md-12">
+        <div class="box bt-3 border-info">
+            <div class="box-header">
+            <h4 class="box-title">Project Icon Image <strong>Update</strong></h4>
+            </div>
+        <form method="post" action="{{ route('update_project_icon_image')}}" enctype="multipart/form-data">
+        @csrf
+            <input type="hidden" name="id" value="{{ $projects->id }}">
+            <input type="hidden" name="old_imgicon" value="{{ $projects->project_icon_img }}">
+            <div class="row row-sm">
+                <div class="col-md-3">
+                        <div class="card">
+                            <img src="{{ asset($projects->project_icon_img) }}" class="card-img-top" style="height: 130px; width: 280px;">
+                            <div class="card-body">
+                            <p class="card-text">
+                                <div class="form-group">
+                                    <label class="form-control-label">Change Image <span class="tx-danger">*</span></label>
+                            <input type="file" name="project_icon_img" class="form-control" onChange="mainThamUrlmapIconImage(this)"  >
+                                <img src="" id="mainThmbmapIconImage">
+                                </div>
+                            </p>
+                            </div>
+                        </div>
+                </div><!--  end col md 3		 -->
+            </div>
+            <div class="text-xs-right">
+            <input type="submit" class="btn btn-rounded btn-primary mb-5" value="Update Image">
+            </div>
+        </form>
         </div>
-       </form>
+        </div>
      </div>
-    </div>
-    </div>
 </section>
-    </div>
+</div>
 
 
 {{-- for sub category  --}}
@@ -501,6 +536,16 @@
 			var reader = new FileReader();
 			reader.onload = function(e){
 				$('#mainThmbmap').attr('src',e.target.result).width(80).height(80);
+			};
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+       // project icon image
+       function mainThamUrlmapIconImage(input){
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e){
+				$('#mainThmbmapIconImage').attr('src',e.target.result).width(80).height(80);
 			};
 			reader.readAsDataURL(input.files[0]);
 		}
