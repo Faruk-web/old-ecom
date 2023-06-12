@@ -378,12 +378,14 @@
                                             <div class="themesflat-image-box style-2 clearfix">
                                                 <div class="image-box-item">
                                                     <div class="inner">
+                                                        <a href="{{ route('user.project.details',$item->id) }}">
                                                         <div class="thumb data-effect-item">
                                                             <img src="{{asset($item->project_thambnail)}}" alt="Image">
                                                             <div class="overlay-effect bg-color-accent"></div>
                                                         </div>
+                                                        </a>
                                                         <div class="text-wrap">
-                                                            <h5 class="heading"><a href="#">{{$item->project_name}}</a></h5>
+                                                            <h5 class="heading"><a href="{{ route('user.project.details',$item->id) }}">{{$item->project_name}}</a></h5>
                                                             <p>We develop and understand project expectations and then manage those needs with a design team...</p>
                                                             <div class="elm-readmore">
                                                                 <a href="{{ route('user.project.details',$item->id) }}">DETAILS</a>

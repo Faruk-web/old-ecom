@@ -27,15 +27,14 @@
                      </tr>
                  </thead>
                  <tbody>
-
                     @foreach($BoardDirectors as $item)
                     <tr>
                        <td> <img src="{{ asset($item->director_image) }}" style="width: 60px; height: 50px;">  </td>
                        <td>{{ $item->director_name }}</td>
-                       <td>{{ $item->director_designation }} $</td>
+                       <td>{{ $item->director_designation }}</td>
                        <td>
-                        <a href="" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
-                        <a href="" class="btn btn-danger" title="Delete Data" id="#">
+                        <a href="{{ route('director.edit',$item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
+                        <a href="{{ route('director.delete',$item->id) }}" class="btn btn-danger" title="Delete Data" id="#">
                         <i class="fa fa-trash"></i>
                        </a>
                        </td>

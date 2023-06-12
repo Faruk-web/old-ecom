@@ -142,24 +142,27 @@ Route::prefix('project')->group(function(){
 Route::prefix('blog')->group(function(){
     Route::get('/blog', [BlogController::class, 'BlogAdd'])->name('blog.add');
     Route::post('/store', [BlogController::class, 'BlogStore'])->name('blog.store');
-    // Route::get('/edit/{id}', [ProjectController::class, 'EditProject'])->name('project.edit');
-    // Route::post('/edit/update', [ProjectController::class, 'UpdateProject'])->name('project.update');
+    Route::get('/edit/{id}', [BlogController::class, 'EditBlog'])->name('blog.edit');
+    Route::post('/edit/update', [BlogController::class, 'UpdateBlog'])->name('blog.update');
+    Route::get('/edit/delete/{id}', [BlogController::class, 'DeleteBlog'])->name('blog.delete');
     // // Manage Product
     Route::get('/manage', [BlogController::class, 'ManageBlog'])->name('manage_blog');
 });
 Route::prefix('board')->group(function(){
     Route::get('/board/of/director', [BoardOfDirectorController::class, 'DirectorAdd'])->name('board.director.add');
     Route::post('/store', [BoardOfDirectorController::class, 'DirectorStore'])->name('Director.store');
-    // Route::get('/edit/{id}', [ProjectController::class, 'EditProject'])->name('project.edit');
-    // Route::post('/edit/update', [ProjectController::class, 'UpdateProject'])->name('project.update');
+    Route::get('/edit/{id}', [BoardOfDirectorController::class, 'EditDirector'])->name('director.edit');
+    Route::post('/edit/update', [BoardOfDirectorController::class, 'UpdateDirector'])->name('director.update');
+    Route::get('/edit/delete/{id}', [BoardOfDirectorController::class, 'deleteDirector'])->name('director.delete');
     // // Manage Product
     Route::get('/manage', [BoardOfDirectorController::class, 'ManageDirector'])->name('manage_director');
 });
 Route::prefix('news')->group(function(){
     Route::get('/news', [NewsController::class, 'NewsAdd'])->name('news.add');
     Route::post('/news', [NewsController::class, 'NewsStore'])->name('news.store');
-    // Route::get('/edit/{id}', [ProjectController::class, 'EditProject'])->name('project.edit');
-    // Route::post('/edit/update', [ProjectController::class, 'UpdateProject'])->name('project.update');
+    Route::get('/edit/{id}', [NewsController::class, 'EditNews'])->name('news.edit');
+    Route::post('/edit/update', [NewsController::class, 'UpdateNews'])->name('news.update');
+    Route::get('/edit/delete/{id}', [NewsController::class, 'DeleteNews'])->name('news.delete');
     // contact client
     Route::get('/contact/client', [NewsController::class, 'ContactClient'])->name('contact.client');
     Route::get('/contact/delete/{id}', [NewsController::class, 'ContactDelete'])->name('contact.delete');

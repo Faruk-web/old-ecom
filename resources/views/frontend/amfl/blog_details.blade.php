@@ -187,7 +187,6 @@
                                         </li><!-- #comment-## -->
                                     </ul><!-- .children -->
                                 </li><!-- #comment-## -->
-
                                 <li class="comment">
                                     <article class="comment-wrap  clearfix">
                                         <div class="gravatar"><img alt="image" src="{{ asset('frontend/assets/img/testimonials/avatar-1-80x80.jpg')}}" /></div>
@@ -204,7 +203,6 @@
                                     </article>
                                 </li><!-- #comment-## -->
                             </ol><!-- /.comment-list -->
-
                             <div id="respond" class="comment-respond">
                                 <h3 id="reply-title" class="comment-reply-title margin-bottom-31">Leave a Comment</h3>
                                 <form method="POST" action="{{ route('blog.comment')}}" enctype="multipart/form-data" id="commentform" class="comment-form">

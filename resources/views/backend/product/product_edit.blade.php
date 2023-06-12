@@ -27,13 +27,9 @@
 
               <form action="{{ route('product_update') }}" method="POST" >
                 @csrf
-
                 <input type="hidden" name="id" value="{{ $products->id }}" />
-
-
                 <div class="row">
                  <div class="col-12">
-
 
             <div class="row"> <!-- start 1st row  -->
                 <div class="col-md-4">
@@ -340,7 +336,8 @@
                          @enderror
                         </div>
 
-                </div> <!-- end col md 4 -->
+                </div>
+                <!-- end col md 4 -->
 
 
             </div> <!-- end 6th row  -->

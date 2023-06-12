@@ -36,8 +36,8 @@
                        <td>{{ $item->blog_short_descp }} $</td>
                         <td>{{ $item->date }}</td>
                        <td>
-                        <a href="" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
-                        <a href="" class="btn btn-danger" title="Delete Data" id="#">
+                        <a href="{{ route('blog.edit',$item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
+                        <a href="{{ route('blog.delete',$item->id) }}" class="btn btn-danger" title="Delete Data" id="#">
                         <i class="fa fa-trash"></i>
                        </a>
                        </td>

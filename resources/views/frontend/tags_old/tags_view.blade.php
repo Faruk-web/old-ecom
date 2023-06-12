@@ -37,11 +37,7 @@
                     </div>
                     <div class="sidebar-widget-body">
                       <div class="accordion">
-
-
-
                         @foreach($categories as $category)
-
                         <div class="accordion-group">
                           <div class="accordion-heading">
                               <a href="#collapse{{ $category->id }}" data-toggle="collapse" class="accordion-toggle collapsed">
@@ -51,36 +47,23 @@
                           <!-- /.accordion-heading -->
                           <div class="accordion-body collapse" id="collapse{{ $category->id }}" style="height: 0px;">
                             <div class="accordion-inner">
-
-
-
                             {{-- Sub category view --}}
                             @php
                             $subcategories = App\Models\SubCategory::where('category_id',
                             $category->id)->orderBy('sub_category_name','ASC')->get();
                             @endphp
-
                             @foreach($subcategories as $subcategory)
-
                                 <ul>
                                 <li><a href="#">{{ $subcategory->sub_category_name }}</a></li>
                               </ul>
-
                               @endforeach {{--  sub category foreach end --}}
-
-
-
                             </div>
                             <!-- /.accordion-inner -->
                           </div>
                           <!-- /.accordion-body -->
                         </div>
-
                         @endforeach {{--  category for each loop end --}}
                         <!-- /.accordion-group -->
-
-
-
                       </div>
                       <!-- /.accordion -->
                     </div>
@@ -88,11 +71,6 @@
                   </div>
                   <!-- /.sidebar-widget -->
                   <!-- ============================= SIDEBAR CATEGORY : END =================================== -->
-
-
-
-
-
                   <!-- ============================================== PRICE SILDER============================================== -->
                   <div class="sidebar-widget wow fadeInUp">
                     <div class="widget-header">
@@ -161,22 +139,12 @@
                   </div>
                   <!-- /.sidebar-widget -->  --}}
                   <!-- ============================================== COMPARE: END ============================================== -->
-
-
-
                   <!-- =================== PRODUCT TAGS ================= -->
                   @include('frontend.common.product_tags')
                   <!-- =================== PRODUCT TAGS End ================= -->
-
-
-
-
-
                 <!----------- Testimonials------------->
                 {{-- @include('frontend.common.testimonial') --}}
                   <!-- ======== Testimonials: END ===== -->
-
-
                   {{-- <div class="home-banner"> <img src="{{ asset('frontend/assets/images/banners/LHS-banner.jpg') }}" alt="Image"> </div> --}}
                 </div>
                 <!-- /.sidebar-filter -->
@@ -184,12 +152,8 @@
               <!-- /.sidebar-module-container -->
             </div>
             <!-- /.sidebar -->
-
-
-
             <div class='col-md-9'>
               <!-- ======================= SECTION – HERO ======================== -->
-
               <div id="category" class="category-carousel hidden-xs">
                 <div class="item">
                   <div class="image"> <img src="{{ asset('frontend/assets/images/banners/cat-banner-1.jpg') }}" alt="" class="img-responsive"> </div>
@@ -204,11 +168,6 @@
                   <!-- /.container-fluid -->
                 </div>
               </div>
-
-
-
-
-
               <div class="clearfix filters-container m-t-10">
                 <div class="row">
                   <div class="col col-sm-6 col-md-2">
@@ -282,9 +241,7 @@
                 <div id="myTabContent" class="tab-content category-list">
                   <div class="tab-pane active " id="grid-container">
                     <div class="category-product">
-
                       <div class="row">
-
                       @foreach ($products as $product)
                         <div class="col-sm-6 col-md-4 wow fadeInUp">
                           <div class="products">
@@ -292,24 +249,19 @@
                               <div class="product-image">
                                 <div class="image"> <a href="detail.html"><img  src="{{ asset($product->product_thambnail) }}" alt=""></a> </div>
                                 <!-- /.image -->
-
                                @php
                                 $amount = $product->selling_price * $product->discount_price;
                                 $discount = ($product->discount_price * 100)/$product->selling_price;
                                  @endphp
-
-                                    <div>
+                                   <div>
                                       @if($product->discount_price == NULL)
                                       <div class="tag new"><span style="font-size: 10px ">Not</span></div>
                                       @else
                                       <div class="tag hot"><span>{{ round($discount) }} %</span></div>
                                       @endif
-
                                     </div>
-
                               </div>
                               <!-- /.product-image -->
-
                               <div class="product-info text-left">
                                 <h3 class="name"><a href="detail.html">{{ $product->product_name }}</a></h3>
                                 <div class="rating rateit-small"></div>
@@ -317,7 +269,6 @@
                                 <div class="product-price"> <span class="price"> {{ $product->discount_price }}</span>
                                   <span class="price-before-discount">{{ $product->selling_price }}</span> </div>
                                 <!-- /.product-price -->
-
                               </div>
                               <!-- /.product-info -->
                               <div class="cart clearfix animate-effect">
@@ -336,16 +287,11 @@
                               <!-- /.cart -->
                             </div>
                             <!-- /.product -->
-
                           </div>
                           <!-- /.products -->
                         </div>
                         <!-- /.item -->
                         @endforeach
-
-
-
-
                       </div>
                       <!-- /.row -->
                     </div>
@@ -359,9 +305,7 @@
 <!--################################ Product  list view start #####################################################  -->
                   <div class="tab-pane "  id="list-container">
                     <div class="category-product">
-
                       @foreach ($products as $product)
-
                       <div class="category-product-inner wow fadeInUp">
                         <div class="products">
                           <div class="product-list product">
@@ -373,21 +317,16 @@
                                 <!-- /.product-image -->
                               </div>
                               <!-- /.col -->
-
-
                               <div class="col col-sm-8 col-lg-8">
                                 <div class="product-info">
                                   <h3 class="name"><a href="detail.html">{{ $product->product_name }}</a></h3>
                                   <div class="rating rateit-small"></div>
-
                                   <div class="product-price"> <span class="price"> {{ $product->discount_price }} </span>
                                      <span class="price-before-discount">{{ $product->selling_price }} </span> </div>
                                   <!-- /.product-price -->
-
                                   <div class="description m-t-10">
                                    {{ $product->product_short_descp }}
                                     </div>
-
                                   <div class="cart clearfix animate-effect">
                                     <div class="action">
                                       <ul class="list-unstyled">
@@ -402,41 +341,30 @@
                                     <!-- /.action -->
                                   </div>
                                   <!-- /.cart -->
-
                                 </div>
                                 <!-- /.product-info -->
                               </div>
-
-
                               <!-- /.col -->
                             </div>
                             <!-- /.product-list-row -->
-
                             @php
                             $amount = $product->selling_price * $product->discount_price;
                             $discount = ($product->discount_price * 100)/$product->selling_price;
                              @endphp
-
                                 <div>
                                   @if($product->discount_price == NULL)
                                   <div class="tag new"><span style="font-size: 10px ">Not</span></div>
                                   @else
                                   <div class="tag hot"><span>{{ round($discount) }} %</span></div>
                                   @endif
-
                                 </div>
-
                           </div>
                           <!-- /.product-list -->
                         </div>
                         <!-- /.products -->
                         </div>
                       <!-- /.category-product-inner -->
-
                       @endforeach  {{--  foreach end  --}}
-
-
-
                     </div>
                     <!-- /.category-product -->
                   </div>
@@ -447,22 +375,16 @@
                   <div class="text-right">
                     <div class="pagination-container">
                       <ul class="list-inline list-unstyled">
-
                         {{ $products->links() }}
                       </ul>
                       <!-- /.list-inline -->
                     </div>
                     <!-- /.pagination-container --> </div>
                   <!-- /.text-right -->
-
                 </div>
-
-
                 <!-- /.filters-container -->
-
               </div>
               <!-- /.search-result-container -->
-
             </div>
             <!-- /.col -->
           </div>

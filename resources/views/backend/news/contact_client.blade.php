@@ -26,6 +26,7 @@
                         <th>Subject</th>
                         <th>Message</th>
                         <th>Date</th>
+                        <th>Status</th>
                         <th>Action</th>
                      </tr>
                  </thead>
@@ -38,6 +39,7 @@
                        <td>{{ $item->subject }}</td>
                        <td>{{ $item->message }}</td>
                         <td>{{ $item->created_at }}</td>
+                        <td style="color:rgb(207, 141, 27)">{{ Carbon\Carbon::parse($item->last_seen)->diffForHumans() }}</td>
                        <td>
                         {{-- <a href="" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a> --}}
                         <a href="{{ route('contact.delete',$item->id) }}" class="btn btn-danger" title="Delete Data" id="#">
