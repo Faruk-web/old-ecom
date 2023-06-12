@@ -26,35 +26,21 @@ $prefix = Request::route()->getPrefix();
           </a>
         </li>
         @php
-        $brand = (auth()->guard('admin')->user()->brand == 1);
+        $board = (auth()->guard('admin')->user()->board == 1);
         $category = (auth()->guard('admin')->user()->category == 1);
-        $product = (auth()->guard('admin')->user()->product == 1);
+        $project = (auth()->guard('admin')->user()->project == 1);
         $slider = (auth()->guard('admin')->user()->slider == 1);
-        $cupons = (auth()->guard('admin')->user()->cupons == 1);
-        $shipping = (auth()->guard('admin')->user()->shipping == 1);
+        $blog = (auth()->guard('admin')->user()->blog == 1);
+        $banner = (auth()->guard('admin')->user()->banner == 1);
         $setting = (auth()->guard('admin')->user()->setting == 1);
-        $returnorder = (auth()->guard('admin')->user()->returnorder == 1);
-        $review = (auth()->guard('admin')->user()->review == 1);
+        $news = (auth()->guard('admin')->user()->news == 1);
+        $bannerCategory  = (auth()->guard('admin')->user()->bannerCategory  == 1);
         $orders = (auth()->guard('admin')->user()->orders == 1);
         $stock = (auth()->guard('admin')->user()->stock == 1);
         $reports = (auth()->guard('admin')->user()->reports == 1);
         $alluser = (auth()->guard('admin')->user()->alluser == 1);
         $adminuserrole = (auth()->guard('admin')->user()->adminuserrole == 1);
         @endphp
-        @if($brand == true)
-        {{-- <li class="treeview {{ ($prefix=='/brand')?'active':'' }}">
-          <a href="#">
-            <i class="fa fa-list-alt fa-5x"></i>
-            <span>Brands</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{ route('all.brand') }}"><i class="ti-more"></i>All Brands</a></li>
-          </ul>
-        </li> --}}
-        @endif
         @if($category == true)
         <li class="treeview {{ ($prefix=='/category')?'active':'' }} ">
           <a href="#">
@@ -72,9 +58,8 @@ $prefix = Request::route()->getPrefix();
         </li>
         @else
         @endif
-
-		   @if($product == true)
-        <li class="treeview  {{ ($prefix=='/product')?'active':'' }}  ">
+		@if($project == true)
+        <li class="treeview  {{ ($prefix=='/project')?'active':'' }}  ">
           <a href="#">
             <i class="fa fa-list-alt fa-5x"></i>
             <span>Projects</span>
@@ -84,9 +69,7 @@ $prefix = Request::route()->getPrefix();
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('project.add')}}"><i class="ti-more"></i>Add Projects </a></li>
-            {{-- <li><a href="{{ route('product.add')}}"><i class="ti-more"></i>Add Projects </a></li> --}}
             <li><a href="{{ route('manage-project') }}"><i class="ti-more"></i>Manage All Projects</a></li>
-            {{-- <li><a href="{{ route('porduct.hotDeals') }}"><i class="ti-more"></i>Manage Hot Deals Time</a></li> --}}
           </ul>
         </li>
            @else
@@ -106,7 +89,7 @@ $prefix = Request::route()->getPrefix();
         </li>
         @else
         @endif
-
+        @if($blog == true)
         <li class="treeview  {{ ($prefix=='/blog')?'active':'' }}  ">
           <a href="#">
             <i class="fa fa-sliders fa-5x"></i>
@@ -120,6 +103,9 @@ $prefix = Request::route()->getPrefix();
             <li><a href="{{ route('manage_blog')}}"><i class="ti-more"></i>Blog View</a></li>
           </ul>
         </li>
+        @else
+        @endif
+        @if($banner == true)
         <li class="treeview  {{ ($prefix=='/banner')?'active':'' }}  ">
           <a href="#">
             <i class="fa fa-picture-o fa-5x"></i>
@@ -129,14 +115,13 @@ $prefix = Request::route()->getPrefix();
             </span>
           </a>
           <ul class="treeview-menu">
-
             <li class="{{ ($route == 'bennar.manage')? 'active':'' }}">
               <a href="{{ route('bennar.manage') }}"><i class="ti-more"></i>Manage Banner</a></li>
-            {{-- <li><a href="{{ route('manage.cupon')}}"><i class="ti-more"></i>Manage Cupon </a></li> --}}
           </ul>
         </li>
-        {{-- Ashim Banner Category --}}
-
+        @else
+        @endif
+        @if($bannerCategory == true)
         <li class="treeview  {{ ($prefix=='/bannerCategory')?'active':'' }}  ">
           <a href="#">
             <i class="fa fa-picture-o fa-5x"></i>
@@ -151,6 +136,8 @@ $prefix = Request::route()->getPrefix();
             {{-- <li><a href="{{ route('manage.cupon')}}"><i class="ti-more"></i>Manage Cupon </a></li> --}}
           </ul>
         </li>
+        @else
+        @endif
         @if($alluser == true)
         <li class="treeview {{ ($prefix == '/alluser')?'active':'' }}  ">
           <a href="#">
@@ -198,7 +185,8 @@ $prefix = Request::route()->getPrefix();
         </li>
         @else
         @endif
-        <li class="treeview  {{ ($prefix=='/blog')?'active':'' }}  ">
+        @if($board == true)
+        <li class="treeview  {{ ($prefix=='/board')?'active':'' }}  ">
             <a href="#">
               <i class="fa fa-sliders fa-5x"></i>
               <span>Board Of Director</span>
@@ -211,7 +199,10 @@ $prefix = Request::route()->getPrefix();
               <li><a href="{{ route('manage_director')}}"><i class="ti-more"></i>Director View</a></li>
             </ul>
           </li>
-        <li class="treeview  {{ ($prefix=='/blog')?'active':'' }}  ">
+          @else
+        @endif
+        @if($news == true)
+        <li class="treeview  {{ ($prefix=='/news')?'active':'' }}  ">
             <a href="#">
               <i class="fa fa-sliders fa-5x"></i>
               <span>News Option</span>
@@ -236,6 +227,8 @@ $prefix = Request::route()->getPrefix();
               <li><a href="{{ route('contact.client')}}"><i class="ti-more"></i>Contact</a></li>
             </ul>
           </li>
+          @else
+        @endif
         @if($setting == true)
         <li class="treeview {{ ($prefix == '/setting')?'active':'' }}  ">
           <a href="#">

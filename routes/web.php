@@ -298,7 +298,9 @@ Route::get('/shop', [ShopController::class, 'ShopPage'])->name('shop.page');
 // search project
 Route::get('/search_project', [ShopController::class, 'search_project']);
 Route::get('/create/search/project', [ShopController::class, 'search_amfl_project'])->name('search_amfl_project.store');
-
+// pdf
+Route::get('/generate-pdf/{id}',[ShopController::class, 'generatePDF'])->name('generate.pdf');
+Route::post('/blog/comment/stor',[ShopController::class, 'BlogComment'])->name('blog.comment');
 //Facebook Login
 Route::get('login/google', [SocialiteLoginController::class, 'redirectToGoogle'])->name('login.google');
 Route::get('login/google/callback', [SocialiteLoginController::class, 'handleGoogleCallback']);

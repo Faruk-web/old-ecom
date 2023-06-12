@@ -91,7 +91,9 @@
                     <label class="screen-reader-text">Search for:</label>
                     <input type="text" value="" name="material_search_new" id="material_search_new" class="header-search-field" placeholder="Search...">
                     <button type="submit" class="header-search-submit" title="Search"><i class="fa fa-search"></i></button>
-                    <div class="row mt-2 p-3" id="member_show_info">
+                    <div class="row mt-2 p-3 search_design" id="member_show_info" style="background-color: gray;
+                    width: 269px;
+                    margin-left: 1px;">
                     </div>
                 </form>
             </div><!-- /#header-search -->

@@ -494,7 +494,7 @@
                     <!-- END SERVICES -->
 
                     <!-- ICONBOX -->
-                    <div class="row-iconbox bg-row-2" style="background-image: url('{{ asset('frontend/assets/img/amfl/slider-2-1920x600.jpg')}}');center center no-repeat; background-size: cover;">
+                    <div class="row-iconbox bg-row-2" style="background-image: url('{{ asset('frontend/assets/img/amfl/Background_1.JPG')}}');center center no-repeat; background-size: cover;">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
@@ -672,7 +672,7 @@
                     <!-- END WHYUS  -->
 
                     <!-- REQUEST -->
-                    <div class="row-request parallax parallax-3"style="background-image: url('{{ asset('frontend/assets/img/amfl/slider-2-1920x600.jpg')}}');center center no-repeat; background-size: cover;">
+                    <div class="row-request parallax parallax-3"style="background-image: url('{{ asset('frontend/assets/img/amfl/Background_2.JPG')}}');center center no-repeat; background-size: cover;">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12 ">
@@ -983,7 +983,7 @@
                     <!-- END PARTNER -->
 
                     <!-- TESTIMONIALS -->
-                    <div class="row-testimonials bg-light-snow"style="background-image: url('{{ asset('frontend/assets/img/amfl/slider-2-1920x600.jpg')}}');center center no-repeat; background-size: cover;">
+                    <div class="row-testimonials bg-light-snow"style="background-image: url('{{ asset('frontend/assets/img/amfl/Background_1.JPG')}}');center center no-repeat; background-size: cover;">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">

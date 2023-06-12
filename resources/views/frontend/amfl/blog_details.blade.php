@@ -207,10 +207,14 @@
 
                             <div id="respond" class="comment-respond">
                                 <h3 id="reply-title" class="comment-reply-title margin-bottom-31">Leave a Comment</h3>
-                                <form action="#" method="post" id="commentform" class="comment-form">
+                                <form method="POST" action="{{ route('blog.comment')}}" enctype="multipart/form-data" id="commentform" class="comment-form">
+                                    @csrf
                                     <div class="text-wrap clearfix">
                                         <fieldset class="name-wrap">
-                                            <input type="text" id="author" class="tb-my-input" name="author" tabindex="1" placeholder="Name*" value="" size="32" aria-required="true">
+                                            <input type="hidden" id="author" class="tb-my-input" name="blog_id" tabindex="1" placeholder="Name*" value="{{ $blogs->id }}" size="32" aria-required="true">
+                                        </fieldset>
+                                        <fieldset class="name-wrap">
+                                            <input type="text" id="author" class="tb-my-input" name="name" tabindex="1" placeholder="Name*" value="" size="32" aria-required="true">
                                         </fieldset>
                                         <fieldset class="email-wrap">
                                             <input type="email" id="email" class="tb-my-input" name="email" tabindex="2" placeholder="Email*" value="" size="32" aria-required="true">
@@ -219,11 +223,9 @@
                                     <fieldset class="message-wrap">
                                         <textarea id="comment-message" name="comment" rows="8" tabindex="4" placeholder="Message*" aria-required="true"></textarea>
                                     </fieldset>
-                                    <p class="form-submit">
-                                        <input name="submit" type="submit" id="comment-reply" class="submit" value="SEND US">
-                                        <input type="hidden" name="comment_post_ID" value="100" id="comment_post_ID">
-                                        <input type="hidden" name="comment_parent" id="comment_parent" value="0">
-                                    </p>
+                                    <div class="text-xs-right">
+                                        <input type="submit" class="btn btn-rounded btn-info" value="Send US">
+                                    </div>
                                 </form>
                             </div><!-- #respond -->
                         </div><!--/#comments -->

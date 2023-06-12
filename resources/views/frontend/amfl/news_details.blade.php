@@ -64,7 +64,13 @@
                 <div class="themesflat-headings style-2 clearfix">
                     <h2 class="heading">{{ $news_details->news_name }}</h2>
                     <div class="sep has-width w80 accent-bg clearfix"></div>
-                    <p class="sub-heading font-size-16 line-height-28 text-666 margin-top-27 letter-spacing-01">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+                    <p class="sub-heading font-size-16 line-height-28 text-666 margin-top-27 letter-spacing-01">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        I have an issue with a view and generated content to produce a PDF. At the moment, I've been working with niklasravnsborg\LaravelPdf (a wrapper for mPDF, because of an issue with another PDF writer I was working with beforehand), which turns out nice PDFs that are of the quality that I want.
+                        I have an issue with a view and generated content to produce a PDF. At the moment, I've been working with niklasravnsborg\LaravelPdf (a wrapper for mPDF, because of an issue with another PDF writer I was working with beforehand), which turns out nice PDFs that are of the quality that I want.
+                    </p>
+                    <p class="sub-heading font-size-16 line-height-28 text-666 margin-top-27 letter-spacing-01">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        I have an issue with a view and generated content to produce a PDF. At the moment, I've been working with niklasravnsborg\LaravelPdf (a wrapper for mPDF, because of an issue with another PDF writer I was working with beforehand), which turns out nice PDFs that are of the quality that I want.
+                    </p>
                 </div>
                 <div class="themesflat-spacer clearfix" data-desktop="22" data-mobile="22" data-smobile="22"></div>
 

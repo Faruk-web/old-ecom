@@ -8,9 +8,9 @@
             <div id="breadcrumbs">
                 <div class="breadcrumbs-inner">
                     <div class="breadcrumb-trail">
-                        <a href="home.html" class="trail-begin">Home</a>
+                        <a href="{{ url('/') }}" class="trail-begin">Home</a>
                         <span class="sep">|</span>
-                        <a href="page-projects.html" class="trail-begin">Projects</a>
+                        <a href="{{ url('/project') }}" class="trail-begin">Projects</a>
                         <span class="sep">|</span>
                         <span class="trail-end">Project Single</span>
                     </div>
@@ -64,7 +64,7 @@
                                                 </div>
                                                 <div class="themesflat-spacer clearfix" data-desktop="34" data-mobile="35" data-smobile="35"></div>
                                                 <div class="button-wrap has-icon icon-left size-14 pf21">
-                                                    <a href="#" class="themesflat-button font-default bg-light-white w100"><span>Brochures.PDF <span class="icon"><i class="fa fa-file-pdf-o"></i></span></span></a>
+                                                    <a href="{{ route('generate.pdf',$projects->id) }}" class="themesflat-button font-default bg-light-white w100"><span>Brochures.PDF <span class="icon"><i class="fa fa-file-pdf-o"></i></span></span></a>
                                                 </div>
                                                 <div class="button-wrap has-icon icon-left size-14 pf21">
                                                     <a href="#" class="themesflat-button font-default bg-light-white w100"><span>Brochures.DOC <span class="icon"><i class="fa fa-file-word-o"></i></span></span></a>

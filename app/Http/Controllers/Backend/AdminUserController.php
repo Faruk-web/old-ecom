@@ -131,19 +131,11 @@ class AdminUserController extends Controller
 		return redirect()->route('all.admin.user')->with($notification);
 
     } // end method
-
-
-
 	public function EditAdminRole($id){
-
     	$adminuser = Admin::findOrFail($id);
     	return view('backend.role.admin_role_edit',compact('adminuser'));
 
     } // end method
-
-
-
-
  public function UpdateAdminRole(Request $request){
     // $request->validate([
     //     'name' => 'required',
@@ -152,32 +144,30 @@ class AdminUserController extends Controller
     //     'phone' => 'required',
     //     'image' => 'required',
     // ]);
-
-
     	$admin_id = $request->id;
     	$old_img = $request->old_image;
-
     	if ($request->file('profile_photo_path')) {
-
-    	unlink($old_img);
+            if (file_exists($old_img)){
+                unlink($old_img);
+            }
+    	// unlink($old_img);
     	$image = $request->file('profile_photo_path');
     	$name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
     	Image::make($image)->resize(225,225)->save('upload/admin_images/'.$name_gen);
     	$save_url = 'upload/admin_images/'.$name_gen;
-
 	Admin::findOrFail($admin_id)->update([
 		'name' => $request->name,
 		'email' => $request->email,
 		'phone' => $request->phone,
-		'brand' => $request->brand,
+		'board' => $request->board,
 		'category' => $request->category,
-		'product' => $request->product,
+		'project' => $request->project,
 		'slider' => $request->slider,
-		'cupons' => $request->cupons,
+		'blog' => $request->blog,
 		'shipping' => $request->shipping,
 		'setting' => $request->setting,
-		'returnorder' => $request->returnorder,
-		'review' => $request->review,
+		'news' => $request->news,
+		'bannerCategory' => $request->bannerCategory,
 		'orders' => $request->orders,
 		'stock' => $request->stock,
 		'reports' => $request->reports,
@@ -197,27 +187,23 @@ class AdminUserController extends Controller
     	}else{
 
     	Admin::findOrFail($admin_id)->update([
-		'name' => $request->name,
-		'email' => $request->email,
-
-		'phone' => $request->phone,
-		'brand' => $request->brand,
-		'category' => $request->category,
-		'product' => $request->product,
-		'slider' => $request->slider,
-		'cupons' => $request->cupons,
-
-		'shipping' => $request->shipping,
-
-		'setting' => $request->setting,
-		'returnorder' => $request->returnorder,
-		'review' => $request->review,
-
-		'orders' => $request->orders,
-		'stock' => $request->stock,
-		'reports' => $request->reports,
-		'alluser' => $request->alluser,
-		'adminuserrole' => $request->adminuserrole,
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'board' => $request->board,
+            'category' => $request->category,
+            'project' => $request->project,
+            'slider' => $request->slider,
+            'blog' => $request->blog,
+            'shipping' => $request->shipping,
+            'setting' => $request->setting,
+            'news' => $request->news,
+            'bannerCategory' => $request->bannerCategory,
+            'orders' => $request->orders,
+            'stock' => $request->stock,
+            'reports' => $request->reports,
+            'alluser' => $request->alluser,
+            'adminuserrole' => $request->adminuserrole,
 		'type' => 2,
 
 		'created_at' => Carbon::now(),

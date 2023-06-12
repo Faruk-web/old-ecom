@@ -202,6 +202,13 @@
                          <div class="row" id="preview_img"></div>
                         </div>
                 </div>
+            </div> <!-- end 1st row  -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 style="text-align: center;">  <b class="btn btn-dark btn-lg" style="height: 25%; width:100%"> Floor Plan </b> </h1>
+                </div>
+            </div>
+            <div class="row"> <!-- start 5th row  -->
                 <!-- end col md 4 -->
                 <div class="col-md-4">
                     <div class="form-group">
@@ -248,25 +255,18 @@
                         </div>
                 </div>
                 <!-- end col md 4 -->
-            </div> <!-- end 1st row  -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 style="text-align: center;">  <b class="btn btn-dark btn-lg" style="height: 25%; width:100%"> Floor Plan </b> </h1>
-                </div>
-            </div>
-            <div class="row"> <!-- start 5th row  -->
-                <div class="col-md-4">
+                <div class="col-md-8">
                     <div class="form-group">
-                        <h5>Product Short Descraption<span class="text-danger">*</span></h5>
-                          <textarea name="project_short_descp" rows="15"  id="textarea" class="form-control"  placeholder="Textarea text"></textarea>
+                        <h5>Project Short Descraption<span class="text-danger">*</span></h5>
+                          <textarea name="project_short_descp" rows="5"  id="textarea" class="form-control"  placeholder="Textarea text"></textarea>
                          @error('product_short_descp')
                          <span class="text-danger">{{ $message }}</span>
                          @enderror
                         </div>
                 </div> <!-- end col md 4 -->
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <div class="form-group">
-                        <h5>Product Long Descraption<span class="text-danger"></span></h5>
+                        <h5>Project Long Descraption<span class="text-danger"></span></h5>
                         	<textarea id="editor1" name="project_long_descp" rows="5" cols="80" ></textarea>
                         </div>
 
