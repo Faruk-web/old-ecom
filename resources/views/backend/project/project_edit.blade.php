@@ -29,7 +29,7 @@
             <select name="status_id" class="form-control" required="" >
                 <option value="" selected="" disabled="">Select Status</option>
                 @foreach($status as $item)
-          <option value="{{ $item->id }}" {{ $item->id == $projects->status_id ? 'selected': '' }} >{{ $item->status_name }}</option>
+          <option value="{{ $item->status_name}}" {{ $item->status_name == $projects->status_id ? 'selected': '' }} >{{ $item->status_name }}</option>
                 @endforeach
             </select>
             {{-- @error('brand_id')
@@ -54,19 +54,6 @@
         </div>
             </div>
                 </div> <!-- end col md 4 -->
-                <div class="col-md-4">
-                    <div class="form-group">
-                       <h5>Location Select <span class="text-danger">*</span></h5>
-                        <div class="controls">
-                            <select name="location_id" class="form-control" required="" >
-                                <option value="" selected="" disabled="">Select location</option>
-                            @foreach($location as $item)
-                            <option value="{{ $item->id }}" {{ $item->id == $projects->location_id ? 'selected': '' }}  >{{ $item->location_name }}</option>
-                                @endforeach
-                            </select>
-                    </div>
-                </div>
-                </div>
                 <!-- end col md 4 -->
                 <div class="col-md-4">
                     <div class="form-group">
@@ -164,10 +151,15 @@
                           <textarea name="location_address" rows="3"  id="textarea" class="form-control" required placeholder="Textarea text">
                               {!! $projects->location_address !!}
                           </textarea>
-                         {{-- @error('product_short_descp')
-                         <span class="text-danger">{{ $message }}</span>
-                         @enderror --}}
-                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                       <h5>Location Map ID <span class="text-danger">*</span></h5>
+                       <textarea name="location_id" rows="3"  id="textarea" class="form-control" required placeholder="Textarea text">
+                        {!! $projects->location_id !!}
+                      </textarea>
+                     </div>
                 </div>
             </div> <!-- end 1st row  -->
             <div class="row"> <!-- start 6th row  -->

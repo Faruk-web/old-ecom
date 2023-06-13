@@ -78,15 +78,19 @@
                             {{-- <li class="menu-item"><a href="page-contact-2.html">CONTACT 2</a></li> --}}
                         </ul>
                     </li>
+                    <li class="menu-item menu-item-has-children">
+                        <div class="button-wrap has-icon icon-left mt-5">
+                            <a href="tel:0 1844 527 808" class="themesflat-button bg-white small"><span> 16711 <span class="icon"><i class="autora-icon-phone-contact"></i></span></span></a>
+                        </div>
+                    </li>
                 </ul>
-            </nav><!-- /#main-nav -->
 
+            </nav><!-- /#main-nav -->
             <div id="header-search">
                 <a href="#" class="header-search-icon">
                     <span class="search-icon fa fa-search">
                     </span>
                 </a>
-
                 <form role="search" method="get" class="header-search-form" action="{{ route('search_amfl_project.store')  }}" enctype="multipart/form-data">
                     <label class="screen-reader-text">Search for:</label>
                     <input type="text" value="" name="material_search_new" id="material_search_new" class="header-search-field" placeholder="Search...">

@@ -33,7 +33,7 @@
                             <select name="status_id" class="form-control"  >
                                 <option value="" selected="" disabled="">Select Status</option>
                                 @foreach($status as $items)
-                                <option value="{{ $items->id }}">{{ $items->status_name }}</option>
+                                <option value="{{ $items->status_name}}">{{ $items->status_name }}</option>
                                 @endforeach
                             </select>
                             @error('status_id')
@@ -58,22 +58,6 @@
                         </div>
                     </div>
                 </div> <!-- end col md 3 -->
-                <div class="col-md-4">
-                    <div class="form-group">
-                    <h5>Location Select <span class="text-danger">*</span></h5>
-                        <div class="controls">
-                            <select name="location_id" class="form-control"  >
-                                <option value="" selected="" disabled="">Select Location</option>
-                            @foreach($location as $locations)
-                                <option value="{{ $locations->id }}">{{ $locations->location_name }}</option>
-                             @endforeach
-                            </select>
-                            @error('location_id')
-                        <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                        </div>
-                    </div>
-                </div>
                 <div class="col-md-4">
                     <div class="form-group">
                     <h5>Project Type <span class="text-danger">*</span></h5>
@@ -264,7 +248,18 @@
                          @error('product_short_descp')
                          <span class="text-danger">{{ $message }}</span>
                          @enderror
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                    <h5>Location Map ID <span class="text-danger"></span></h5>
+                        <div class="controls">
+                            <textarea name="location_id" rows="3"  id="textarea" class="form-control"  placeholder="Textarea text"></textarea>
+                            @error('location_id')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
+                    </div>
                 </div>
                 <!-- end col md 4 -->
                 <div class="col-md-4">

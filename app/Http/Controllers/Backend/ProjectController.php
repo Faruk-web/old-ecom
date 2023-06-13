@@ -29,12 +29,7 @@ public function ProjectStore(Request $request){
     $request->validate([
         // 'project_name' => 'required|max:255|regex:/^[A-Za-z_][A-Za-z\d_]*$/',
         'project_name' => 'required',
-        'status_id' => 'required',
-        'category_id' => 'required',
-        'location_id' => 'required',
-       'project_short_descp' =>'required',
-        'project_long_descp' => 'required',
-        'project_thambnail' => 'required|mimes:jpg,jpeg,png,webp',
+
     ],[
         'project_name.regex'=>"NOT a valid Product name"
     ]);
@@ -83,8 +78,8 @@ public function ProjectStore(Request $request){
             'delivered_project' => $request->delivered_project,
             'project_thambnail' => $save_url,
             'floor_image' => $save_url_floor,
-            'floor_image' => $save_url_map,
-            'floor_image' => $save_url_iconimage,
+            'project_map' => $save_url_map,
+            'project_icon_img' => $save_url_iconimage,
             'created_at' => Carbon::now(),
         ]);
         // Multiple img upload start
