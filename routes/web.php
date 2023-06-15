@@ -81,6 +81,7 @@ Route::get('/contact_us', [IndexController::class, 'contactamfl'])->name('user.c
 Route::get('/boardof/director/{id}', [IndexController::class, 'BoardOfDirector'])->name('user.director');
 Route::get('/project/details/{id}', [IndexController::class, 'ProjectDetails'])->name('user.project.details');
 Route::get('/project/details/slide/{id}', [IndexController::class, 'ProjectDetailsSlide'])->name('user.project.details.slide');
+Route::get('/leading/detail/{id}', [IndexController::class, 'LeadingDetail'])->name('user.leading.detail');
 // User Logout Route
 Route::get('/user/logout', [IndexController::class, 'UserLogout'])->name('user.logout');
 // User Update Profile
@@ -156,6 +157,15 @@ Route::prefix('board')->group(function(){
     Route::get('/edit/delete/{id}', [BoardOfDirectorController::class, 'deleteDirector'])->name('director.delete');
     // // Manage Product
     Route::get('/manage', [BoardOfDirectorController::class, 'ManageDirector'])->name('manage_director');
+});
+Route::prefix('leading')->group(function(){
+    Route::get('/leading', [BoardOfDirectorController::class, 'LeadingAdd'])->name('leading.add');
+    Route::post('/store', [BoardOfDirectorController::class, 'LeadingStore'])->name('leading.store');
+    Route::get('/edit/{id}', [BoardOfDirectorController::class, 'EditLeading'])->name('leading.edit');
+    Route::post('/edit/update', [BoardOfDirectorController::class, 'UpdateLeading'])->name('leading.update');
+    Route::get('/edit/delete/{id}', [BoardOfDirectorController::class, 'deleteLeading'])->name('leading.delete');
+    // // Manage Product
+    Route::get('/manage', [BoardOfDirectorController::class, 'ManageLeading'])->name('manage_leading');
 });
 Route::prefix('news')->group(function(){
     Route::get('/news', [NewsController::class, 'NewsAdd'])->name('news.add');

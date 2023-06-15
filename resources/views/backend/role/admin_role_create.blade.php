@@ -135,6 +135,10 @@
 				<input type="checkbox" id="checkbox_13" name="stock" value="1">
 				<label for="checkbox_13">Stock</label>
 			</fieldset> --}}
+            <fieldset>
+				<input type="checkbox" id="checkbox_15" name="leading" value="1">
+				<label for="checkbox_15">Leading</label>
+			</fieldset>
 			<fieldset>
 				<input type="checkbox" id="checkbox_15" name="alluser" value="1">
 				<label for="checkbox_15">Alluser</label>

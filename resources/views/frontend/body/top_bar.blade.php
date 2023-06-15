@@ -21,7 +21,7 @@
                 <div class="inner">
                     <span class="text">Follow us:</span>
                     <span class="icons">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="https://fb.watch/laL7JtQPUG/"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-twitter"></i></a>
                         <a href="#"><i class="fa fa-pinterest-p"></i></a>
                         <a href="#"><i class="fa fa-rss"></i></a>

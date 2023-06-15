@@ -83,11 +83,11 @@
                                                 <span class="inner">Head Office</span>
                                             </li>
                                             <li class="item-title">
-                                                <span class="inner">Colombia</span>
+                                                <span class="inner">Chittagong</span>
                                             </li>
-                                            <li class="item-title">
+                                            {{-- <li class="item-title">
                                                 <span class="inner">Mexico</span>
-                                            </li>
+                                            </li> --}}
                                         </ul>
 
                                         <div class="tab-content-wrap clearfix">

@@ -57,7 +57,8 @@
                         @enderror
                         </div>
                     </div>
-                </div> <!-- end col md 3 -->
+                </div>
+                <!-- end col md 3 -->
                 <div class="col-md-4">
                     <div class="form-group">
                     <h5>Project Type <span class="text-danger">*</span></h5>
@@ -241,9 +242,19 @@
                          <img src="" id="mainThmbmapIconImage"  />
                         </div>
                    </div>
+                   <div class="col-md-4">
+                    <div class="form-group">
+                    <h5>Video Link <span class="text-danger"></span></h5>
+                        <div class="controls">
+                            <input type="text" name="video_link" class="form-control"> </div>
+                            {{-- @error('video_link')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror --}}
+                        </div>
+                    </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <h5>Location Address<span class="text-danger">*</span></h5>
+                        <h5>Location Address<span class="text-danger"></span></h5>
                           <textarea name="location_address" rows="3"  id="textarea" class="form-control"  placeholder="Textarea text"></textarea>
                          @error('product_short_descp')
                          <span class="text-danger">{{ $message }}</span>

@@ -90,6 +90,7 @@ return array(
     'App\\Models\\Employee' => $baseDir . '/app/Models/Employee.php',
     'App\\Models\\Expense' => $baseDir . '/app/Models/Expense.php',
     'App\\Models\\Expense_type' => $baseDir . '/app/Models/Expense_type.php',
+    'App\\Models\\Leading' => $baseDir . '/app/Models/Leading.php',
     'App\\Models\\Location' => $baseDir . '/app/Models/Location.php',
     'App\\Models\\MultiImg' => $baseDir . '/app/Models/MultiImg.php',
     'App\\Models\\MultiImgfloor' => $baseDir . '/app/Models/MultiImgfloor.php',

@@ -23,21 +23,41 @@
                  <div class="col-12">
             <div class="row"> <!-- start 1st row  -->
                 <div class="col-md-4">
-        <div class="form-group">
-        <h5>Status Select <span class="text-danger">*</span></h5>
-        <div class="controls">
-            <select name="status_id" class="form-control" required="" >
-                <option value="" selected="" disabled="">Select Status</option>
-                @foreach($status as $item)
-          <option value="{{ $item->status_name}}" {{ $item->status_name == $projects->status_id ? 'selected': '' }} >{{ $item->status_name }}</option>
-                @endforeach
-            </select>
-            {{-- @error('brand_id')
-            <span class="text-danger">{{ $message }}</span>
-            @enderror --}}
-        </div>
-            </div>
+                    <div class="form-group">
+                    <h5>Status Select <span class="text-danger">*</span></h5>
+                    <div class="controls">
+                        <select name="status_id" class="form-control" required="" >
+                            <option value="" selected="" disabled="">Select Status</option>
+                            @foreach($status as $item)
+                    <option value="{{ $item->status_name}}" {{ $item->status_name == $projects->status_id ? 'selected': '' }} >{{ $item->status_name }}</option>
+                            @endforeach
+                        </select>
+                        {{-- @error('brand_id')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror --}}
+                    </div>
+                        </div>
                 </div> <!-- end col md 4 -->
+                <div class="col-md-4">
+                    <div class="form-group">
+                    <h5>Project Type <span class="text-danger">*</span></h5>
+                        <div class="controls">
+                            <select name="project_type" class="form-control"  >
+                                <option value="{{ $projects->project_type}}" selected="" disabled="">Select Project Type</option>
+                                <option value="commercial">Commercial</option>
+                                <option value="residential">Residential</option>
+                                <option value="green_house">Green House</option>
+                                <option value="architechtur">Architechtur</option>
+                                <option value="construction">Construction</option>
+                                <option value="villa">Villa</option>
+                                <option value="building">Building</option>
+                            </select>
+                            @error('project_type')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-4">
                     <div class="form-group">
         <h5>Category Select <span class="text-danger">*</span></h5>
@@ -48,9 +68,9 @@
         <option value="{{ $category->id }}" {{ $category->id == $projects->category_id ? 'selected': '' }}>{{ $category->category_name }}</option>
                 @endforeach
             </select>
-            @error('category_id')
+            {{-- @error('category_id')
         <span class="text-danger">{{ $message }}</span>
-        @enderror
+        @enderror --}}
         </div>
             </div>
                 </div> <!-- end col md 4 -->
@@ -59,47 +79,47 @@
                     <div class="form-group">
                         <h5>Product Name <span class="text-danger">*</span></h5>
                         <div class="controls">
-                         <input type="text" value="{{ $projects->project_name }}" name="project_name" class="form-control" required=""> </div>
-                         @error('product_name')
+                         <input type="text" value="{{ $projects->project_name }}" name="project_name" class="form-control"> </div>
+                         {{-- @error('project_name')
                          <span class="text-danger">{{ $message }}</span>
-                         @enderror
+                         @enderror --}}
                         </div>
                 </div> <!-- end col md 4 -->
                 <div class="col-md-4">
                     <div class="form-group">
                         <h5>Square Feet <span class="text-danger">*</span></h5>
                         <div class="controls">
-                         <input type="text" value="{{ $projects->suqare_feet }}" name="suqare_feet" class="form-control" required=""> </div>
-                         @error('product_name')
+                         <input type="text" value="{{ $projects->suqare_feet }}" name="suqare_feet" class="form-control" > </div>
+                         {{-- @error('suqare_feet')
                          <span class="text-danger">{{ $message }}</span>
-                         @enderror
+                         @enderror --}}
                         </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <h5>Hight<span class="text-danger">*</span></h5>
                         <div class="controls">
-                         <input type="text" value="{{ $projects->hight }}" name="hight" class="form-control" required=""> </div>
-                         @error('hight')
+                         <input type="text" value="{{ $projects->hight }}" name="hight" class="form-control" > </div>
+                         {{-- @error('hight')
                          <span class="text-danger">{{ $message }}</span>
-                         @enderror
+                         @enderror --}}
                         </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <h5>Width<span class="text-danger">*</span></h5>
                         <div class="controls">
-                         <input type="text" value="{{ $projects->width}}" name="width" class="form-control" required=""> </div>
-                         @error('width')
+                         <input type="text" value="{{ $projects->width}}" name="width" class="form-control"> </div>
+                         {{-- @error('width')
                          <span class="text-danger">{{ $message }}</span>
-                         @enderror
+                         @enderror --}}
                         </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <h5>Basement<span class="text-danger">*</span></h5>
                         <div class="controls">
-                         <input type="text" value="{{ $projects->basement }}" name="basement" class="form-control" required=""> </div>
+                         <input type="text" value="{{ $projects->basement }}" name="basement" class="form-control"> </div>
                          {{-- @error('basement')
                          <span class="text-danger">{{ $message }}</span>
                          @enderror --}}
@@ -109,7 +129,7 @@
                     <div class="form-group">
                         <h5>Parking<span class="text-danger">*</span></h5>
                         <div class="controls">
-                         <input type="text" value="{{ $projects->parking }}" name="parking" class="form-control" required=""> </div>
+                         <input type="text" value="{{ $projects->parking }}" name="parking" class="form-control"> </div>
                          {{-- @error('product_name')
                          <span class="text-danger">{{ $message }}</span>
                          @enderror --}}
@@ -119,7 +139,7 @@
                     <div class="form-group">
                         <h5>Facing<span class="text-danger">*</span></h5>
                         <div class="controls">
-                         <input type="text" value="{{ $projects->facing }}" name="facing" class="form-control" required=""> </div>
+                         <input type="text" value="{{ $projects->facing }}" name="facing" class="form-control"> </div>
                          {{-- @error('product_name')
                          <span class="text-danger">{{ $message }}</span>
                          @enderror --}}
@@ -129,7 +149,7 @@
                     <div class="form-group">
                         <h5>Beedroom<span class="text-danger">*</span></h5>
                         <div class="controls">
-                         <input type="text" value="{{ $projects->beedroom }}" name="beedroom" class="form-control" required=""> </div>
+                         <input type="text" value="{{ $projects->beedroom }}" name="beedroom" class="form-control"> </div>
                          {{-- @error('product_name')
                          <span class="text-danger">{{ $message }}</span>
                          @enderror --}}
@@ -139,7 +159,7 @@
                     <div class="form-group">
                         <h5>Available Units<span class="text-danger">*</span></h5>
                         <div class="controls">
-                         <input type="text" value="{{ $projects->available_units }}" name="available_units" class="form-control" required=""> </div>
+                         <input type="text" value="{{ $projects->available_units }}" name="available_units" class="form-control"> </div>
                          {{-- @error('product_name')
                          <span class="text-danger">{{ $message }}</span>
                          @enderror --}}
@@ -161,6 +181,16 @@
                       </textarea>
                      </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                    <h5>Video Link <span class="text-danger">*</span></h5>
+                        <div class="controls">
+                            <input type="text" name="video_link" value="{{ $projects->video_link}}" class="form-control"> </div>
+                            {{-- @error('video_link')
+                        <span class="text-danger">{{ $message }}</span>
+                        @enderror --}}
+                        </div>
+                    </div>
             </div> <!-- end 1st row  -->
             <div class="row"> <!-- start 6th row  -->
                 <div class="col-md-3">

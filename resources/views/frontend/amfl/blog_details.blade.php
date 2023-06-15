@@ -95,7 +95,7 @@
                             <div class="post-content-wrap clearfix">
                                 <h2 class="post-title">
                                     <span class="post-title-inner">
-                                        <a href="page-blog-single.html">BIG TECH WILL GET BIGGER IN 2018, WHILE MALLER PLAYERS LOOK FOR EXITS</a>
+                                        <a href="page-blog-single.html">{{$blogs->blog_name }}</a>
                                     </span>
                                 </h2><!-- /.post-title -->
                                 <div class="post-meta">
@@ -108,7 +108,7 @@
                                     </div>
                                 </div><!-- /.post-meta -->
                                 <div class="post-content post-excerpt margin-bottom-43">
-                                    <p class="line-height-27 letter-spacing-005">Lorem ipsum dolor sit amet, consectetuer adipiscing elit sed diam nonummy nibh euismod tincid  unt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore</p>
+                                    <p class="line-height-27 letter-spacing-005">{{ $blogs->blog_short_descp }}</p>
                                     <div class="box-excerpt clearfix">
                                         <div class="thumb">
                                             <img src="{{ asset($blogs->blog_sub_image)}}" alt="Image">
@@ -119,6 +119,22 @@
                                     </div>
                                     <p class="line-height-27 no-margin letter-spacing-01">Lorem ipsum dolor sit amet, consectetuer adipiscing elit sed diam nonummy nibh euismod tincid  unt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo. Lorem ipsum dolor sit amet, consectetuer adipiscing elit sed diam.</p>
                                 </div><!-- /.post-excerpt -->
+                                 {{-- ===================================vedio================================ --}}
+                                 @if(isset($blogs->video_link))
+                                 <div class="detail-gallery">
+                                     <div class="themesflat-spacer clearfix" data-desktop="21" data-mobile="21" data-smobile="21"></div>
+                                     <div class="themesflat-headings style-2 clearfix">
+                                         <h2 class="heading">OVERVIEW PROJECT VIDEO</h2>
+                                         <div class="sep has-width w80 accent-bg margin-top-3 clearfix"></div>
+                                     </div><!-- /.themesflat-heading -->
+                                     <div class="themesflat-spacer clearfix" data-desktop="35" data-mobile="35" data-smobile="35"></div>
+                                     <div class="themesflat-gallery style-2 has-arrows arrow-center arrow-circle offset-v-82 has-thumb w185 clearfix" data-gap="0" data-column="1" data-column2="1" data-column3="1" data-auto="false">
+                                         <iframe width="1200" height="345" src="{{ $blogs->video_link }}">
+                                         </iframe>
+                                     </div><!-- /.themesflat-cousel-box -->
+                                 </div>
+                                 @endif
+                             {{-- ========================================end vedio============================== --}}
                                 <div class="post-tags-socials clearfix">
                                     <div class="post-tags ">
                                         <span>Tags :</span>

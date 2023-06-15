@@ -85,7 +85,7 @@
                             <div class="post-content-wrap clearfix">
                                 <h2 class="post-title">
                                     <span class="post-title-inner">
-                                        <a href="page-blog-single.html">BIG TECH WILL GET BIGGER IN 2018, WHILE MALLER PLAYERS LOOK FOR EXITS</a>
+                                        <a href="page-blog-single.html">{{$item->blog_name}}</a>
                                     </span>
                                 </h2><!-- /.post-title -->
                                 <div class="post-meta">
@@ -98,7 +98,7 @@
                                     </div>
                                 </div><!-- /.post-meta -->
                                 <div class="post-content post-excerpt">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu.</p>
+                                    <p>{{ $item->blog_short_descp }}</p>
                                 </div><!-- /.post-excerpt -->
                                 <div class="post-read-more">
                                     <div class="post-link">

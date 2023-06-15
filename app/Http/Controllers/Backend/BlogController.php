@@ -41,6 +41,7 @@ class BlogController extends Controller
                 'blog_long_descp' => $request->blog_long_descp,
                 'blog_image' => $request->blog_image,
                 'blog_image' => $save_url_blog,
+                'video_link' => $video_link,
                 'blog_sub_image' => $request->blog_sub_image,
                 'blog_sub_image' => $save_url_sub_blog,
                 'date' => $request->date,
@@ -92,6 +93,7 @@ class BlogController extends Controller
         'blog_long_descp' => $request->blog_long_descp,
         'blog_image' => $save_url,
         'blog_sub_image' => $save_url_sub,
+        'video_link' => $request->video_link,
     ]);
     $notification = array(
         'message' =>'Blog update sucessfully',
@@ -103,6 +105,7 @@ class BlogController extends Controller
                 'blog_name' => $request->blog_name,
                 'blog_short_descp' => $request->blog_short_descp,
                 'blog_long_descp' => $request->blog_long_descp,
+                'video_link' => $request->video_link,
         ]);
             $notification = array(
             'message' =>'Blog update sucessfully',

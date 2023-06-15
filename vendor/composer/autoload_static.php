@@ -711,6 +711,7 @@ class ComposerStaticInit836942e1b4cc4a33c925cf86b25d06a7
         'App\\Models\\Employee' => __DIR__ . '/../..' . '/app/Models/Employee.php',
         'App\\Models\\Expense' => __DIR__ . '/../..' . '/app/Models/Expense.php',
         'App\\Models\\Expense_type' => __DIR__ . '/../..' . '/app/Models/Expense_type.php',
+        'App\\Models\\Leading' => __DIR__ . '/../..' . '/app/Models/Leading.php',
         'App\\Models\\Location' => __DIR__ . '/../..' . '/app/Models/Location.php',
         'App\\Models\\MultiImg' => __DIR__ . '/../..' . '/app/Models/MultiImg.php',
         'App\\Models\\MultiImgfloor' => __DIR__ . '/../..' . '/app/Models/MultiImgfloor.php',

@@ -23,7 +23,7 @@ use App\Models\Subscriber;
 use App\Models\review;
 use App\Models\BannerCatagory;
 use Illuminate\Support\Carbon;
-use App\Models\Order;
+use App\Models\Leading;
 use App\Models\OrderItem;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -47,9 +47,9 @@ class IndexController extends Controller
     $bannerCatagory = BannerCatagory::where('status',1)->orderBy('id','DESC')->first();
     $bennars = Banner::where('status',1)->orderBy('id','DESC')->limit(3)->get();
     $todayDate = Carbon::now();
-      $latest_products=Product::orderBy('id','DESC')->limit(3)->get();
+      $leadings=Leading::orderBy('id','ASC')->limit(6)->get();
        return view('frontend.index',
-        compact('categories','sliders', 'products','featureds','bannerCatagory','latest_products',
+        compact('categories','sliders', 'products','featureds','bannerCatagory','leadings',
          'bennars'));
 
    }
@@ -416,6 +416,10 @@ class IndexController extends Controller
     public function BoardOfDirector($id){
         $boardof_directors = BoardDirector::find($id);
         return view('frontend.amfl.boardof_director',compact('boardof_directors'));
+    }
+    public function LeadingDetail($id){
+        $leading = Leading::find($id);
+        return view('frontend.amfl.leading_detail',compact('leading'));
     }
 
 } // main end

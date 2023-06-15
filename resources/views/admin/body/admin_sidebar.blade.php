@@ -40,6 +40,7 @@ $prefix = Request::route()->getPrefix();
         $reports = (auth()->guard('admin')->user()->reports == 1);
         $alluser = (auth()->guard('admin')->user()->alluser == 1);
         $adminuserrole = (auth()->guard('admin')->user()->adminuserrole == 1);
+        $leading = (auth()->guard('admin')->user()->leading == 1);
         @endphp
         @if($category == true)
         <li class="treeview {{ ($prefix=='/category')?'active':'' }} ">
@@ -241,6 +242,22 @@ $prefix = Request::route()->getPrefix();
           <ul class="treeview-menu">
             <li class="{{ ($route == 'site.setting')? 'active':'' }}"><a href="{{ route('site.setting') }}"><i class="ti-more"></i>Site Setting</a></li>
             {{-- <li class="{{ ($route == 'seo.setting')? 'active':'' }}"><a href="{{ route('seo.setting') }}"><i class="ti-more"></i>Seo Setting</a></li> --}}
+          </ul>
+        </li>
+        @else
+        @endif
+        @if($leading == true)
+        <li class="treeview {{ ($prefix == '/leading')?'active':'' }}  ">
+          <a href="#">
+            <i class="fa fa-cog fa-5x"></i>
+            <span>Manage Leading</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('leading.add')}}"><i class="ti-more"></i>Leading Add</a></li>
+            <li><a href="{{ route('manage_leading')}}"><i class="ti-more"></i>Leading view</a></li>
           </ul>
         </li>
         @else

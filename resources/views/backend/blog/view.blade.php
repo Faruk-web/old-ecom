@@ -63,6 +63,13 @@
                             <input type="date" name="date" class="form-control" > </div>
                         </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <h5>Video Link<span class="text-danger"></span></h5>
+                        <div class="controls">
+                            <input type="text" name="video_link" class="form-control" > </div>
+                        </div>
+                </div>
             </div> <!-- end 1st row  -->
             <div class="row"> <!-- start 5th row  -->
                 <div class="col-md-4">

@@ -52,10 +52,13 @@
                                 <div class="comment-content">
                                     <div class="comment-meta">
                                         <h6 class="comment-author">{{ $item->news_name }}</h6>
-                                        <span class="comment-position">Manager Human resources</span>
+                                        <span class="comment-position">{{ $item->created_at}}</span>
                                     </div>
                                     <div class="comment-text">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit doli. Aenean commodo ligula eget dolor. Aenean massa. Cumtipsu sociis natoque penatibus et magnis</p>
+                                        <p style="width:100%;;
+                                        white-space: nowrap;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;">{{ $item->news_short_descp}}</p>
                                         <div class="socials">
                                             <a href="#" class="facebook"><span class="fa fa-facebook-square"></span></a>
                                             <a href="#" class="twitter"><span class="fa fa-twitter"></span></a>

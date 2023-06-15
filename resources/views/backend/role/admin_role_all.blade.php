@@ -42,19 +42,19 @@
 		<td> {{ $item->email  }}  </td>
 
 		<td>
-			@if($item->brand == 1)
-			<span class="badge btn-primary">Brand</span>
+			@if($item->board == 1)
+			<span class="badge btn-primary">board</span>
 			@else
 			@endif
 
 			@if($item->category == 1)
-			<span class="badge btn-secondary">Category</span>
+			<span class="badge btn-secondary">category</span>
 			@else
 			@endif
 
 
-			@if($item->product == 1)
-			<span class="badge btn-success">Product</span>
+			@if($item->project == 1)
+			<span class="badge btn-success">project</span>
 			@else
 			@endif
 
@@ -65,14 +65,14 @@
 			@endif
 
 
-			@if($item->cupons == 1)
-			<span class="badge btn-warning">Cupons</span>
+			@if($item->blog == 1)
+			<span class="badge btn-warning">blog</span>
 			@else
 			@endif
 
 
-			@if($item->shipping == 1)
-			<span class="badge btn-info">Shipping</span>
+			@if($item->banner == 1)
+			<span class="badge btn-info">banner</span>
 			@else
 			@endif
 
@@ -84,25 +84,25 @@
 			@endif
 
 
-			@if($item->returnorder == 1)
-			<span class="badge btn-primary">Return Order</span>
+			@if($item->news == 1)
+			<span class="badge btn-primary">news</span>
 			@else
 			@endif
 
 
-			@if($item->review == 1)
-			<span class="badge btn-secondary">Review</span>
+			@if($item->bannerCategory == 1)
+			<span class="badge btn-secondary">bannerCategory</span>
 			@else
 			@endif
 
 
-			@if($item->orders == 1)
-			<span class="badge btn-success">Orders</span>
+			@if($item->leading == 1)
+			<span class="badge btn-success">leading</span>
 			@else
 			@endif
 
-			@if($item->stock == 1)
-			<span class="badge btn-danger">Stock</span>
+			@if($item->alluser == 1)
+			<span class="badge btn-danger">alluser</span>
 			@else
 			@endif
 

@@ -11,9 +11,9 @@
                 <div id="site-log-inner">
                     <a href="{{ url('/') }}" rel="home" class="main-logo">
                         @if($pp == $p)
-                        <img src="{{ asset('frontend/assets/img/amfl/2.png')}}" alt="Autora" width="169" height="39" data-retina="{{ asset('frontend/assets/img/amfl/2.png')}}" data-width="169" data-height="39">
+                        <img src="{{ asset('frontend/assets/img/amfl/logo-main-new.png')}}" alt="Autora" width="169" height="39" data-retina="{{ asset('frontend/assets/img/amfl/logo-main-new.png')}}" data-width="169" data-height="39">
                         @else
-                        <img src="{{ asset('frontend/assets/img/amfl/2.png')}}" alt="Autora" width="169" height="39" data-retina="{{ asset('frontend/assets/img/amfl/2.png')}}" data-width="169" data-height="39">
+                        <img src="{{ asset('frontend/assets/img/amfl/logo-main-new.png')}}" alt="Autora" width="169" height="39" data-retina="{{ asset('frontend/assets/img/amfl/logo-main-new.png')}}" data-width="169" data-height="39">
                         @endif
 
                     </a>
@@ -65,9 +65,9 @@
                         </ul>
                     </li>
                     <li class="menu-item menu-item-has-children">
-                        <a href="{{ url('/blog') }}">BLOG</a>
+                        <a href="{{ url('/blog') }}">EVENT</a>
                         <ul class="sub-menu right-sub-menu">
-                            <li class="menu-item"><a href="{{ url('/blog') }}">BLOG</a></li>
+                            <li class="menu-item"><a href="{{ url('/blog') }}">EVENT</a></li>
                             {{-- <li class="menu-item"><a href="page-blog-single.html">BLOG SINGLE</a></li> --}}
                         </ul>
                     </li>
@@ -79,7 +79,7 @@
                         </ul>
                     </li>
                     <li class="menu-item menu-item-has-children">
-                        <div class="button-wrap has-icon icon-left mt-5">
+                        <div class="button-wrap has-icon icon-left mt-4">
                             <a href="tel:0 1844 527 808" class="themesflat-button bg-white small"><span> 16711 <span class="icon"><i class="autora-icon-phone-contact"></i></span></span></a>
                         </div>
                     </li>

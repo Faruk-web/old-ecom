@@ -16,7 +16,6 @@
                                 <li data-transition="random">
                                     <!-- Main Image -->
                                     <img src="{{ asset($slider->slider_img) }}" alt="" data-bgposition="center center" data-no-retina>
-
                                     <!-- Layers -->
                                     <div class="tp-caption tp-resizeme text-white font-heading font-weight-600 "
                                         data-x="['left','left','left','center']" data-hoffset="['0','0','0','0']"
@@ -35,7 +34,7 @@
                                         data-splitin="none"
                                         data-splitout="none"
                                         data-responsive_offset="on" style="filter: drop-shadow(1px 1px 5px #000);">
-                                        A GLOBAL LEADER IN INFRASTRUCTURE
+                                        {{ $slider->title }}
                                     </div>
 
                                     <div class="tp-caption tp-resizeme text-white font-heading font-weight-700"
@@ -55,9 +54,8 @@
                                         data-splitin="none"
                                         data-splitout="none"
                                         data-responsive_offset="on" style="filter: drop-shadow(1px 1px 5px #000);">
-                                        WE WILL BE HAPPY
+                                        {{ $slider->short_description }}
                                     </div>
-
                                     <div class="tp-caption tp-resizeme text-white font-heading font-weight-700"
                                         data-x="['left','left','left','center']" data-hoffset="['0','0','0','0']"
                                         data-y="['middle','middle','middle','middle']" data-voffset="['45','45','45','45']"
@@ -75,9 +73,8 @@
                                         data-splitin="none"
                                         data-splitout="none"
                                         data-responsive_offset="on" style="filter: drop-shadow(1px 1px 5px #000);">
-                                        TO TAKE CARE OF YOUR WORK
+                                        {{ $slider->description }}
                                     </div>
-
                                     <div class="tp-caption "
                                         data-x="['left','left','left','center']" data-hoffset="['0','0','0','0']"
                                         data-y="['middle','middle','middle','middle']" data-voffset="['153','153','153','153']"
@@ -118,9 +115,9 @@
                                                 <div class="inner">
                                                     <div class="text-wrap">
                                                         <div class="number-wrap">
-                                                            <span class="number" data-speed="2000" data-to="9240" data-inviewport="yes">9240</span><span class="suffix">+</span>
+                                                            <span class="number" data-speed="2000" data-to="11000" data-inviewport="yes">11000</span><span class="suffix">+</span>
                                                         </div>
-                                                        <h3 class="heading margin-right-18">PROJECT COMPLETED</h3>
+                                                        <h3 class="heading margin-right-18">HOME DELIVERED</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -135,9 +132,9 @@
                                                 <div class="inner">
                                                     <div class="text-wrap">
                                                         <div class="number-wrap">
-                                                            <span class="number" data-speed="2000" data-to="336" data-inviewport="yes">336</span><span class="suffix">+</span>
+                                                            <span class="number" data-speed="2000" data-to="10000" data-inviewport="yes">10000</span><span class="suffix">+</span>
                                                         </div>
-                                                        <h3 class="heading margin-right-6">AWARDS WON</h3>
+                                                        <h3 class="heading margin-right-6">CLIENDS SERVED</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -152,9 +149,9 @@
                                                 <div class="inner">
                                                     <div class="text-wrap">
                                                         <div class="number-wrap">
-                                                            <span class="number" data-speed="2000" data-to="725" data-inviewport="yes">725</span><span class="suffix">+</span>
+                                                            <span class="number" data-speed="2000" data-to="20000" data-inviewport="yes">20000</span><span class="suffix">+</span>
                                                         </div>
-                                                        <h3 class="heading margin-right-8">SATISFIED CLIENTS</h3>
+                                                        <h3 class="heading margin-right-8">UNITS UNDER CONSTRUCTION</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -169,9 +166,9 @@
                                                 <div class="inner">
                                                     <div class="text-wrap">
                                                         <div class="number-wrap">
-                                                            <span class="number" data-speed="2000" data-to="2984" data-inviewport="yes">2984</span><span class="suffix">+</span>
+                                                            <span class="number" data-speed="2000" data-to="7000" data-inviewport="yes">7000</span><span class="suffix">+</span>
                                                         </div>
-                                                        <h3 class="heading margin-right-10">WORKERS EMPLOYED</h3>
+                                                        <h3 class="heading margin-right-10">UNITS APERTMENTS</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -233,7 +230,7 @@
                     </div>
                     <!-- END SERVICES -->
                 <!-- TESTIMONIALS -->
-                <div class="row-testimonials bg-light-snow"style="background-image: url('{{ asset('frontend/assets/img/amfl/Background_1.JPG')}}');center center no-repeat; background-size: cover;">
+                <div class="row-testimonials bg-light-snow"style="background-image: url('{{ asset('frontend/assets/img/amfl/banner_3.JPG')}}');center center no-repeat; background-size: cover;">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
@@ -254,95 +251,22 @@
                                     <div class="container">
                                     <div class="row">
                                         <!--ADD CLASSES HERE d-flex align-items-stretch-->
-                                        <div class="col-lg-4 mb-3 d-flex align-items-stretch">
-                                        <div class="card" style="width: 100%;">
-                                            <div class="themesflat-icon-box icon-top align-center has-width w95 circle light-bg accent-color style-1 bg-white-column padding-inner clearfix">
-                                            <div class="icon-wrap">
-                                                <i class="autora-icon-build"></i>
-                                            </div>
-                                            <div class="card-body d-flex flex-column text-center">
-                                                <h5 class="heading"><a href="#">OUR VISION</a></h5>
-                                                <div class="sep clearfix"></div>
-                                                <p class="sub-heading">To be the world class conglomerate that exceeds customers expectation with innovative product & service. </p>
-                                            </div>
-                                            </div>
-                                        </div>
-                                        </div>
-                                        <!--ADD CLASSES HERE d-flex align-items-stretch-->
+                                        @foreach ($leadings as $item )
                                         <div class="col-lg-4 mb-3 d-flex align-items-stretch">
                                             <div class="card" style="width: 100%;">
                                                 <div class="themesflat-icon-box icon-top align-center has-width w95 circle light-bg accent-color style-1 bg-white-column padding-inner clearfix">
                                                 <div class="icon-wrap">
-                                                    <i class="autora-icon-building-outline"></i>
+                                                    <i class="{{ $item->icon }}"></i>
                                                 </div>
                                                 <div class="card-body d-flex flex-column text-center">
-                                                    <h5 class="heading"><a href="#">OUR MISSION</a></h5>
+                                                    <h5 class="heading"><a href="{{ route('user.leading.detail',$item->id) }}">{{ $item->title }}</a></h5>
                                                     <div class="sep clearfix"></div>
-                                                    <p class="sub-heading">To provide the finest real estate products & services in the region based on the highest standard of ethics, values and client care.</p>
+                                                    <p class="sub-heading">{{ $item->short_description }}</p>
                                                 </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!--ADD CLASSES HERE d-flex align-items-stretch-->
-                                        <div class="col-lg-4 mb-3 d-flex align-items-stretch">
-                                            <div class="card" style="width: 100%;">
-                                                <div class="themesflat-icon-box icon-top align-center has-width w95 circle light-bg accent-color style-1 bg-white-column padding-inner clearfix">
-                                                <div class="icon-wrap">
-                                                    <i class="autora-icon-quality"></i>
-                                                </div>
-                                                <div class="card-body d-flex flex-column text-center">
-                                                    <h5 class="heading"><a href="#">BEST QUALITY</a></h5>
-                                                    <div class="sep clearfix"></div>
-                                                    <p class="sub-heading">We are committed to </p>
-                                                </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--ADD CLASSES HERE d-flex align-items-stretch-->
-                                        <div class="col-lg-4 mb-3 d-flex align-items-stretch">
-                                            <div class="card" style="width: 100%;">
-                                                <div class="themesflat-icon-box icon-top align-center has-width w95 circle light-bg accent-color style-1 bg-white-column padding-inner clearfix">
-                                                <div class="icon-wrap">
-                                                    <i class="autora-icon-time"></i>
-                                                </div>
-                                                <div class="card-body d-flex flex-column text-center">
-                                                    <h5 class="heading"><a href="#">On Time</a></h5>
-                                                    <div class="sep clearfix"></div>
-                                                    <p class="sub-heading">By ensuring on time project delivery, we are fulfilling our clients’ expectations.</p>
-                                                </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--ADD CLASSES HERE d-flex align-items-stretch-->
-                                        <div class="col-lg-4 mb-3 d-flex align-items-stretch">
-                                            <div class="card" style="width: 100%;">
-                                                <div class="themesflat-icon-box icon-top align-center has-width w95 circle light-bg accent-color style-1 bg-white-column padding-inner clearfix">
-                                                <div class="icon-wrap">
-                                                    <i class="autora-icon-build-home"></i>
-                                                </div>
-                                                <div class="card-body d-flex flex-column text-center">
-                                                    <h5 class="heading"><a href="#">TRUST</a></h5>
-                                                    <div class="sep clearfix"></div>
-                                                    <p class="sub-heading">AMFL has sold 25 million SQM space and served 10,000 clients.</p>
-                                                </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--ADD CLASSES HERE d-flex align-items-stretch-->
-                                        <div class="col-lg-4 mb-3 d-flex align-items-stretch">
-                                            <div class="card" style="width: 100%;">
-                                                <div class="themesflat-icon-box icon-top align-center has-width w95 circle light-bg accent-color style-1 bg-white-column padding-inner clearfix">
-                                                <div class="icon-wrap">
-                                                    <i class="autora-icon-author"></i>
-                                                </div>
-                                                <div class="card-body d-flex flex-column text-center">
-                                                    <h5 class="heading"><a href="#">EXPERIENCE</a></h5>
-                                                    <div class="sep clearfix"></div>
-                                                    <p class="sub-heading">To provide the finest real estate products & services in the region based on the highest standard of ethics, values and client care.</p>
-                                                </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                     </div>
                                 </section>
@@ -380,7 +304,7 @@
                                         <p class="font-size-16 no-margin">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                                         <div class="themesflat-spacer clearfix" data-desktop="37" data-mobile="35" data-smobile="35"></div>
                                         <div class="themesflat-progress style-1 height-10px clearfix">
-                                            <h3 class="title">PARTNERSHIP</h3>
+                                            <h3 class="title">RESIDENTIAL</h3>
                                             <div class="perc-wrap">
                                                 <div class="perc"><span>80%</span></div>
                                             </div>
@@ -390,7 +314,7 @@
                                         </div><!-- /.themesflat-progrees -->
                                         <div class="themesflat-spacer clearfix" data-desktop="25" data-mobile="25" data-smobile="25"></div>
                                         <div class="themesflat-progress style-1 height-10px clearfix">
-                                            <h3 class="title">FULL SUPPORT</h3>
+                                            <h3 class="title">COMMERCIAL</h3>
                                             <div class="perc-wrap">
                                                 <div class="perc"><span>90%</span></div>
                                             </div>
@@ -400,7 +324,7 @@
                                         </div><!-- /.themesflat-progrees -->
                                         <div class="themesflat-spacer clearfix" data-desktop="26" data-mobile="26" data-smobile="26"></div>
                                         <div class="themesflat-progress style-1 height-10px clearfix">
-                                            <h3 class="title">OPPORTUNITY</h3>
+                                            <h3 class="title">CONSTRUCTION</h3>
                                             <div class="perc-wrap">
                                                 <div class="perc"><span>70%</span></div>
                                             </div>
@@ -416,21 +340,27 @@
                                     <div class="themesflat-content-box" data-margin="3px 0 0 10px" data-mobilemargin="0 0 0 0">
                                         <div class="themesflat-accordions style-2 has-icon icon-left iconstyle-2 clearfix">
                                             <div class="accordion-item active">
-                                                <h3 class="accordion-heading"><span class="inner">Are there any hosting companies you... ?</span></h3>
+                                                <h3 class="accordion-heading"><span class="inner">Prime Locations ?</span></h3>
                                                 <div class="accordion-content">
-                                                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</div>
+                                                    <div>Our projects are placed at the most lucrative location of the city. All the project locations are selected intelligently, keeping in mind the things that matter to you most. </div>
                                                 </div>
                                             </div><!-- /.accordion-item -->
                                             <div class="accordion-item">
-                                                <h3 class="accordion-heading"><span class="inner">We use technology to do the job more... ?</span></h3>
+                                                <h3 class="accordion-heading"><span class="inner">Luxury Lifestyle ?</span></h3>
                                                 <div class="accordion-content">
-                                                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</div>
+                                                    <div>All of our project’s amenities are set to fulfill the dream of your luxury lifestyle. </div>
                                                 </div>
                                             </div><!-- /.accordion-item -->
                                             <div class="accordion-item ">
-                                                <h3 class="accordion-heading"><span class="inner">Employees are continually trained on safety... ?</span></h3>
+                                                <h3 class="accordion-heading"><span class="inner">Quality Construction ?</span></h3>
                                                 <div class="accordion-content">
-                                                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</div>
+                                                    <div>Each material used in our projects is selected with the utmost attention to quality, suitability and durability. </div>
+                                                </div>
+                                            </div><!-- /.accordion-item -->
+                                            <div class="accordion-item ">
+                                                <h3 class="accordion-heading"><span class="inner">Design & Architecture ?</span></h3>
+                                                <div class="accordion-content">
+                                                    <div>Our each and every landmark represents a true blend of unique design and architectural expertise.  </div>
                                                 </div>
                                             </div><!-- /.accordion-item -->
                                         </div><!-- /.themesflat-accordion -->
@@ -455,7 +385,7 @@
                                     <div class="themesflat-request-box style-1 clearfix">
                                         <div class="inner">
                                             <div class="themesflat-headings style-1 clearfix">
-                                                <h2 class="heading text-white line-height-normal">REQUEST CALL BACK</h2>
+                                                <h2 class="heading text-white line-height-normal">SET AND ONLINE APPOINTMENT WITH US</h2>
                                                 <div class="sep has-width w80 accent-bg margin-top-13 clearfix"></div>
                                                 <p class="sub-heading margin-top-22 font-size-14 line-height-24 text-white font-weight-400">Would you like to speak to one of our financial advisers over the phone? Just submit your details and we’ll be in touch shortly.</p>
                                             </div><!-- /.themesflat-heading -->
@@ -534,7 +464,7 @@
                                         @endforeach
                                         <!-- /.product-item -->
                                         @php
-                                        $project = App\Models\Project::where('project_type','commercial')->orderBy('id','desc')->limit(10)->get();
+                                        $project = App\Models\Project::where('project_type','commercial')->orderBy('id','desc')->limit(12)->get();
                                         @endphp
                                         @foreach ($project as $item)
                                         <div class="project-item commercial">
@@ -759,7 +689,7 @@
                     <!-- END PARTNER -->
 
                     <!-- TESTIMONIALS -->
-                    <div class="row-testimonials bg-light-snow"style="background-image: url('{{ asset('frontend/assets/img/amfl/Background_1.JPG')}}');center center no-repeat; background-size: cover;">
+                    {{-- <div class="row-testimonials bg-light-snow"style="background-image: url('{{ asset('frontend/assets/img/amfl/Background_1.JPG')}}');center center no-repeat; background-size: cover;">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
@@ -876,7 +806,7 @@
                                 </div><!-- /.col-md-12 -->
                             </div><!-- /.row -->
                         </div><!-- /.container -->
-                    </div>
+                    </div> --}}
                     <!-- END TESTIMONIALS -->
 
                </div><!-- /.page-content -->

@@ -11,7 +11,7 @@
 <div class="col-lg-12">
  <div class="box">
    <div class="box-header with-border">
-     <h3 class="box-title">Edit Director</h3>
+     <h3 class="box-title">Edit Blog</h3>
    </div>
    <!-- /.box-header -->
    <div class="box-body">
@@ -34,6 +34,13 @@
                               @enderror
                            </div>
                         </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <h5>Video Link<span class="text-danger"></span></h5>
+                            <div class="controls">
+                                <input type="text" name="video_link" class="form-control" value="{{ $blogs->video_link }}" > </div>
+                            </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="form-group">
