@@ -56,7 +56,7 @@
                                     <div class="themesflat-spacer clearfix" data-desktop="40" data-mobile="35" data-smobile="35"></div>
                                     <div class="themesflat-project style-2 isotope-project has-margin mg15 data-effect clearfix">
                                         @php
-                                            $project = App\Models\Project::where('status_id','UPCOMING')->where('project_type','residential')->orderBy('id','desc')->limit(12)->get();
+                                            $project = App\Models\Project::where('status_id','UPCOMING')->where('project_type','residential')->orderBy('id','asc')->limit(12)->get();
                                         @endphp
                                          @foreach ($project as $item)
                                         <div class="project-item residential">
@@ -81,7 +81,7 @@
                                         @endforeach
                                         <!-- /.product-item -->
                                         @php
-                                        $project = App\Models\Project::where('status_id','UPCOMING')->where('project_type','commercial')->orderBy('id','desc')->limit(12)->get();
+                                        $project = App\Models\Project::where('status_id','UPCOMING')->where('project_type','commercial')->orderBy('id','asc')->limit(12)->get();
                                         @endphp
                                         @foreach ($project as $item)
                                         <div class="project-item commercial">
@@ -106,7 +106,7 @@
                                         @endforeach
                                         <!-- /.product-item -->
                                         @php
-                                        $project = App\Models\Project::where('status_id','UPCOMING')->where('project_type','green_house')->orderBy('id','desc')->limit(10)->get();
+                                        $project = App\Models\Project::where('status_id','UPCOMING')->where('project_type','green_house')->orderBy('id','asc')->limit(10)->get();
                                         @endphp
                                         @foreach ($project as $item)
                                         <div class="project-item green_house">

@@ -52,6 +52,7 @@
                     <li class="menu-item menu-item-has-children">
                         <a href="{{ url('/project') }}">PROJECTS</a>
                         <ul class="sub-menu">
+                            <li class="menu-item"><a href="{{ url('/project') }}">ALL PROJECTS</a></li>
                             <li class="menu-item"><a href="{{ route('user.project.ongoing') }}">ONGOING PROJECTS</a></li>
                             <li class="menu-item"><a href="{{ route('user.project.upcoming')}}">UPCOMING PROJECTS</a></li>
                             <li class="menu-item"><a href="{{ route('user.project.completed')}}">COMPLETED PROJECTS</a></li>
