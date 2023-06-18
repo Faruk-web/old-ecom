@@ -2,6 +2,9 @@
 @extends('frontend.main_master')
 
 @section('index')
+<div id="loading">
+    <img id="container" src="{{ asset('frontend/assets/img/amfl/logo-main-old.png')}}" alt="">
+</div>
 <div id="main-content" class="site-main clearfix">
     <div id="content-wrap">
         <div id="site-content" class="site-content clearfix">
@@ -375,7 +378,6 @@
                         </div><!-- /.container -->
                     </div>
                     <!-- END WHYUS  -->
-
                     <!-- REQUEST -->
                     <div class="row-request parallax parallax-3"style="background-image: url('{{ asset('frontend/assets/img/amfl/Background_2.JPG')}}');center center no-repeat; background-size: cover;">
                         <div class="container">
@@ -438,8 +440,34 @@
                                     </div>
                                     <div class="themesflat-spacer clearfix" data-desktop="40" data-mobile="35" data-smobile="35"></div>
                                     <div class="themesflat-project style-2 isotope-project has-margin mg15 data-effect clearfix">
-                                        @php
-                                            $project = App\Models\Project::where('project_type','residential')->orderBy('id','asc')->limit(10)->get();
+                                       <!-- /.product-item -->
+                                       @php
+                                       $project = App\Models\Project::where('project_type','commercial')->orderBy('id','asc')->limit(15)->get();
+                                       @endphp
+                                       @foreach ($project as $item)
+                                       <div class="project-item commercial">
+                                           <div class="inner">
+                                               <div class="thumb data-effect-item has-effect-icon w40 offset-v-19 offset-h-49">
+                                                   <img src="{{ asset($item->project_thambnail)}}" alt="Image">
+                                                   <div class="elm-link">
+                                                       <a href="{{ route('user.project.details',$item->id) }}" class="icon-1 icon-search"></a>
+                                                       {{-- <a href="#" class="icon-1"></a> --}}
+                                                   </div>
+                                                   <div class="overlay-effect bg-color-3"></div>
+                                               </div>
+                                               <div class="text-wrap">
+                                                   <h5 class="heading"><a href="#">{{$item->project_name}}</a></h5>
+                                                   <div class="elm-meta">
+                                                       <span><a href="{{ route('user.project.details',$item->id) }}">Commercial House</a></span>
+                                                       <span><a href="{{ route('user.project.details',$item->id) }}">Villa</a></span>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       @endforeach
+                                       <!-- /.product-item -->
+                                       @php
+                                            $project = App\Models\Project::where('project_type','residential')->orderBy('id','desc')->limit(12)->get();
                                         @endphp
                                          @foreach ($project as $item)
                                         <div class="project-item residential">
@@ -462,32 +490,6 @@
                                             </div>
                                         </div>
                                         @endforeach
-                                        <!-- /.product-item -->
-                                        @php
-                                        $project = App\Models\Project::where('project_type','commercial')->orderBy('id','asc')->limit(12)->get();
-                                        @endphp
-                                        @foreach ($project as $item)
-                                        <div class="project-item commercial">
-                                            <div class="inner">
-                                                <div class="thumb data-effect-item has-effect-icon w40 offset-v-19 offset-h-49">
-                                                    <img src="{{ asset($item->project_thambnail)}}" alt="Image">
-                                                    <div class="elm-link">
-                                                        <a href="{{ route('user.project.details',$item->id) }}" class="icon-1 icon-search"></a>
-                                                        {{-- <a href="#" class="icon-1"></a> --}}
-                                                    </div>
-                                                    <div class="overlay-effect bg-color-3"></div>
-                                                </div>
-                                                <div class="text-wrap">
-                                                    <h5 class="heading"><a href="#">{{$item->project_name}}</a></h5>
-                                                    <div class="elm-meta">
-                                                        <span><a href="{{ route('user.project.details',$item->id) }}">Commercial House</a></span>
-                                                        <span><a href="{{ route('user.project.details',$item->id) }}">Villa</a></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        @endforeach
-                                        <!-- /.product-item -->
                                         @php
                                         $project = App\Models\Project::where('project_type','green_house')->orderBy('id','asc')->limit(10)->get();
                                         @endphp

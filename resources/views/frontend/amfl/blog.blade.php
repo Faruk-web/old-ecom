@@ -47,7 +47,7 @@
                             <div class="breadcrumb-trail">
                                 <a href="{{ url('/') }}" class="trail-begin">Home</a>
                                 <span class="sep">|</span>
-                                <span class="trail-end">Blog</span>
+                                <span class="trail-end">Event</span>
                             </div>
                         </div>
                     </div>

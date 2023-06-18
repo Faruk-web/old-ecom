@@ -35,7 +35,18 @@
 @else
 <body class="header-fixed page no-sidebar header-style-2 topbar-style-2 menu-has-search">
 @endif
+<style>
+    #loading {
+position: fixed;
+width: 100%;
+height: 100vh;
+background: #0f0202 url('') no-repeat center center;
+z-index: 9999;
+  top: 20; left: 0;
+  background-color: black;
 
+}
+</style>
 <div id="wrapper" class="animsition">
     <div id="page" class="clearfix">
         <!-- Header Wrap -->
@@ -47,7 +58,6 @@
             @include('frontend.body.header')
             <!-- /#site-header -->
         </div><!-- #site-header-wrap -->
-
         <!-- Main Content -->
         @yield('index')
         <!-- /#main-content -->
@@ -65,6 +75,12 @@
 <a id="scroll_top_call"></a>
 <a id="scroll-top"></a>
 <!-- Javascript -->
+<script>
+    jQuery(document).ready(function() {
+        jQuery('#loading').fadeOut(6000);
+    });
+    </script>
+
 <!-- Javascript -->
 <script src="{{ asset('frontend/assets/js/jquery.min.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/plugins.js') }}"></script>

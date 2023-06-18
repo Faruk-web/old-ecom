@@ -54,9 +54,9 @@
                             <div class="breadcrumb-trail">
                                 <a href="{{ url('/') }}" class="trail-begin">Home</a>
                                 <span class="sep">|</span>
-                                <a href="{{ url('/blog') }}" class="trail-begin">Blog</a>
+                                <a href="{{ url('/blog') }}" class="trail-begin">Event</a>
                                 <span class="sep">|</span>
-                                <span class="trail-end">Blog Details</span>
+                                <span class="trail-end">Event Details</span>
                             </div>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                                  <div class="detail-gallery">
                                      <div class="themesflat-spacer clearfix" data-desktop="21" data-mobile="21" data-smobile="21"></div>
                                      <div class="themesflat-headings style-2 clearfix">
-                                         <h2 class="heading">OVERVIEW PROJECT VIDEO</h2>
+                                         <h2 class="heading">OVERVIEW EVENT VIDEO</h2>
                                          <div class="sep has-width w80 accent-bg margin-top-3 clearfix"></div>
                                      </div><!-- /.themesflat-heading -->
                                      <div class="themesflat-spacer clearfix" data-desktop="35" data-mobile="35" data-smobile="35"></div>

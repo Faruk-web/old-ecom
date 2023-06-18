@@ -24,7 +24,7 @@
                         <a href="{{ url('/news') }}">NEWS</a>
                     </li>
                     <li class="menu-item">
-                        <a href="{{ url('/blog') }}">BLOG</a>
+                        <a href="{{ url('/blog') }}">EVENT</a>
                     </li>
                     <li class="menu-item">
                         <a href="{{ url('/contact_us') }}">CONTACT</a>

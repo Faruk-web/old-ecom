@@ -1,5 +1,4 @@
 @extends('frontend.main_master')
-
 @section('index')
  <!-- Featured Title -->
  <div id="featured-title" class="featured-title clearfix">
@@ -25,7 +24,6 @@
     </div><!-- /#featured-title-inner -->
 </div>
 <!-- End Featured Title -->
-
 <!-- Main Content -->
 <div id="main-content" class="site-main clearfix">
     <div id="content-wrap">
@@ -49,7 +47,7 @@
                                                 <ul class="list-info has-icon icon-left">
                                                     <li><span class="text">Project Type <span class="icon"><i class="fa fa-folder-open"></i></span></span><span class="right">{{ $projects->project_type }}</span></li>
                                                     <li><span class="text">Square Feet <span class="icon"><i class="fa fa-check-square-o" aria-hidden="true"></i></span></span><span class="right">{{ $projects->suqare_feet }}</span></li>
-                                                    <li><span class="text">Hight<span class="icon"><i class="fa fa-folder-open"></i></span></span><span class="right">{{ $projects->hight}}</span></li>
+                                                    <li><span class="text">Height<span class="icon"><i class="fa fa-folder-open"></i></span></span><span class="right">{{ $projects->hight}}</span></li>
                                                     {{-- <li><span class="text">Width <span class="icon"><i class="fa fa-calendar"></i></span></span><span class="right">{{ $projects->width}}</span></li> --}}
                                                     <li><span class="text">Parking<span class="icon"><i class="fa fa-folder-open"></i></span></span><span class="right">{{ $projects->parking }}</span></li>
                                                     <li><span class="text">Facing<span class="icon"><i class="fa fa-fighter-jet" aria-hidden="true"></i></span></span><span class="right">{{ $projects->facing}}</span></li>
@@ -158,7 +156,6 @@
                                                         <li><span class="text">Modern Fire Fighting system. <span class="icon"><i class="fa fa-folder-open"></i></li>
                                                         <li><span class="text">State of the Art Security System. <span class="icon"><i class="fa fa-folder-open"></i></li>
                                                         <li><span class="text">55% open space & airy design. <span class="icon"><i class="fa fa-folder-open"></i></li>
-
                                                 </ul>
                                                 @elseif ($projects->project_type == 'residential')
                                                 <ul class="list-info has-icon icon-left">

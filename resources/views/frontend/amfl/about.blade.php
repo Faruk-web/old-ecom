@@ -236,6 +236,27 @@
                             </div><!-- /.row -->
                         </div><!-- /.container-fluid -->
                     </div>
+                     <!-- QUOTE -->
+                     <div class="row-quote bg-row-1" style="background-image: url('{{ asset('frontend/assets/img/amfl/slider-2-1920x600.jpg')}}');center center no-repeat; background-size: cover;">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="themesflat-spacer clearfix" data-desktop="38" data-mobile="35" data-smobile="35"></div>
+                                    <div class="themesflat-quote style-1 clearfix">
+                                        <div class="quote-item">
+                                            <div class="inner">
+                                                <div class="heading-wrap">
+                                                    <h3 class="heading text-center">MESSAGE FROME BOARD OF DIRECTORS</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="themesflat-spacer clearfix" data-desktop="33" data-mobile="35" data-smobile="35"></div>
+                                </div><!-- /.col-md-12 -->
+                            </div><!-- /.row -->
+                        </div><!-- /.container -->
+                    </div>
+                    <!-- END QUOTE -->
                     <div class="row-about">
                         <div class="container-fluid">
                             <div class="row equalize sm-equalize-auto">
@@ -243,7 +264,7 @@
                                     <div class="themesflat-spacer clearfix" data-desktop="64" data-mobile="35" data-smobile="35"></div>
                                     <div class="themesflat-content-box clearfix" data-margin="0 4% 0 4.5%" data-mobilemargin="0 0 0 4.5%">
                                         <div class="themesflat-headings style-1 clearfix">
-                                            <h2 class="heading">FOUNDER CHAIRMAN’S MESSAGE</h2>
+                                            <h2 class="heading"> OUR FOUNDER OF CHAIRMAN’S</h2>
                                             <div class="sep has-width w80 accent-bg margin-top-11 clearfix"></div>
                                             <p class="sub-heading margin-top-0">Late M.M. Enamul Haque (1958-2023) <br><span style="font-size: 13px;">(Founder Chairman Amin Mohammad Group) </span> </p>
                                             <p class="sub-heading margin-top-0">He built this organization with a vision for the city dwellers and the country itself. He led the vision and pursued the dream. He foresight the future perspectives of how cities will grow and develop over time. </p>
@@ -261,7 +282,7 @@
                                     <div class="themesflat-spacer clearfix" data-desktop="76" data-mobile="60" data-smobile="60"></div>
                                 </div>
                                 <!-- /.col-md-6 -->
-                                <div class="col-md-6 half-background style-1" style="background-image: url('{{ asset('frontend/assets/img/amfl/about/ch_1.jpg')}}');center center no-repeat; background-size: cover;">
+                                <div class="col-md-6 half-background style-1" style="background-image: url('{{ asset('frontend/assets/img/amfl/about/ch_1.jpg')}}');center center no-repeat; background-size: cover; height:910px;">
                                 </div>
                                 <!-- /.col-md-6 -->
                             </div><!-- /.row -->
@@ -272,11 +293,11 @@
                             <div class="row equalize sm-equalize-auto">
                                 <div class="col-md-6 half-background style-1" style="background-image: url('{{ asset('frontend/assets/img/amfl/about/ch_2.jpg')}}');center center no-repeat; background-size: cover;">
                                 </div><!-- /.col-md-6 -->
-                                <div class="col-md-6 bg-light-grey">
+                                <div class="col-md-6 bg-light-grey" style="height: 700px;">
                                     <div class="themesflat-spacer clearfix" data-desktop="64" data-mobile="35" data-smobile="35"></div>
                                     <div class="themesflat-content-box clearfix" data-margin="0 5% 0 4.5%" data-mobilemargin="0 0 0 4.5%">
                                         <div class="themesflat-headings style-1 clearfix">
-                                            <h2 class="heading">MESSAGE FROM THE MANAGING DIRECTOR</h2>
+                                            <h2 class="heading">THE MANAGING DIRECTOR</h2>
                                             <div class="sep has-width w80 accent-bg margin-top-11 clearfix"></div>
                                             <p class="sub-heading margin-top-0">Md. Ramzanul Haque Nihad, son of Late M.M. Enamul Haque and Mrs. Bilkis Haque, is born on 14th April, 1986. A successful visionary business entrepreneur who has entered into the realm of business horizon after completion of his graduation, in Bachelors in Commerce (Major in Management, Human Resource Development & International Management) from Australia. His dynamic leadership initiated a number of businesses in Amin Mohammad Group and looking to take this organization to a new level.</p>
                                             <p class="sub-heading margin-top-0">Amin Mohammad Property Management Ltd. started its journey under his guidance and observance. According to Mr. Haque, “After a successful long experience in the real estate sector, we observed that a modern building could not function properly without an effective and reliable management system. </p>
